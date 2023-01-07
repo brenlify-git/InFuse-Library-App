@@ -4,13 +4,6 @@ include 'connection.php';
 $sql = "SELECT tbl_bookborrow.Borrow_ID, Due_Fee, Borrow_Date,tbl_bookinfo.Accession_ID, Book_Name,tbl_patrons.Library_ID, Student_ID, FirstName, MiddleName, LastName, Patron_Type, Contact_Number, Penalty, Department, Section, Street, Barangay, Municipality, Province FROM (((tbl_patrons INNER JOIN tbl_bookreturn ON tbl_patrons.Library_ID = tbl_bookreturn.Library_ID) INNER JOIN tbl_bookinfo ON tbl_bookreturn.Accession_ID = tbl_bookinfo.Accession_ID) INNER JOIN tbl_bookborrow ON tbl_bookreturn.Borrow_ID = tbl_bookborrow.Borrow_ID);";
 $id = $conn->query($sql);
 
-session_start();
-if(!isset($_SESSION["admin_username"])){
-    header("Location:index.php");
-}
-if(!isset($_SESSION["admin_type"])){
-  header("Location:dashboard.php");
-}
 
 ?>
 
@@ -89,8 +82,8 @@ if(!isset($_SESSION["admin_type"])){
               <div class="overflow-auto mt-4">
              
               <!-- Table with stripped rows -->
-              <table class="table table-hover table-bordered text-nowrap text-center">
-                <thead class="table-dark">
+              <table class="table table-hover table-bordered text-nowrap text-center" style="max-height: 675px; overflow: auto; display: inline-block;">
+                <thead class="table-dark" style="position:sticky; top: 0 ;">
                   <tr>
                     <th scope="col">Borrow ID</th>
                     <th scope="col">Due Fee</th>

@@ -77,69 +77,69 @@ $id = $conn->query($sql);
 
           <!-- table starts here -->
 
-          <div class="card"> 
-            <div class="card-body">
-            <button type="submit" name="export_excel" class="btn btn-primary mt-3" style="float: right;">
-              <i class="bi bi-file-earmark-spreadsheet"></i>
-              Export
-              </button>
-              <h2 class="card-title ">Sorted using the books that is available</h2>
+                <div class="card"> 
+                  <div class="card-body">
+                  <button type="submit" name="export_excel" class="btn btn-primary mt-3" style="float: right;">
+                    <i class="bi bi-file-earmark-spreadsheet"></i>
+                    Export
+                    </button>
+                    <h2 class="card-title ">Sorted using the books that is available</h2>
 
 
-              <form name="excel.php" method="post">
+                    <form name="excel.php" method="post">
 
-              <div class="overflow-auto mt-4">
-             
-              <!-- Table with stripped rows -->
-              <table class="table table-hover table-bordered text-nowrap text-center">
-                <thead class="table-dark">
-                  <tr>
-                    <th scope="col">Accession ID</th>
-                    <th scope="col">Call Number</th>
-                    <th scope="col">Book Name</th>
-                    <th scope="col">Book Author</th>
-                    <th scope="col">Year Published</th>
-                    <th scope="col">ISBN</th>
-                    <th scope="col">Notes</th>
-                    <th scope="col">Subject</th>
-                    <th scope="col">Series</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Publisher</th>
-                    <th scope="col">Category</th>
-                    <th scope="col">Copies</th>
-                    <th scope="col">Status</th>
-                  </tr>
-                </thead>
-                <tbody>
+                    <div class="overflow-auto mt-4">
+                  
+                    <!-- Table with stripped rows -->
+                    <table class="table table-hover table-bordered text-nowrap text-center" style="max-height: 600px; overflow: auto; display: inline-block;">
+                      <thead class="table-dark" style="position:sticky; top: 0 ;">
+                        <tr>
+                          <th scope="col">Accession ID</th>
+                          <th scope="col">Call Number</th>
+                          <th scope="col">Book Name</th>
+                          <th scope="col">Book Author</th>
+                          <th scope="col">Year Published</th>
+                          <th scope="col">ISBN</th>
+                          <th scope="col">Notes</th>
+                          <th scope="col">Subject</th>
+                          <th scope="col">Series</th>
+                          <th scope="col">Price</th>
+                          <th scope="col">Publisher</th>
+                          <th scope="col">Category</th>
+                          <th scope="col">Copies</th>
+                          <th scope="col">Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
 
-                <?php
-                  while($tbl_bookinfo = mysqli_fetch_assoc($id)):   
+                      <?php
+                        while($tbl_bookinfo = mysqli_fetch_assoc($id)):   
+                      ?>
+                        <tr>
+                          <th scope="row"><?= $tbl_bookinfo['Accession_ID'];?></th>
+                          <td><?= $tbl_bookinfo['Call_No'];?></td>
+                          <td><?= $tbl_bookinfo['Book_Name'];?></td>
+                          <td><?= $tbl_bookinfo['Book_Author'];?></td>
+                          <td><?= $tbl_bookinfo['Year_Published'];?></td>
+                          <td><?= $tbl_bookinfo['ISBN'];?></td>
+                          <td><?= $tbl_bookinfo['Notes'];?></td>
+                          <td><?= $tbl_bookinfo['Subject'];?></td>
+                          <td><?= $tbl_bookinfo['Series'];?></td>
+                          <td><?= $tbl_bookinfo['Price'];?></td>
+                          <td><?= $tbl_bookinfo['Publisher'];?></td>
+                          <td><?= $tbl_bookinfo['Category'];?></td>
+                          <td><?= $tbl_bookinfo['Copies'];?></td>
+                          <td><?= $tbl_bookinfo['Status'];?></td>
+                        
+                        </tr>
+
+                        <?php
+                endwhile;
                 ?>
-                  <tr>
-                    <th scope="row"><?= $tbl_bookinfo['Accession_ID'];?></th>
-                    <td><?= $tbl_bookinfo['Call_No'];?></td>
-                    <td><?= $tbl_bookinfo['Book_Name'];?></td>
-                    <td><?= $tbl_bookinfo['Book_Author'];?></td>
-                    <td><?= $tbl_bookinfo['Year_Published'];?></td>
-                    <td><?= $tbl_bookinfo['ISBN'];?></td>
-                    <td><?= $tbl_bookinfo['Notes'];?></td>
-                    <td><?= $tbl_bookinfo['Subject'];?></td>
-                    <td><?= $tbl_bookinfo['Series'];?></td>
-                    <td><?= $tbl_bookinfo['Price'];?></td>
-                    <td><?= $tbl_bookinfo['Publisher'];?></td>
-                    <td><?= $tbl_bookinfo['Category'];?></td>
-                    <td><?= $tbl_bookinfo['Copies'];?></td>
-                    <td><?= $tbl_bookinfo['Status'];?></td>
-                   
-                  </tr>
-
-                  <?php
-          endwhile;
-          ?>
-                 
-                </tbody>
-              </table>
-              <!-- End Table with stripped rows -->
+                      
+                      </tbody>
+                    </table>
+                    <!-- End Table with stripped rows -->
 
               </form>
               </div>

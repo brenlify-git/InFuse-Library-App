@@ -89,7 +89,7 @@ $id = $conn->query($sql);
              
               <!-- Table with stripped rows -->
               <table class="table table-hover table-bordered text-nowrap text-center">
-                <thead class="table-dark">
+                <thead class="table-dark style="position:sticky; top: 0 ;">
                     <tr>
                       <th scope="col">Library ID</th>
                       <th scope="col">Student ID</th>
