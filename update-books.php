@@ -236,7 +236,7 @@ $id = $conn->query($sql);
                       
                       </tbody>
                     </table>
-                    <!-- End Table with stripped rows -->
+                    
 
               </form>
       </div>
