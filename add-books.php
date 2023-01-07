@@ -26,7 +26,7 @@ $id = $conn->query($sql);
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/logo.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
@@ -164,7 +164,7 @@ $id = $conn->query($sql);
                 
                
                 <div class="text-right">
-                  <button type="submit" class="btn btn-primary ">Submit</button>
+                  <button type="submit" class="btn btn-primary ">+ Add Book</button>
                   <button type="reset" class="btn btn-warning">Reset</button>
                 </div>
               </form><!-- End Multi Columns Form -->

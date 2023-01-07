@@ -44,9 +44,9 @@
             </li><!-- End Dashboard Nav -->
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="users-profile.html">
+                <a class="nav-link collapsed" href="membership.php">
                     <i class="bi bi-people"></i>
-                    <span>Borrowers</span>
+                    <span>Membership</span>
                 </a>
             </li><!-- End Profile Page Nav -->
 
@@ -88,7 +88,7 @@
                 </a>
                 <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <li>
-                        <a href="icons-bootstrap.html">
+                        <a href="patron-bookborrow.php">
                             <i class="bi bi-circle"></i><span>Book Borrow</span>
                         </a>
                     </li>
