@@ -37,7 +37,7 @@
     <aside id="sidebar" class="sidebar">
         <ul class="sidebar-nav" id="sidebar-nav">
             <li class="nav-item">
-                <a class="nav-link collapsed" href="dashboard.php">
+                <a class="nav-link collapsed" href="dashboard-student.php">
                     <i class="bi bi-grid"></i>
                     <span>Dashboard</span>
                 </a>
@@ -46,14 +46,14 @@
             <li class="nav-heading">Patron's Management</li>
          
             <li class="nav-item">
-                <a class="nav-link collapsed" href="users-profile.html">
+                <a class="nav-link collapsed" href="catalogue.php">
                     <i class="bi bi-journal-minus"></i>
                     <span>Book Catalogue</span>
                 </a>
             </li><!-- End Profile Page Nav -->
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="pages-login.html">
+                <a class="nav-link collapsed" href="user-profiles-student.php">
                     <i class="bi bi-person-gear"></i>
                     <span>User Account</span>
                 </a>
@@ -67,7 +67,7 @@
             </li><!-- End Error 404 Page Nav -->
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="pages-blank.html">
+                <a class="nav-link collapsed" href="about-student.php">
                     <i class="bi bi-info-circle"></i>
                     <span>About</span>
                 </a>

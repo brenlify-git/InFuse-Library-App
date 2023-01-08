@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Components / Pagination - NiceAdmin Bootstrap Template</title>
+ 
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -37,11 +37,18 @@
     <aside id="sidebar" class="sidebar">
         <ul class="sidebar-nav" id="sidebar-nav">
             <li class="nav-item">
-                <a class="nav-link collapsed" href="dashboard.php">
+                <a class="nav-link collapsed" href="dashboard-librarian.php">
                     <i class="bi bi-grid"></i>
                     <span>Dashboard</span>
                 </a>
             </li><!-- End Dashboard Nav -->
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="membership-librarian.php">
+                    <i class="bi bi-people"></i>
+                    <span>Membership</span>
+                </a>
+            </li><!-- End Profile Page Nav -->
 
           
 
@@ -54,12 +61,12 @@
                 </a>
                 <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <li>
-                        <a href="add-books.php">
+                        <a href="add-books-librarian.php">
                             <i class="bi bi-circle"></i><span>Add Book</span>
                         </a>
                     </li>
                     <li>
-                        <a href="update-books.php">
+                        <a href="update-books-librarian.php">
                             <i class="bi bi-circle"></i><span>Update Book</span>
                         </a>
                     </li>
@@ -68,7 +75,7 @@
 
            
             <li class="nav-item">
-                <a class="nav-link collapsed" href="pullout.php">
+                <a class="nav-link collapsed" href="pullout-librarian.php">
                     <i class="bi bi-journal-minus"></i>
                     <span>Pull-out Books</span>
                 </a>
@@ -81,12 +88,12 @@
                 </a>
                 <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <li>
-                        <a href="patron-bookborrow.php">
+                        <a href="book-borrow-librarian.php">
                             <i class="bi bi-circle"></i><span>Book Borrow</span>
                         </a>
                     </li>
                     <li>
-                        <a href="patron-bookreturn.php">
+                        <a href="book-return-librarian.php">
                             <i class="bi bi-circle"></i><span>Book Return</span>
                         </a>
                     </li>
@@ -96,7 +103,7 @@
 
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="payment.php">
+                <a class="nav-link collapsed" href="payment-librarian.php">
                     <i class="bi bi-wallet2"></i>
                     <span>Payment</span>
                 </a>
@@ -109,16 +116,16 @@
                 </a>
                 <ul id="recs-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <li>
-                        <a href="book-inventory.php">
+                        <a href="book-inventory-librarian.php">
                             <i class="bi bi-circle"></i><span>Book's Master List</span>
                         </a>
-                        <a href="patrons-list.php">
+                        <a href="patrons-list-librarian.php">
                             <i class="bi bi-circle"></i><span>Patron's Master List</span>
                         </a>
-                        <a href="book-borrowed.php">
+                        <a href="book-borrowed-librarian.php">
                             <i class="bi bi-circle"></i><span>Book Borrowed</span>
                         </a>
-                        <a href="book-return.php">
+                        <a href="book-return-librarian.php">
                             <i class="bi bi-circle"></i><span>Book Returned</span>
                         </a>
                         
@@ -128,15 +135,9 @@
                 </ul>
             </li><!-- End Forms Nav -->
 
+           
             <li class="nav-item">
-                <a class="nav-link collapsed" href="maintenance.php">
-                    <i class="bi bi-gear"></i>
-                    <span>Maintenance</span>
-                </a>
-            </li><!-- End Register Page Nav -->
-
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="users-profile.php">
+                <a class="nav-link collapsed" href="users-profiles-librarian.php">
                     <i class="bi bi-person-gear"></i>
                     <span>User Account</span>
                 </a>
@@ -150,7 +151,7 @@
             </li><!-- End Error 404 Page Nav -->
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="about.php">
+                <a class="nav-link collapsed" href="about-librarian.php">
                     <i class="bi bi-info-circle"></i>
                     <span>About</span>
                 </a>

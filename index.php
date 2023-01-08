@@ -122,6 +122,10 @@ include 'connection.php';
 
 						$selectAdmin = mysqli_query($conn, "SELECT * FROM tbl_adminaccess WHERE admin_username = '$Username' AND admin_password = '$Pass' && admin_type = '$Type'");
 						$row2 = mysqli_fetch_array($selectAdmin);
+
+
+						$selectLibrarian = mysqli_query($conn, "SELECT * FROM tbl_librarianaccess WHERE librarian_username = '$Username' AND librarian_password = '$Pass' && librarian_type = '$Type'");
+						$row3 = mysqli_fetch_array($selectLibrarian);
 						
 
 						if(is_array($row)){
@@ -139,6 +143,14 @@ include 'connection.php';
 							$_SESSION['admin_password'] = $row2['admin_password'];
 							$_SESSION['admin_type'] = $row2['admin_type'];
 								header("Location:dashboard.php");
+						
+						}
+						else if(is_array($row3)){
+
+							$_SESSION['librarian_username'] = $row3['librarian_username'];
+							$_SESSION['librarian_password'] = $row3['librarian_password'];
+							$_SESSION['librarian_type'] = $row3['librarian_type'];
+								header("Location:dashboard-librarian.php");
 						
 						}
 						 

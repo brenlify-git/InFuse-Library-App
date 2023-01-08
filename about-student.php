@@ -3,14 +3,6 @@
 include 'connection.php';
 
 
-$sql = "SELECT * FROM tbl_bookinfo";
-
-$id = $conn->query($sql);
-
-
-
-
-
 ?>
 
 
@@ -54,8 +46,8 @@ $id = $conn->query($sql);
 
     <!-- ======= Sidebar and Header ======= -->
 
-    <?php include 'headerbar.php';?>
-    <?php include 'sidebar.php';?>
+    <?php include 'headerbar-student.php';?>
+    <?php include 'sidebar-student.php';?>
 
     <!-- End Sidebar and Header-->
 
@@ -65,7 +57,7 @@ $id = $conn->query($sql);
             <h1>About</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="dashboard.php">Home</a></li>
+                    <li class="breadcrumb-item"><a href="dashboard-student.php">Home</a></li>
                     <li class="breadcrumb-item active">About</li>
                 </ol>
             </nav>
