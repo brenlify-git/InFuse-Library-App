@@ -93,7 +93,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="icons-remix.html">
+                        <a href="patron-bookreturn.php">
                             <i class="bi bi-circle"></i><span>Book Return</span>
                         </a>
                     </li>
@@ -136,14 +136,14 @@
             </li><!-- End Forms Nav -->
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="pages-register.html">
+                <a class="nav-link collapsed" href="maintenance.php">
                     <i class="bi bi-gear"></i>
                     <span>Maintenance</span>
                 </a>
             </li><!-- End Register Page Nav -->
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="pages-login.html">
+                <a class="nav-link collapsed" href="users-profile.php">
                     <i class="bi bi-person-gear"></i>
                     <span>User Account</span>
                 </a>

@@ -2,14 +2,9 @@
 
 include 'connection.php';
 
-
 $sql = "SELECT * FROM tbl_bookinfo";
 
 $id = $conn->query($sql);
-
-
-
-
 
 ?>
 
