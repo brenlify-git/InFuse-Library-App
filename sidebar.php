@@ -103,7 +103,7 @@
 
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="pages-faq.html">
+                <a class="nav-link collapsed" href="payment.php">
                     <i class="bi bi-wallet2"></i>
                     <span>Payment</span>
                 </a>
@@ -157,7 +157,7 @@
             </li><!-- End Error 404 Page Nav -->
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="pages-blank.html">
+                <a class="nav-link collapsed" href="about.php">
                     <i class="bi bi-info-circle"></i>
                     <span>About</span>
                 </a>

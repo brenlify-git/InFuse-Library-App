@@ -87,7 +87,7 @@ $countCat = $row_countCat["category"];
           <div class="row">
 
             <!-- Dashboard Cards -->
-            <div class="col-xxl-4 col-md-6">
+            <div class="col-xxl-4 col-md-12">
               <div class="card info-card revenue-card">
 
 
@@ -168,7 +168,7 @@ $countCat = $row_countCat["category"];
 
 
             <!-- Revenue Card -->
-            <div class="col-xxl-4 col-md-6">
+            <div class="col-xxl-4 col-md-12">
               <div class="card info-card customers-card">
 
 
@@ -220,7 +220,7 @@ $countCat = $row_countCat["category"];
             </div><!-- End Customers Card -->
 
             <!-- Sales Card -->
-            <div class="col-xxl-4 col-md-6">
+            <div class="col-xxl-4 col-md-12">
               <div class="card info-card sales-card">
 
 

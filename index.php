@@ -63,6 +63,7 @@ include 'connection.php';
 							<input type="radio" name="type" value="ADMIN"> Admin
 						</label>
 					</div>
+
 					<div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
 						<input class="input100" type="text" name="Username" placeholder="Username">
 						<span class="focus-input100"></span>
@@ -80,7 +81,7 @@ include 'connection.php';
 					</div>
 
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn" type="submit" name="login" value="Login">
+						<button class="login100-form-btn" type="submit" name="login" >
 							Login
 						</button>
 					</div>
@@ -109,7 +110,7 @@ include 'connection.php';
 		</div>
 	</div>
 
-	<?php 
+			<?php 
 					if(isset($_POST['login'])){
 						$Username = $_POST['Username'];
 						$Pass = $_POST['Pass'];
@@ -140,7 +141,6 @@ include 'connection.php';
 								header("Location:dashboard.php");
 						
 						}
-						
 						 
 						else{
 							echo '<script type = "text/javascript">';
