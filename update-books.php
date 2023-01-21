@@ -96,7 +96,7 @@ $id = $conn->query($sql);
 
 
                     <div class="col-12">
-                      <label for="inputAddress5" class="form-label">Book Author(s) <b style="color:#026ab2; font-size:12px; font-style:italic">separate using commas</b> </label>
+                      <label for="inputAddress5" class="form-label">Book Author(s)<b style="color:#026ab2; font-size:12px; font-style:italic">separate using commas</b> </label>
                       <input type="text" class="form-control" id="bAuthors" placeholder="William Shakespeare, Josh Mulle" name="Book_Author" required>
                     </div>
                     
