@@ -3,7 +3,7 @@
 include 'connection.php';
 
 
-$sql = "SELECT * FROM tbl_bookinfo ORDER BY Accession_ID DESC";
+$sql = "SELECT * FROM tbl_bookinfo WHERE Status = 'AVAILABLE' ORDER BY Accession_ID DESC ";
 
 $id = $conn->query($sql);
 
@@ -94,7 +94,6 @@ $id = $conn->query($sql);
                       <input type="text" class="form-control" id="bName" name="Book_Name" required>
                     </div>
 
-
                     <div class="col-12">
                       <label for="inputAddress5" class="form-label">Book Author(s)<b style="color:#026ab2; font-size:12px; font-style:italic">separate using commas</b> </label>
                       <input type="text" class="form-control" id="bAuthors" placeholder="William Shakespeare, Josh Mulle" name="Book_Author" required>
@@ -111,7 +110,6 @@ $id = $conn->query($sql);
                       <input type="number" class="form-control" id="isbnNum" name="ISBN" required>
                     </div>
                
-
                     <div class="col-6">
                       <label class="col-sm-7 form-label">Genre</label>
                       <div class="col-sm-12">
@@ -175,18 +173,9 @@ $id = $conn->query($sql);
                       <div class="reset col-6 ms-2">
                         <button type="reset" class="btn btn-success col-12"><i class="bi bi-arrow-clockwise"></i> Reset</button>
                       </div>
-       
-                    
-                   
                     </div>
-                   
-                     
 
               </form><!-- End Multi Columns Form -->
-
-
-              
-
 
             </div>
           </div>
@@ -243,7 +232,6 @@ $id = $conn->query($sql);
                           <td><?= $tbl_bookinfo['Series'];?></td>
                           <td><?= $tbl_bookinfo['Price'];?></td>
                           <td><?= $tbl_bookinfo['Publisher'];?></td>
-
                           <td><?= $tbl_bookinfo['Copies'];?></td>
                           <td><?= $tbl_bookinfo['Status'];?></td>
                         
@@ -314,9 +302,7 @@ $id = $conn->query($sql);
                         document.getElementById("status").value = this.cells[12].innerHTML;
                         document.getElementById("genre").value = this.cells[7].innerHTML;
                         console.log(rows[i]);
-                        
-                  
-
+                      
                     };
                 }
 

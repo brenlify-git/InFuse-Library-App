@@ -2,9 +2,13 @@
 
 include 'connection.php';
 
-$sql = "SELECT * FROM tbl_bookinfo";
+$sql = "SELECT * FROM tbl_bookinfo ORDER BY Accession_ID DESC";
 
 $id = $conn->query($sql);
+
+
+
+
 
 ?>
 
@@ -21,7 +25,7 @@ $id = $conn->query($sql);
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/logo.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
@@ -71,19 +75,23 @@ $id = $conn->query($sql);
         <div class="col-lg-12">
 
           <!-- table starts here -->
-
+      
                 <div class="card"> 
                   <div class="card-body">
-                  <button type="submit" name="export_excel" class="btn btn-primary mt-3" style="float: right;">
+                  <form action="process.php" method="post" >
+
+                  <button type="submit" name="submit" class="btn btn-primary mt-3" style="float: right;">
                     <i class="bi bi-file-earmark-spreadsheet"></i>
                     Export
                     </button>
                     <h2 class="card-title ">Sorted using the books that is available</h2>
 
 
-                    <form name="excel.php" method="post">
-
                     <div class="overflow-auto mt-4">
+
+
+                    
+                    
                   
                     <!-- Table with stripped rows -->
                     <table class="table table-hover table-bordered text-nowrap text-center" style="max-height: 600px; overflow: auto; display: inline-block;">
