@@ -73,17 +73,18 @@ $id = $conn->query($sql);
         <div class="col-lg-12">
 
            <!-- table starts here -->
+           <form action="process-patrons.php" method="post">
 
            <div class="card"> 
             <div class="card-body">
-            <button type="submit" name="export_excel" class="btn btn-primary mt-3" style="float: right;">
+            <button type="submit" name="submit" class="btn btn-primary mt-3" style="float: right;">
               <i class="bi bi-file-earmark-spreadsheet"></i>
               Export
               </button>
               <h5 class="card-title ">Sorted using the patrons that is registered.</h5>
 
 
-              <form name="excel.php" method="post">
+              
 
               <div class="overflow-auto mt-4">
              

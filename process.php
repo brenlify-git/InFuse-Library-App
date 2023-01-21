@@ -13,18 +13,10 @@ if(mysqli_num_rows($res)>0){
 
         $output .='
 
-        <style>
-
-                      th{
-                        font-size: 20px;
-                        background-color: #253274;
-                        color: white;
-                      }
-                    </style>
         
         <table class="table border=1">
      
-          <tr>
+          <tr">
             <th scope="col">Accession ID</th>
             <th scope="col">Call Number</th>
             <th scope="col">Book Name</th>
@@ -67,10 +59,11 @@ if(mysqli_num_rows($res)>0){
     }
 
         $output .='</table>';
-
+        date_default_timezone_set('Asia/Manila');
+        $filename = "Book-Inventory ".date("Y-m-d H:i:sa");
        
-        header('Context-Type: application/xls');
-        header('Content-Disposition:attachment;filename=reports.xls');
+        header('Context-Type:application/vnd.ms-excel');
+        header('Content-Disposition:attachment;filename='.$filename.'.xls');
 
         echo $output;
     
