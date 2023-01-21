@@ -1,9 +1,9 @@
 <?php 
 
+
 include 'connection.php';
 
-$sql = "SELECT * FROM tbl_bookinfo";
-
+$sql = "SELECT * FROM (((tbl_patrons INNER JOIN tbl_bookreturn ON tbl_patrons.Library_ID = tbl_bookreturn.Library_ID) INNER JOIN tbl_bookinfo ON  tbl_bookreturn.Accession_ID = tbl_bookinfo.Accession_ID) INNER JOIN tbl_bookborrow ON tbl_bookreturn.Borrow_ID = tbl_bookborrow.Borrow_ID)";
 $id = $conn->query($sql);
 
 ?>
@@ -16,12 +16,12 @@ $id = $conn->query($sql);
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>InFuse | Book Returning</title>
+  <title>InFuse | Patron Masterlist</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/img/logo.png" rel="icon">
+  <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
@@ -39,7 +39,7 @@ $id = $conn->query($sql);
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/table.css">
+
 
 </head>
 
@@ -52,7 +52,6 @@ $id = $conn->query($sql);
 
   <!-- End Sidebar and Header-->
 
-  
 
   <main id="main" class="main">
 
@@ -61,7 +60,7 @@ $id = $conn->query($sql);
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="dashboard-librarian.php">Home</a></li>
-          <li class="breadcrumb-item">Book Acquisition</li>
+          <li class="breadcrumb-item">Records</li>
           <li class="breadcrumb-item active">Book Return</li>
         </ol>
       </nav>
@@ -69,185 +68,74 @@ $id = $conn->query($sql);
 
     <section class="section">
       <div class="row">
-        <div class="col-lg-6">
+        <div class="col-lg-12">
 
-          <div class="card">
+           <!-- table starts here -->
+
+           <div class="card"> 
             <div class="card-body">
-              <h5 class="card-title">Insert Patron's Details</h5>
+            <button type="submit" name="export_excel" class="btn btn-primary mt-3" style="float: right;">
+              <i class="bi bi-file-earmark-spreadsheet"></i>
+              Export
+              </button>
+              <h2 class="card-title">Sorted using the books that is returned.</h2>
 
-              <!-- Multi Columns Form -->
-              <form class="row g-3">
+
+              <form name="excel.php" method="post">
+
+              <div class="overflow-auto mt-4">
+             
+              <!-- Table with stripped rows -->
+              <table class="table table-hover table-bordered text-nowrap text-center">
+                <thead class="table-dark">
+                  <tr>
+                    <th scope="col">Return ID</th>
+                    <th scope="col">Accession ID</th>
+                    <th scope="col">Book Name</th>
+                    <th scope="col">Library ID</th>
+                    <th scope="col">Patrons Name</th>
+                    <th scope="col">Borrow ID</th>
+                    <th scope="col">Date Borrowed</th>
+                    <th scope="col">Return Date</th>          
+                  </tr>
+                </thead>
+                <tbody>
+
+                <?php
+                  while($tbl_bookreturn = mysqli_fetch_assoc($id)):   
+                ?>
+                  <tr>
+                    <th scope="row"><?= $tbl_bookreturn['Return_ID'];?></th>
+                    <td><?= $tbl_bookreturn['Accession_ID'];?></td>
+                    <td><?= $tbl_bookreturn['Book_Name'];?></td>
+                    <td><?= $tbl_bookreturn['Library_ID'];?></td>
+                    <td><?= $tbl_bookreturn['LastName'];?>, <?= $tbl_bookreturn['FirstName'];?> <?= $tbl_bookreturn['MiddleName'];?></td>
+                    <td><?= $tbl_bookreturn['Borrow_ID'];?></td>
+                    <td><?= $tbl_bookreturn['Borrow_Date'];?></td>
+                    <td><?= $tbl_bookreturn['Return_Date'];?></td>
                 
-                <div class="col-12">
-                  <label for="inputEmail5" class="form-label">Student ID</label>
-                  <input type="number" class="form-control" id="inputEmail5" required>
-                </div>
-                <div class="col-4">
-                  <label for="inputPassword5" class="form-label">First Name</label>
-                  <input type="text" class="form-control" id="inputPassword5" required>
-                </div>
-                <div class="col-4">
-                  <label for="inputPassword5" class="form-label">Middle Name</label>
-                  <input type="text" class="form-control" id="inputPassword5" required>
-                </div>
-                <div class="col-4">
-                  <label for="inputPassword5" class="form-label">Last Name</label>
-                  <input type="text" class="form-control" id="inputPassword5" required>
-                </div>
-                <div class="col-6">
-                  <label class="col-sm-7 form-label">Patron Type</label>
-                  <div class="col-sm-12">
-                    <select class="form-select" aria-label="Default select example" required>
-                      <option value="1">Student</option>
-                      <option value="2">Faculty</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="col-6">
-                  <label for="inputPassword5" class="form-label">Contact Number</label>
-                  <input type="number" class="form-control" id="inputPassword5" required>
-                </div>
-                <div class="col-6">
-                  <label class="col-sm-7 form-label">Department</label>
-                  <div class="col-sm-12">
-                    <select class="form-select" aria-label="Default select example" required>
-                      <option value="1">BSIT</option>
-                      <option value="2">BSCE</option>
-                      <option value="2">BSCpE</option>
-                      <option value="2">BSARC</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="col-6">
-                  <label for="inputPassword5" class="form-label">Section</label>
-                  <input type="text" class="form-control" id="inputPassword5" required>
-                </div>
-                <div class="col-6">
-                  <label for="inputAddress5" class="form-label">Street</label>
-                  <input type="text" class="form-control" id="inputAddres5s" placeholder="William Shakespeare" required>
-                </div>
-                <div class="col-6">
-                  <label for="inputAddress5" class="form-label">Barangay</label>
-                  <input type="text" class="form-control" id="inputAddres5s" placeholder="William Shakespeare" required>
-                </div>
-                <div class="col-6">
-                  <label for="inputAddress5" class="form-label">Municipality</label>
-                  <input type="text" class="form-control" id="inputAddres5s" placeholder="Book Shelf Inc." required>
-                </div>
-                <div class="col-6">
-                  <label for="inputAddress5" class="form-label">Province</label>
-                  <input type="text" class="form-control" id="inputAddres5s" placeholder="Book Shelf Inc." required>
-                </div>
+                  </tr>
 
-                <div class="emptyspace"></div>
-                
-              </form><!-- End Multi Columns Form -->
+                  <?php
+          endwhile;
+          ?>
+                 
+                </tbody>
+              </table>
+              <!-- End Table with stripped rows -->
 
-
+              </form>
+            </div>
             </div>
           </div>
+
+         
 
         </div>
-
-        <div class="col-lg-6">
-
-          <!-- table starts here -->
-
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Insert Book's Details</h5>
-
-
-              <!-- Multi Columns Form -->
-              <form class="row g-3">
-                
-                
-                <div class="col-md-12">
-                  <label for="inputEmail5" class="form-label">Call Number</label>
-                  <input type="number" class="form-control" id="inputEmail5" required>
-                </div>
-                <div class="col-md-12">
-                  <label for="inputPassword5" class="form-label">Book Name</label>
-                  <input type="text" class="form-control" id="inputPassword5" required>
-                </div>
-                <div class="col-12">
-                  <label for="inputAddress5" class="form-label">Book Author(s)</label>
-                  <input type="text" class="form-control" id="inputAddres5s" placeholder="William Shakespeare" required>
-                </div>
-                
-                <div class="col-6">
-                    <label for="inputDate" class="form-label">Year Published</label>
-                    <div class="col-sm-12">
-                        <input type="date" class="form-control" required>
-                    </div>
-                </div>
-                <div class="col-6">
-                  <label for="inputAddress5" class="form-label">ISBN</label>
-                  <input type="number" class="form-control" id="inputAddres5s" placeholder="William Shakespeare" required>
-                </div>
-                <div class="col-6">
-                  <label class="col-sm-5 form-label">Subject</label>
-                  <div class="col-sm-12">
-                    <select class="form-select" aria-label="Default select example" required>
-                      <option value="1">One</option>
-                      <option value="2">Two</option>
-                      <option value="3">Three</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="col-6">
-                  <label class="col-sm-5 form-label">Category</label>
-                  <div class="col-sm-12">
-                    <select class="form-select" aria-label="Default select example">
-                      <option value="1">One</option>
-                      <option value="2">Two</option>
-                      <option value="3">Three</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="col-6">
-                  <label for="inputAddress5" class="form-label">Series</label>
-                  <input type="number" class="form-control" id="inputAddres5s" placeholder="2014" required>
-                </div>
-                <div class="col-6">
-                  <label for="inputAddress5" class="form-label">Price</label>
-                  <input type="number" class="form-control" id="inputAddres5s" placeholder="567.00" required>
-                </div>
-                
-                <div class="col-6">
-                  <label for="inputAddress5" class="form-label">Publisher</label>
-                  <input type="text" class="form-control" id="inputAddres5s" placeholder="Book Shelf Inc." required>
-                </div>
-                <div class="col-6">
-                  <label class="col-sm-3 form-label">Status</label>
-                  <div class="col-sm-12">
-                    <select class="form-select" aria-label="Default select example">
-                      <option value="1">Available</option>
-                      <option value="2">Unavailable</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="col-12">
-                  <label for="inputAddress5" class="form-label">Notes</label>
-                  <textarea type="number" class="form-control" id="inputAddres5s" placeholder="Cover page has dirt marks." required></textarea>
-                </div>
-                
-               
-                <div class="text-right">
-                  <button type="submit" class="btn btn-primary ">+ Return Book</button>
-                  <button type="reset" class="btn btn-warning">Reset</button>
-                </div>
-              </form><!-- End Multi Columns Form -->
-
-            </div>
-          </div>
       </div>
-      
     </section>
 
   </main><!-- End #main -->
-
-
 
   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">

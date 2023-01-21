@@ -96,11 +96,11 @@ $id = $conn->query($sql);
                           <th scope="col">Year Published</th>
                           <th scope="col">ISBN</th>
                           <th scope="col">Notes</th>
-                          <th scope="col">Subject</th>
+                          <th scope="col">Genre</th>
                           <th scope="col">Series</th>
                           <th scope="col">Price</th>
                           <th scope="col">Publisher</th>
-                          <th scope="col">Category</th>
+
                           <th scope="col">Copies</th>
                           <th scope="col">Status</th>
                         </tr>
@@ -118,11 +118,10 @@ $id = $conn->query($sql);
                           <td><?= $tbl_bookinfo['Year_Published'];?></td>
                           <td><?= $tbl_bookinfo['ISBN'];?></td>
                           <td><?= $tbl_bookinfo['Notes'];?></td>
-                          <td><?= $tbl_bookinfo['Subject'];?></td>
+                          <td><?= $tbl_bookinfo['Genre'];?></td>
                           <td><?= $tbl_bookinfo['Series'];?></td>
                           <td><?= $tbl_bookinfo['Price'];?></td>
                           <td><?= $tbl_bookinfo['Publisher'];?></td>
-                          <td><?= $tbl_bookinfo['Category'];?></td>
                           <td><?= $tbl_bookinfo['Copies'];?></td>
                           <td><?= $tbl_bookinfo['Status'];?></td>
                         

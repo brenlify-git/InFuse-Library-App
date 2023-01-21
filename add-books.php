@@ -1,19 +1,3 @@
-<?php 
-
-include 'connection.php';
-
-
-$sql = "SELECT * FROM tbl_bookinfo";
-
-$id = $conn->query($sql);
-
-
-
-
-
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,7 +15,9 @@ $id = $conn->query($sql);
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -70,7 +56,7 @@ $id = $conn->query($sql);
       </nav>
     </div><!-- End Page Title -->
 
-   <section class="section">
+    <section class="section">
       <div class="row">
         <div class="col-lg-12">
 
@@ -80,89 +66,101 @@ $id = $conn->query($sql);
               <h5 class="card-title">Insert Book Details</h5>
 
               <!-- Multi Columns Form -->
-              <form class="row g-3">
-                <div class="col-md-4">
+              <form class="row g-3" action="insert.php" method="post">
+                <div class="col-md-6">
                   <label for="inputName5" class="form-label">Customize ID</label>
-                  <input type="number" class="form-control" id="inputName5" value ="1" required>
+                  <input type="number" class="form-control" id="inputName5" name="CustID" value="1" disabled>
                 </div>
-                <div class="col-md-4">
-                  <label for="inputName5" class="form-label">Barcode ID</label>
-                  <input type="number" class="form-control" id="inputName5" required>
-                </div>
-                <div class="col-md-4">
+
+
+                <div class="col-md-6">
                   <label for="inputEmail5" class="form-label">Call Number</label>
-                  <input type="number" class="form-control" id="inputEmail5" required>
+                  <input type="number" class="form-control" id="inputEmail5" name="CallNumber" required>
                 </div>
+
                 <div class="col-md-12">
                   <label for="inputPassword5" class="form-label">Book Name</label>
-                  <input type="text" class="form-control" id="inputPassword5" required>
+                  <input type="text" class="form-control" id="inputPassword5" name="BookName" required>
                 </div>
+
                 <div class="col-12">
                   <label for="inputAddress5" class="form-label">Book Author(s)</label>
-                  <input type="text" class="form-control" id="inputAddres5s" placeholder="William Shakespeare" required>
+                  <input type="text" class="form-control" id="inputAddres5s" name="BookAuthor"
+                    placeholder="William Shakespeare" required>
                 </div>
-                
-                <div class="col-6">
-                    <label for="inputDate" class="form-label">Year Published</label>
-                    <div class="col-sm-12">
-                        <input type="date" class="form-control" required>
-                    </div>
+
+                <div class="col-4">
+                  <label for="inputDate" class="form-label">Year Published</label>
+                  <input type="date" class="form-control" name="YearPublished" required>
                 </div>
-                <div class="col-6">
+
+                <div class="col-4">
                   <label for="inputAddress5" class="form-label">ISBN</label>
-                  <input type="number" class="form-control" id="inputAddres5s" placeholder="William Shakespeare" required>
+                  <input type="number" class="form-control" id="inputAddres5s" name="ISBN"
+                    placeholder="William Shakespeare" required>
                 </div>
+
                 <div class="col-4">
-                  <label class="col-sm-2 form-label">Subject</label>
+                  <label class="col-sm-2 form-label">Genre</label>
                   <div class="col-sm-12">
-                    <select class="form-select" aria-label="Default select example" required>
-                      <option value="1">One</option>
-                      <option value="2">Two</option>
-                      <option value="3">Three</option>
+                    <select class="form-select" aria-label="Default select example" name="Genre"  required>
+                      <option disabled class="divider"></option>
+
+                      <option value="Adventure stories">Adventure stories</option>
+                      <option value="Classics">Classics</option>
+                      <option value="Crime">Crime</option>
+                      <option value="Fairy tales, fables, and folk tales">Fairy tales, fables, and folk tales</option>
+                      <option value="Fantasy">Fantasy</option>
+                      <option value="Historical fiction">Historical fiction</option>
+                      <option value="Horror">Horror</option>
+                      <option value="Humour and satire">Humour and satire</option>
+                      <option value="Literary fiction">Literary fiction</option>
+                      <option value="Mystery">Mystery</option>
+                      <option value="Poetry">Poetry</option>
+                      <option value="Plays">Plays</option>
+                      <option value="Romance">Romance</option>
                     </select>
                   </div>
                 </div>
-                <div class="col-4">
-                  <label class="col-sm-3 form-label">Category</label>
-                  <div class="col-sm-12">
-                    <select class="form-select" aria-label="Default select example">
-                      <option value="1">One</option>
-                      <option value="2">Two</option>
-                      <option value="3">Three</option>
-                    </select>
-                  </div>
-                </div>
+              
+
                 <div class="col-4">
                   <label for="inputAddress5" class="form-label">Series</label>
-                  <input type="number" class="form-control" id="inputAddres5s" placeholder="2014" required>
+                  <input type="number" class="form-control" id="inputAddres5s" name="Series" placeholder="2014" required>
                 </div>
+
                 <div class="col-4">
                   <label for="inputAddress5" class="form-label">Price</label>
-                  <input type="number" class="form-control" id="inputAddres5s" placeholder="567.00" required>
+                  <input type="number" class="form-control" id="inputAddres5s" min="1" step="any" name="Price" placeholder="567.00" required>
                 </div>
+
                 <div class="col-4">
                   <label for="inputAddress5" class="form-label">Copies</label>
-                  <input type="number" class="form-control" id="inputAddres5s" placeholder="5" required>
+                  <input type="number" class="form-control" id="inputAddres5s" name="Copies" placeholder="5" required>
                 </div>
+
                 <div class="col-4">
                   <label for="inputAddress5" class="form-label">Publisher</label>
-                  <input type="text" class="form-control" id="inputAddres5s" placeholder="Book Shelf Inc." required>
+                  <input type="text" class="form-control" id="inputAddres5s" name="Pulisher" placeholder="Book Shelf Inc." required>
                 </div>
-                <div class="col-6">
+
+                <div class="col-4">
                   <label class="col-sm-3 form-label">Status</label>
                   <div class="col-sm-12">
-                    <select class="form-select" aria-label="Default select example">
-                      <option value="1">Available</option>
-                      <option value="2">Unavailable</option>
+                    <select class="form-select" aria-label="Default select example" name="Status">
+                      <option value="AVAILABLE">AVAILABLE</option>
+                      <option value="UNAVAILABLE">UNAVAILABLE</option>
                     </select>
                   </div>
                 </div>
-                <div class="col-6">
+
+                <div class="col-4">
                   <label for="inputAddress5" class="form-label">Notes</label>
-                  <textarea type="number" class="form-control" id="inputAddres5s" placeholder="Cover page has dirt marks." required></textarea>
+                  <textarea type="number" class="form-control" style="height: 10px;" id="inputAddres5s"
+                    placeholder="Cover page has dirt marks." name="Notes" required></textarea>
                 </div>
-                
-               
+
+
                 <div class="text-right">
                   <button type="submit" class="btn btn-primary ">+ Add Book</button>
                   <button type="reset" class="btn btn-warning">Reset</button>
@@ -184,10 +182,11 @@ $id = $conn->query($sql);
 
   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
-    
+
   </footer><!-- End Footer -->
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
