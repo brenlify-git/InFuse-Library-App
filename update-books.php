@@ -144,7 +144,7 @@ $id = $conn->query($sql);
                       <label for="inputAddress5" class="form-label">Copies</label>
                       <input type="number" class="form-control" id="copies" placeholder="5" name="Copies" required>
                     </div>
-                    <div class="col-4">
+                    <div class="col-4"> 
                       <label for="inputAddress5" class="form-label">Publisher</label>
                       <input type="text" class="form-control" id="publisher" placeholder="Book Shelf Inc."  name="Publisher"required>
                     </div>

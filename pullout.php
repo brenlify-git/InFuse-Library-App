@@ -203,7 +203,7 @@ $res2 = mysqli_query($conn, $selectReturnID);
                     <div class="col-4">
                       <label for="inputAddress5" class="form-label">Action</label>
                       <input type="text" class="form-control" id="Act" placeholder="Book Shelf Inc."  name="Act" required>
-                    </div>
+                    </div> 
 
                 <div class="col-6">
                   <label class="col-sm-3 form-label">Status</label>

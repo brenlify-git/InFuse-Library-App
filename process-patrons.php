@@ -13,7 +13,7 @@ if(mysqli_num_rows($res)>0){
 
         $output .='
 
-        
+         
         <table class="table border=1">
      
         <tr>

@@ -5,7 +5,7 @@ include 'connection.php';
 if(isset($_POST['updateData'])){
     $AccID = $_POST['Accession_ID'];
     $CallNumber = $_POST['Call_Number'];
-    $BookName = $_POST['Book_Name'];
+    $BookName = $_POST['Book_Name']; 
     $BookAuthor = $_POST['Book_Author'];
     $YearPublished = $_POST['Year_Published'];
     $ISBN = $_POST['ISBN'];

@@ -11,7 +11,7 @@ $PenaltyFee = $_POST['Penalty_Fee'];
 
 $Reason = $_POST['Reason'];
 
-$Status = $_POST['Status'];
+$Status = $_POST['Status']; 
 
 // $getTotal = "SELECT Total FROM tbl_pulloutbooks WHERE Library_ID = '$LibraryID'";
 // $result2 = mysqli_query($conn, $getTotal);
