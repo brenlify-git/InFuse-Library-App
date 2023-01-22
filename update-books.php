@@ -3,7 +3,7 @@
 include 'connection.php';
 
 
-$sql = "SELECT * FROM tbl_bookinfo WHERE Status = 'AVAILABLE' ORDER BY Accession_ID DESC ";
+$sql = "SELECT * FROM tbl_bookinfo WHERE Status = 'AVAILABLE' OR Status = 'PULLED-OUT' ORDER BY Accession_ID DESC ";
 
 $id = $conn->query($sql);
 
@@ -155,6 +155,7 @@ $id = $conn->query($sql);
                         <select class="form-select" aria-label="Default select example" id="status" name="Status">
                           <option value="AVAILABLE">AVAILABLE</option>
                           <option value="UNAVAILABLE">UNAVAILABLE</option>
+                          <option value="PULLED-OUT" disabled>PULLED-OUT</option>
                         </select>
                       </div>
                     </div>
@@ -197,7 +198,7 @@ $id = $conn->query($sql);
                     <div class="overflow-auto mt-4">
                   
                     <!-- Table with stripped rows -->
-                    <table class="table table-hover table-bordered  text-center" style="max-height: 675px; overflow: auto; display: inline-block;" id="table">
+                    <table class="table table-hover table-bordered  text-center" style="max-height: 625px; overflow: auto; display: inline-block;" id="table">
                       <thead class="table-dark" style="position:sticky; top: 0 ;">
                         <tr>
                           <th scope="col">Accession ID</th>

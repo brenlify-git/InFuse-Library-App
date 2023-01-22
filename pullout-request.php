@@ -18,9 +18,10 @@ $Status = $_POST['Status'];
 
 $getPrice = "SELECT Price FROM tbl_bookinfo WHERE Accession_ID = '$AccesionID'";
 $result2 = mysqli_query($conn, $getPrice);
+$row = mysqli_fetch_assoc($result2);
+$iPrice = (double) $row['Price'];
 
-$iPrice = (int)$result2;
-$iPenalty = (int)$PenaltyFee;
+$iPenalty = (double)$PenaltyFee;
 
 $Total = $iPenalty+$iPrice;
 
@@ -29,11 +30,14 @@ $Total = $iPenalty+$iPrice;
 $sqlIns = "INSERT INTO tbl_pulloutbooks (Library_ID, Return_ID, Action, Reason, PenaltyFee, Total) VALUES ('$LibraryID', '$ReturnID', '$Act', '$Reason','$PenaltyFee', $Total)";
 $result=mysqli_query($conn, $sqlIns);
 
-$sqlUpdateStatus = "UPDATE tbl_bookreturn SET Status = 'RETURNED' WHERE Accession_ID = '$AccesionID'";
+$sqlUpdateStatus = "UPDATE tbl_bookreturn SET Status = 'PULLED-OUT' WHERE Accession_ID = '$AccesionID'";
 $result3=mysqli_query($conn, $sqlUpdateStatus);
 
-$sqlUpdateStatus2 = "UPDATE tbl_bookborrow SET Status = 'RETURNED' WHERE Accession_ID = '$AccesionID'";
+$sqlUpdateStatus2 = "UPDATE tbl_bookborrow SET Status = 'PULLED-OUT' WHERE Accession_ID = '$AccesionID'";
 $result4=mysqli_query($conn, $sqlUpdateStatus2);
+
+$sqlUpdateStatus3 = "UPDATE tbl_bookinfo SET Status = 'PULLED-OUT' WHERE Accession_ID = '$AccesionID'";
+$result5=mysqli_query($conn, $sqlUpdateStatus3);
 
 if($result){
     echo "Data Inserted Succesfully!";

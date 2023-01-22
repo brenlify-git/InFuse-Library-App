@@ -26,7 +26,7 @@ $row_countRt = mysqli_fetch_assoc($countReturned);
 $countRt = $row_countRt["countRt"];
 
 
-$countCategory = mysqli_query($conn, "SELECT COUNT(DISTINCT Category) AS category  FROM tbl_bookinfo");
+$countCategory = mysqli_query($conn, "SELECT COUNT(DISTINCT Genre) AS category  FROM tbl_bookinfo");
 $row_countCat = mysqli_fetch_assoc($countCategory);
 $countCat = $row_countCat["category"];
 

@@ -3,7 +3,7 @@
 include 'connection.php';
 
 
-$sql = "SELECT * FROM tbl_bookinfo ORDER BY Accession_ID DESC";
+$sql = "SELECT * FROM tbl_bookinfo WHERE Status = 'AVAILABLE' ORDER BY Accession_ID DESC";
 
 $id = $conn->query($sql);
 
@@ -202,21 +202,21 @@ $res2 = mysqli_query($conn, $selectReturnID);
                 
                     <div class="col-4">
                       <label for="inputAddress5" class="form-label">Action</label>
-                      <input type="text" class="form-control" id="Act" placeholder="Book Shelf Inc."  name="Act" >
+                      <input type="text" class="form-control" id="Act" placeholder="Book Shelf Inc."  name="Act" required>
                     </div>
 
                 <div class="col-6">
                   <label class="col-sm-3 form-label">Status</label>
                   <div class="col-sm-12">
-                    <select class="form-select" aria-label="Default select example" id="status" name="Status" readonly>
-                      <option value="UNAVAILABLE">UNAVAILABLE</option>
+                    <select class="form-select" aria-label="Default select example" id="status" name="Status" readonly required>
+                      <option value="UNAVAILABLE">PULLED-OUT</option>
                     </select>
                   </div>
                 </div>
 
                 <div class="col-6">
                       <label for="inputAddress5" class="form-label">Penalty</label>
-                      <input type="text" class="form-control" id="Penalty" placeholder="Book Shelf Inc."  name="Penalty_Fee" >
+                      <input type="text" class="form-control" id="Penalty" placeholder="Book Shelf Inc."  name="Penalty_Fee" required>
                     </div>
                 
 
@@ -267,8 +267,8 @@ $res2 = mysqli_query($conn, $selectReturnID);
 
               <div class="overflow-auto mt-4">
 
-                <table class="table table-hover table-bordered  text-center"
-                  style="max-height: 675px; overflow: auto; display: inline-block;" id="table">
+                <table class="table table-hover table-bordered text-center"
+                  style="max-height: 920px; overflow: auto; display: inline-block;" id="table">
                   <thead class="table-dark" style="position:sticky; top: 0 ;">
                     <tr>
                       <th scope="col">Accession ID</th>
