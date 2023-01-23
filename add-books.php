@@ -1,3 +1,21 @@
+<?php 
+
+
+include 'connection.php';
+
+$sql = "SELECT MAX(CALL_NO) AS LastCallNo FROM tbl_bookinfo";
+$result2 = mysqli_query($conn, $sql);
+$row = mysqli_fetch_assoc($result2);
+
+
+$Last = $row["LastCallNo"];
+
+
+$CallNumNew = $Last+1;
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -75,8 +93,9 @@
 
                 <div class="col-md-6">
                   <label for="inputEmail5" class="form-label">Call Number</label>
-                  <input type="number" class="form-control" id="inputEmail5" name="CallNumber" required>
+                  <input type="number" class="form-control" id="inputEmail5" name="CallNumber" value="<?= $CallNumNew ?>"  required>
                 </div>
+
 
                 <div class="col-md-12">
                   <label for="inputPassword5" class="form-label">Book Name</label>
@@ -118,7 +137,7 @@
                       <option value="Mystery">Mystery</option>
                       <option value="Poetry">Poetry</option>
                       <option value="Plays">Plays</option>
-                      <option value="Romance">Romance</option>
+                      <option value="Biography">Biography</option>
                     </select>
                   </div>
                 </div>

@@ -67,6 +67,8 @@ $id = $conn->query($sql);
       </nav>
     </div><!-- End Page Title -->
 
+    <form action="#">
+
     <section class="section">
       <div class="row">
         <div class="col-lg-6">
@@ -75,8 +77,10 @@ $id = $conn->query($sql);
             <div class="card-body">
               <h5 class="card-title">Insert Patron's Details</h5>
 
+              
+
               <!-- Multi Columns Form -->
-              <form class="row g-3">
+              <div class="row g-3">
                 
                 <div class="col-12">
                   <label for="inputEmail5" class="form-label">Student ID</label>
@@ -141,7 +145,7 @@ $id = $conn->query($sql);
 
                 <div class="emptyspace"></div>
                 
-              </form><!-- End Multi Columns Form -->
+              </div><!-- End Multi Columns Form -->
 
 
             </div>
@@ -159,7 +163,7 @@ $id = $conn->query($sql);
 
 
               <!-- Multi Columns Form -->
-              <form class="row g-3">
+              <div class="row g-3">
                 
                 
                 <div class="col-md-12">
@@ -237,7 +241,8 @@ $id = $conn->query($sql);
                   <button type="submit" class="btn btn-primary ">+ Borrow Book</button>
                   <button type="reset" class="btn btn-warning">Reset</button>
                 </div>
-              </form><!-- End Multi Columns Form -->
+              </div><!-- End Multi Columns Form -->
+</form>
 
             </div>
           </div>

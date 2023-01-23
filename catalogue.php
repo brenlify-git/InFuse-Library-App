@@ -10,8 +10,6 @@ $id = $conn->query($sql);
 ?>
 
 
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -72,7 +70,7 @@ $id = $conn->query($sql);
         <div class="col-md-4 mb-4 search-bar">
             <form class="search-form d-flex align-items-center" method="post" action="search-book.php">
                 <label for="inputPassword5" class="form-label"></label>
-                <input type="text" class="form-control" name="search" placeholder="Search" title="Enter search keyword">
+                <input type="text" class="form-control" name="search" placeholder="Search" title="Enter search keyword" required>
                 <button class="btn"><i class="bi bi-search p-1"  type="submit" title="Search" name="btns"></i></button>
             </form>
         </div>
