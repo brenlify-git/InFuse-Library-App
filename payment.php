@@ -2,7 +2,7 @@
 
 include 'connection.php';
 
-$sql = "SELECT tbl_bookborrow.Borrow_ID, Due_Fee, Borrow_Date,tbl_bookinfo.Accession_ID, Book_Name,tbl_patrons.Library_ID, Student_ID, FirstName, MiddleName, LastName, Patron_Type, Contact_Number, Penalty, Department, Section, Street, Barangay, Municipality, Province FROM (((tbl_patrons INNER JOIN tbl_bookreturn ON tbl_patrons.Library_ID = tbl_bookreturn.Library_ID) INNER JOIN tbl_bookinfo ON tbl_bookreturn.Accession_ID = tbl_bookinfo.Accession_ID) INNER JOIN tbl_bookborrow ON tbl_bookreturn.Borrow_ID = tbl_bookborrow.Borrow_ID);";
+$sql = "SELECT * FROM (tbl_patrons INNER JOIN  tbl_bookborrow ON tbl_patrons.Library_ID = tbl_bookborrow.Library_ID INNER JOIN tbl_bookinfo ON tbl_bookinfo.Accession_ID = tbl_bookborrow.Accession_ID) WHERE Penalty>0 ";
 $id = $conn->query($sql);
 
 ?>

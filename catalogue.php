@@ -7,10 +7,6 @@ $sql = "SELECT * FROM tbl_bookinfo ORDER BY Book_Name ASC";
 
 $id = $conn->query($sql);
 
-
-
-
-
 ?>
 
 
@@ -68,16 +64,16 @@ $id = $conn->query($sql);
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="dashboard-student.php">Home</a></li>
-                    <li class="breadcrumb-item active">About</li>
+                    <li class="breadcrumb-item active">Book Catalogue</li>
                 </ol>
             </nav>
         </div><!-- End Page Title -->
 
         <div class="col-md-4 mb-4 search-bar">
-            <form class="search-form d-flex align-items-center" action="#">
+            <form class="search-form d-flex align-items-center" method="post" action="search-book.php">
                 <label for="inputPassword5" class="form-label"></label>
                 <input type="text" class="form-control" name="search" placeholder="Search" title="Enter search keyword">
-                <button type="submit" title="Search" name="search"><i class="bi bi-search p-1"></i></button>
+                <button class="btn"><i class="bi bi-search p-1"  type="submit" title="Search" name="btns"></i></button>
             </form>
         </div>
 

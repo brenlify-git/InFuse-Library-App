@@ -2,34 +2,7 @@
 
 include 'connection.php';
 
-$countStudents = mysqli_query($conn, "SELECT COUNT(*) AS countS  FROM tbl_patrons WHERE Patron_Type = 'STUDENT'");
-$row_countStud = mysqli_fetch_assoc($countStudents);
-$countStud = $row_countStud["countS"];
 
-
-$countFaculty = mysqli_query($conn, "SELECT COUNT(*) AS countF  FROM tbl_patrons WHERE Patron_Type = 'FACULTY'");
-$row_countFact = mysqli_fetch_assoc($countFaculty);
-$countFact = $row_countFact["countF"];
-
-
-$countAvailableBook = mysqli_query($conn, "SELECT COUNT(*) AS countAB  FROM tbl_bookinfo WHERE Status = 'AVAILABLE'");
-$row_countAvail = mysqli_fetch_assoc($countAvailableBook);
-$countAvail = $row_countAvail["countAB"];
-
-
-$countBorrowed = mysqli_query($conn, "SELECT COUNT(*) AS countBRW  FROM tbl_bookborrow");
-$row_countBor = mysqli_fetch_assoc($countBorrowed);
-$countBor = $row_countBor["countBRW"];
-
-
-$countReturned = mysqli_query($conn, "SELECT COUNT(*) AS countRt  FROM tbl_bookreturn");
-$row_countRt = mysqli_fetch_assoc($countReturned);
-$countRt = $row_countRt["countRt"];
-
-
-$countCategory = mysqli_query($conn, "SELECT COUNT(DISTINCT Category) AS category  FROM tbl_bookinfo");
-$row_countCat = mysqli_fetch_assoc($countCategory);
-$countCat = $row_countCat["category"];
 
 
 ?>
