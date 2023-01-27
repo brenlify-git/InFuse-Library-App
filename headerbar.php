@@ -56,7 +56,6 @@ if(!isset($_SESSION["admin_type"])){
 </div><!-- End Logo -->
 
 
-
 <nav class="header-nav ms-auto">
   <ul class="d-flex align-items-center">
 
@@ -70,16 +69,18 @@ if(!isset($_SESSION["admin_type"])){
 
       <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
         <i class="bi bi-bell"></i>
-        <span class="badge bg-primary badge-number">
+        
           <?php
           if($row_countNotification == 0){
             
           }
           else{
+            echo '<span class="badge bg-primary badge-number">';
             echo $row_countNotification;
+            echo '</span>';
           }
           ?>
-        </span>
+        
       </a><!-- End Notification Icon -->
 
       <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">

@@ -115,7 +115,30 @@ $id = $conn->query($sql);
                 <div class="col-6">
                   <label for="inputPassword5" class="form-label">Due Fee</label>
                   <input type="number" class="form-control"  min="0" pattern="^[0-9]{3,}.[0-9]{2}" id="dueFee" name="dueFee" required>
+                  <div class="mt-2">
+                    <input class="form-check-input " type="checkbox" value="" name="admin" id="admin" onchange="disableTextbox()">
+                    <label class="form-check-label" for="flexCheckDefault">
+                      No Violation
+                    </label>
+                  </div>
                 </div>
+
+                <script>
+                  function disableTextbox() {
+                    var checkbox = document.getElementById("admin");
+                    var textbox = document.getElementById("dueFee");
+              
+                    if (checkbox.checked) {
+                      $backup = textbox.value;
+                      textbox.value = "0";
+                      
+                    } else {
+          
+                      textbox.value = $backup;
+                      
+                    }
+                  }
+                </script>
                 
                 <div class="emptyspace"></div>
 

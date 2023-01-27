@@ -6,13 +6,16 @@ include 'connection.php';
 // $sql = "SELECT * FROM tbl_bookinfo WHERE Status = 'AVAILABLE' ORDER BY Accession_ID DESC";
 // $id = $conn->query($sql);
 
-$sql = "SELECT * FROM tbl_bookinfo ORDER BY Accession_ID DESC";
+$sql = "SELECT * FROM tbl_bookinfo WHERE Status = 'AVAILABLE'";
 $id = $conn->query($sql);
+
+$sqlpull = "SELECT * FROM tbl_bookinfo ";
+$pulled = $conn->query($sqlpull);
 
 $selectLibraryID = "SELECT Library_ID  FROM tbl_bookborrow WHERE Status = 'NOT RETURNED'";
 $res = mysqli_query($conn, $selectLibraryID);
 
-$selectReturnID = "SELECT Return_ID FROM tbl_bookreturn  WHERE Status = 'NOT RETURNED'";
+$selectReturnID = "SELECT Return_ID FROM tbl_bookreturn  WHERE Status = 'NOT RETURNED' OR Status = 'RETURNED'";
 $res2 = mysqli_query($conn, $selectReturnID);
 
 ?>
@@ -265,7 +268,7 @@ $res2 = mysqli_query($conn, $selectReturnID);
                   <div class="col-sm-12">
                     <select class="form-select" aria-label="Default select example" id="Returnid" name="ReturnID" required>
                     <option selected disabled>Select ID</option>
-                      <option  value="1000">1000</option>
+                      
                       <?php while($rows2 = mysqli_fetch_array($res2)){
                       ?>
 

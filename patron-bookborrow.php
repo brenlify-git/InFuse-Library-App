@@ -2,7 +2,7 @@
 include 'connection.php';
 $sql = "SELECT * FROM tbl_bookinfo WHERE Status='AVAILABLE' ORDER BY Call_No DESC ";
 $id = $conn->query($sql);
-$sql2 = "SELECT * FROM tbl_patrons WHERE Penalty = 0.00 AND Library_ID != '1000'";
+$sql2 = "SELECT * FROM tbl_patrons WHERE Penalty = 0.00 AND Library_ID != '1000' AND Borrow_Count >0";
 $id2 = $conn->query($sql2);
 $sql3 = "SELECT * FROM tbl_patrons WHERE Penalty = 0.00 AND Library_ID != '1000'";
 $id3 = $conn->query($sql3);
@@ -87,7 +87,7 @@ $id3 = $conn->query($sql3);
                 <h5 class="card-title">Insert Patron's Details</h5>
                 <!-- Multi Columns Form -->
                 <div class="row g-3">
-                  <div class="col-12">
+                  <div class="col-6">
                     <label class="col-sm-7 form-label">Patron ID</label>
                     <div class="col-sm-12">
                       <select class="form-select" aria-label="Default select example" id="patronID" name="patronID"
@@ -102,6 +102,10 @@ $id3 = $conn->query($sql3);
                       } ?>
                       </select>
                     </div>
+                  </div>
+                  <div class="col-6">
+                    <label for="inputPassword5" class="form-label">Borrow Count</label>
+                    <input type="text" class="form-control" id="borrowCount" name="borrowCount" required>
                   </div>
                   <div class="col-4">
                     <label for="inputPassword5" class="form-label">First Name</label>
@@ -186,6 +190,7 @@ $id3 = $conn->query($sql3);
                       <th scope="col">Contact Number</th>
                       <th scope="col">Department</th>
                       <th scope="col">Section</th>
+                      <th scope="col">Borrow Count</th>
                       <th scope="col">Street</th>
                       <th scope="col">Barangay</th>
                       <th scope="col">Municipality</th>
@@ -205,6 +210,7 @@ $id3 = $conn->query($sql3);
                       <td><?= $tbl_patrons['Contact_Number'];?></td>
                       <td><?= $tbl_patrons['Department'];?></td>
                       <td><?= $tbl_patrons['Section'];?></td>
+                      <td><?= $tbl_patrons['Borrow_Count'];?></td>
                       <td><?= $tbl_patrons['Street'];?></td>
                       <td><?= $tbl_patrons['Barangay'];?></td>
                       <td><?= $tbl_patrons['Municipality'];?></td>
@@ -443,10 +449,11 @@ $id3 = $conn->query($sql3);
         document.getElementById("contact").value = this.cells[5].innerHTML;
         document.getElementById("department").value = this.cells[6].innerHTML;
         document.getElementById("section").value = this.cells[7].innerHTML;
-        document.getElementById("street").value = this.cells[8].innerHTML;
-        document.getElementById("barangay").value = this.cells[9].innerHTML;
-        document.getElementById("municipality").value = this.cells[10].innerHTML;
-        document.getElementById("province").value = this.cells[11].innerHTML;
+        document.getElementById("borrowCount").value = this.cells[8].innerHTML;
+        document.getElementById("street").value = this.cells[9].innerHTML;
+        document.getElementById("barangay").value = this.cells[10].innerHTML;
+        document.getElementById("municipality").value = this.cells[11].innerHTML;
+        document.getElementById("province").value = this.cells[12].innerHTML;
      
         console.log(rows[i]);
 
