@@ -93,7 +93,8 @@ $CallNumNew = $Last+1;
 
                 <div class="col-md-6">
                   <label for="inputEmail5" class="form-label">Call Number</label>
-                  <input type="number" class="form-control" id="inputEmail5" name="CallNumber" value="<?= $CallNumNew ?>"  required>
+                  <input type="number" class="form-control" id="inputEmail5" name="CallNumber"
+                    value="<?= $CallNumNew ?>" required>
                 </div>
 
 
@@ -122,7 +123,7 @@ $CallNumNew = $Last+1;
                 <div class="col-4">
                   <label class="col-sm-2 form-label">Genre</label>
                   <div class="col-sm-12">
-                    <select class="form-select" aria-label="Default select example" name="Genre"  required>
+                    <select class="form-select" aria-label="Default select example" name="Genre" required>
                       <option disabled class="divider"></option>
 
                       <option value="Adventure stories">Adventure stories</option>
@@ -138,19 +139,69 @@ $CallNumNew = $Last+1;
                       <option value="Poetry">Poetry</option>
                       <option value="Plays">Plays</option>
                       <option value="Biography">Biography</option>
+                      <option value="Romance">Romance</option>
+                      <option value="Science Fiction">Science Fiction</option>
+                      <option value="Short stories">Short stories</option>
+                      <option value="Thrillers">Thrillers</option>
+                      <option value="War">War</option>
+                      <option value="Women's Fiction">Women's Fiction</option>
+                      <option value="Young Adult">Young Adult</option>
+                      <option value="Non-Fiction Novel">Non-Fiction Novel</option>
+                      <option value="Autobiography and memoir">Autobiography and memoir</option>
+                      <option value="Biography">Biography</option>
+                      <option value="Essays">Essays</option>
+                      <option value="Self-help">Self-help</option>
+                      <option value="Cookbook">Cookbook</option>
+                      <option value="Art">Art</option>
+                      <option value="Development">Development</option>
+                      <option value="Motivational">Motivational</option>
+                      <option value="Health">Health</option>
+                      <option value="History">History</option>
+                      <option value="Travel">Travel</option>
+                      <option value="Guide / How-to">Guide / How-to</option>
+                      <option value="Families & Relationships">Families & Relationships</option>
+                      <option value="Humor">Humor</option>
+                      <option value="Action">Action</option>
+                      <option value="Architecture">Architecture</option>
+                      <option value="Alternate history">Alternate history</option>
+                      <option value="Anthology">Anthology</option>
+                      <option value="Chick lit">Chick lit</option>
+                      <option value="Business/economics">Business/economics</option>
+                      <option value="Children's Fiction">Children's Fiction</option>
+                      <option value="Crafts/hobbies">Crafts/hobbies</option>
+                      <option value="Comic book">Comic book</option>
+                      <option value="Coming-of-age">Coming-of-age</option>
+                      <option value="Dictionary">Dictionary</option>
+                      <option value="Encyclopedia">Encyclopedia</option>
+                      <option value="Drama">Drama</option>
+                      <option value="Fitness">Fitness</option>
+                      <option value="Graphic novel">Graphic novel</option>
+                      <option value="Home and Garden">Home and Garden</option>
+                      <option value="Mystery">Mystery</option>
+                      <option value="Philosophy">Philosophy</option>
+                      <option value="Political">Political</option>
+                      <option value="Religion, spirituality, and new age">Religion, spirituality, and new age</option>
+                      <option value="Satire">Satire</option>
+                      <option value="True crime">True crime</option>
+                      <option value="Suspense">Suspense</option>
+                      <option value="Sports and leisure">Sports and leisure</option>
+                      <option value="Western">Western</option>
                     </select>
                   </div>
                 </div>
-              
+
+                
 
                 <div class="col-4">
                   <label for="inputAddress5" class="form-label">Series</label>
-                  <input type="number" class="form-control" id="inputAddres5s" name="Series" placeholder="2014" required>
+                  <input type="number" class="form-control" id="inputAddres5s" name="Series" placeholder="2014"
+                    required>
                 </div>
 
                 <div class="col-4">
                   <label for="inputAddress5" class="form-label">Price</label>
-                  <input type="number" class="form-control" id="inputAddres5s" min="1" step="any" name="Price" placeholder="567.00" required>
+                  <input type="number" class="form-control" id="inputAddres5s" min="1" step="any" name="Price"
+                    placeholder="567.00" required>
                 </div>
 
                 <div class="col-4">
@@ -160,7 +211,8 @@ $CallNumNew = $Last+1;
 
                 <div class="col-4">
                   <label for="inputAddress5" class="form-label">Publisher</label>
-                  <input type="text" class="form-control" id="inputAddres5s" name="Pulisher" placeholder="Book Shelf Inc." required>
+                  <input type="text" class="form-control" id="inputAddres5s" name="Pulisher"
+                    placeholder="Book Shelf Inc." required>
                 </div>
 
                 <div class="col-4">
@@ -181,8 +233,8 @@ $CallNumNew = $Last+1;
 
 
                 <div class="text-right">
-                  <button type="submit" class="btn btn-primary ">+ Add Book</button>
-                  <button type="reset" class="btn btn-warning">Reset</button>
+                  <button type="submit" class="btn btn-primary" onclick="success_toast()">+ Add Book</button>
+                  <button type="reset" class="btn btn-warning" >Reset</button>
                 </div>
               </form><!-- End Multi Columns Form -->
 
@@ -219,6 +271,12 @@ $CallNumNew = $Last+1;
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/toaster.js"></script>
+  <script>
+    function success_toast(){
+      toastr.success("Fields Reset!")
+    }
+  </script>
 
 </body>
 

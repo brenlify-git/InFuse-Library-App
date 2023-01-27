@@ -3,8 +3,10 @@
 include 'connection.php';
 
 
-$sql = "SELECT * FROM tbl_bookinfo WHERE Status = 'AVAILABLE' ORDER BY Accession_ID DESC";
+// $sql = "SELECT * FROM tbl_bookinfo WHERE Status = 'AVAILABLE' ORDER BY Accession_ID DESC";
+// $id = $conn->query($sql);
 
+$sql = "SELECT * FROM tbl_bookinfo ORDER BY Accession_ID DESC";
 $id = $conn->query($sql);
 
 $selectLibraryID = "SELECT Library_ID  FROM tbl_bookborrow WHERE Status = 'NOT RETURNED'";
@@ -136,7 +138,54 @@ $res2 = mysqli_query($conn, $selectReturnID);
                       <option value="Mystery">Mystery</option>
                       <option value="Poetry">Poetry</option>
                       <option value="Plays">Plays</option>
+                      <option value="Biography">Biography</option>
                       <option value="Romance">Romance</option>
+                      <option value="Science Fiction">Science Fiction</option>
+                      <option value="Short stories">Short stories</option>
+                      <option value="Thrillers">Thrillers</option>
+                      <option value="War">War</option>
+                      <option value="Women's Fiction">Women's Fiction</option>
+                      <option value="Young Adult">Young Adult</option>
+                      <option value="Non-Fiction Novel">Non-Fiction Novel</option>
+                      <option value="Autobiography and memoir">Autobiography and memoir</option>
+                      <option value="Biography">Biography</option>
+                      <option value="Essays">Essays</option>
+                      <option value="Self-help">Self-help</option>
+                      <option value="Cookbook">Cookbook</option>
+                      <option value="Art">Art</option>
+                      <option value="Development">Development</option>
+                      <option value="Motivational">Motivational</option>
+                      <option value="Health">Health</option>
+                      <option value="History">History</option>
+                      <option value="Travel">Travel</option>
+                      <option value="Guide / How-to">Guide / How-to</option>
+                      <option value="Families & Relationships">Families & Relationships</option>
+                      <option value="Humor">Humor</option>
+                      <option value="Action">Action</option>
+                      <option value="Architecture">Architecture</option>
+                      <option value="Alternate history">Alternate history</option>
+                      <option value="Anthology">Anthology</option>
+                      <option value="Chick lit">Chick lit</option>
+                      <option value="Business/economics">Business/economics</option>
+                      <option value="Children's Fiction">Children's Fiction</option>
+                      <option value="Crafts/hobbies">Crafts/hobbies</option>
+                      <option value="Comic book">Comic book</option>
+                      <option value="Coming-of-age">Coming-of-age</option>
+                      <option value="Dictionary">Dictionary</option>
+                      <option value="Encyclopedia">Encyclopedia</option>
+                      <option value="Drama">Drama</option>
+                      <option value="Fitness">Fitness</option>
+                      <option value="Graphic novel">Graphic novel</option>
+                      <option value="Home and Garden">Home and Garden</option>
+                      <option value="Mystery">Mystery</option>
+                      <option value="Philosophy">Philosophy</option>
+                      <option value="Political">Political</option>
+                      <option value="Religion, spirituality, and new age">Religion, spirituality, and new age</option>
+                      <option value="Satire">Satire</option>
+                      <option value="True crime">True crime</option>
+                      <option value="Suspense">Suspense</option>
+                      <option value="Sports and leisure">Sports and leisure</option>
+                      <option value="Western">Western</option>
                     </select>
                   </div>
                 </div>
@@ -167,67 +216,98 @@ $res2 = mysqli_query($conn, $selectReturnID);
 
                 <h class="card-title">Pullout this book</h>
 
+
                 <div class="col-4">
                   <label class="col-sm-7 form-label">Library ID</label>
                   <div class="col-sm-12">
-                    <select class="form-select" aria-label="Default select example" id="genre" name="LibraryID" required
-                      >
+                    <select class="form-select" aria-label="Default select example" id="LibID" name="LibraryID"
+                      required>
+                      <option selected disabled>Select ID</option>
+                      <option  value="1000">1000</option>
                       <?php while($rows = mysqli_fetch_array($res)){
                       ?>
 
                       <option value="<?= $rows['Library_ID'];?>"><?= $rows['Library_ID'];?></option>
 
-                    <?php
+                      <?php
                       } ?>
                     </select>
                   </div>
+                  <div class="mt-2">
+                    <input class="form-check-input " type="checkbox" value="" name="admin" id="admin" onchange="disableTextbox()">
+                    <label class="form-check-label" for="flexCheckDefault">
+                      No Violation
+                    </label>
+                  </div>
                 </div>
+
+                <script>
+                  function disableTextbox() {
+                    var checkbox = document.getElementById("admin");
+                    var textbox = document.getElementById("LibID");
+                    var textbox2 = document.getElementById("Returnid");
+                    var textbox3 = document.getElementById("Penalty");
+                    if (checkbox.checked) {
+                      textbox.value = "1000";
+                      textbox2.value = "1000";
+                      textbox3.value = "0";
+                    } else {
+                      textbox.value = "Select ID";
+                      textbox2.value = "Select ID";
+                      textbox3.value = "";
+                    }
+                  }
+                </script>
+
 
                 <div class="col-4">
                   <label class="col-sm-7 form-label">Return ID</label>
                   <div class="col-sm-12">
-                    <select class="form-select" aria-label="Default select example" id="genre" name="ReturnID" required
-                      >
+                    <select class="form-select" aria-label="Default select example" id="Returnid" name="ReturnID" required>
+                    <option selected disabled>Select ID</option>
+                      <option  value="1000">1000</option>
                       <?php while($rows2 = mysqli_fetch_array($res2)){
                       ?>
 
                       <option value="<?= $rows2['Return_ID'];?>"><?= $rows2['Return_ID'];?></option>
 
-                    <?php
+                      <?php
                       } ?>
                     </select>
                   </div>
                 </div>
 
-                
-                    <div class="col-4">
-                      <label for="inputAddress5" class="form-label">Action</label>
-                      <input type="text" class="form-control" id="Act" placeholder="Book Shelf Inc."  name="Act" required>
-                    </div> 
+
+                <div class="col-4">
+                  <label for="inputAddress5" class="form-label">Action</label>
+                  <input type="text" class="form-control" id="Act" placeholder="Book Shelf Inc." name="Act" required>
+                </div>
 
                 <div class="col-6">
                   <label class="col-sm-3 form-label">Status</label>
                   <div class="col-sm-12">
-                    <select class="form-select" aria-label="Default select example" id="status" name="Status" readonly required>
+                    <select class="form-select" aria-label="Default select example" id="status" name="Status" readonly
+                      required>
                       <option value="UNAVAILABLE">PULLED-OUT</option>
                     </select>
                   </div>
                 </div>
 
                 <div class="col-6">
-                      <label for="inputAddress5" class="form-label">Penalty</label>
-                      <input type="text" class="form-control" id="Penalty" placeholder="Book Shelf Inc."  name="Penalty_Fee" required>
-                    </div>
-                
+                  <label for="inputAddress5" class="form-label">Penalty</label>
+                  <input type="text" class="form-control" id="Penalty" placeholder="Book Shelf Inc." name="Penalty_Fee"
+                    required>
+                </div>
+
 
                 <div class="col-12">
                   <label for="inputAddress5" class="form-label">Remarks</label>
                   <textarea type="number" class="form-control" id="notes" style="height: 100px;"
                     placeholder="Book pages accidentally crampled." required name="Reason"></textarea>
                 </div>
-                
 
-        
+
+
 
                 <div class="d-flex align-items-baseline">
 
@@ -261,7 +341,6 @@ $res2 = mysqli_query($conn, $selectReturnID);
             <div class="card-body">
 
               <h2 class="card-title ">Sorted using the books that is available</h2>
-
 
 
 
@@ -371,8 +450,8 @@ $res2 = mysqli_query($conn, $selectReturnID);
         document.getElementById("price").value = this.cells[9].innerHTML;
         document.getElementById("copies").value = this.cells[11].innerHTML;
         document.getElementById("publisher").value = this.cells[10].innerHTML;
-      //  document.getElementById("notes").value = this.cells[6].innerHTML;
-      //  document.getElementById("status").value = this.cells[12].innerHTML;
+        //  document.getElementById("notes").value = this.cells[6].innerHTML;
+        //  document.getElementById("status").value = this.cells[12].innerHTML;
         document.getElementById("genre").value = this.cells[7].innerHTML;
         console.log(rows[i]);
 
