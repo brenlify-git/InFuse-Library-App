@@ -3,7 +3,7 @@
 include 'connection.php';
 
 
-$sql = "SELECT * FROM tbl_bookinfo";
+$sql = "SELECT * FROM tbl_maintenance";
 
 $id = $conn->query($sql);
 
@@ -73,28 +73,36 @@ $id = $conn->query($sql);
 
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Insert Book Details</h5>
+              <h5 class="card-title">Update Book Maintenance</h5>
+
+              <?php
+            while($rows = mysqli_fetch_assoc($id)):   
+        ?>
 
               <!-- Multi Columns Form -->
-              <form class="row g-3">
+              <form class="row g-3" action="maintenance-process.php" method="post">
                 <div class="col-md-4">
                   <label for="inputName5" class="form-label">Allowed Books to Borrow</label>
-                  <input type="number" class="form-control" id="inputName5" value ="2" required>
+                  <input type="number" class="form-control" id="inputName5" min="1" max="10" name="numBook" value ="<?= $rows['Allowed_BookBorrow'];?>" required>
                 </div>
                 <div class="col-md-4">
                   <label for="inputName5" class="form-label">Allowed Book days to Borrow</label>
-                  <input type="number" class="form-control" id="inputName5" value ="2" required>
+                  <input type="number" class="form-control" id="inputName5"  min="1" max="7" name="numDays" value ="<?= $rows['Allowed_BookDays'];?>" required>
                 </div>
                 <div class="col-md-4">
                   <label for="inputEmail5" class="form-label">Penalty</label>
-                  <input type="number" class="form-control" id="inputEmail5" value ="5"required>
+                  <input type="number" class="form-control" id="inputEmail5"  min="1" max="100" name="penalty" value ="<?= $rows['Penalty'];?>"required>
                 </div>
+
+                <?php
+                endwhile;
+                ?>
 
     
                
                 <div class="text-center">
-                  <button type="submit" class="btn btn-primary m-2">+ Save Changes</button>
-                  <button type="reset" class="btn btn-warning">Reset</button>
+                  <button type="submit" class="btn btn-primary m-2" name="saveChange">+ Save Changes</button>
+                 
                 </div>
               </form><!-- End Multi Columns Form -->
 

@@ -200,7 +200,7 @@ $CallNumNew = $Last+1;
 
                 <div class="col-4">
                   <label for="inputAddress5" class="form-label">Price</label>
-                  <input type="number" class="form-control" id="inputAddres5s" min="1" step="any" name="Price"
+                  <input type="number" pattern="^[0-9]{3,}.[0-9]{2}" class="form-control" id="inputAddres5s"  name="Price"
                     placeholder="567.00" required>
                 </div>
 

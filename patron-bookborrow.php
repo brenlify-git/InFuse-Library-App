@@ -2,9 +2,9 @@
 include 'connection.php';
 $sql = "SELECT * FROM tbl_bookinfo WHERE Status='AVAILABLE' ORDER BY Call_No DESC ";
 $id = $conn->query($sql);
-$sql2 = "SELECT * FROM tbl_patrons WHERE Penalty = 0.00";
+$sql2 = "SELECT * FROM tbl_patrons WHERE Penalty = 0.00 AND Library_ID != '1000'";
 $id2 = $conn->query($sql2);
-$sql3 = "SELECT * FROM tbl_patrons WHERE Penalty = 0.00";
+$sql3 = "SELECT * FROM tbl_patrons WHERE Penalty = 0.00 AND Library_ID != '1000'";
 $id3 = $conn->query($sql3);
 ?>
 <!DOCTYPE html>
@@ -35,13 +35,13 @@ $id3 = $conn->query($sql3);
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/table.css">
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+  <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
     integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
   </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
     integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous">
-  </script>
-  <script type="text/javascript">
+  </script> -->
+  <!-- <script type="text/javascript">
     $(document).ready(function () {
       $("#LibraryID").change(function () {
         var aid = $("#LibraryID").val();
@@ -58,7 +58,7 @@ $id3 = $conn->query($sql3);
         })
       })
     })
-  </script>
+  </script> -->
 </head>
 
 <body>
@@ -66,6 +66,7 @@ $id3 = $conn->query($sql3);
   <?php include 'headerbar.php';?>
   <?php include 'sidebar.php';?>
   <!-- End Sidebar and Header-->
+  
   <main id="main" class="main">
     <div class="pagetitle">
       <h1>Book Borrow</h1>

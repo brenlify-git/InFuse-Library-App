@@ -2,6 +2,15 @@
 
 include 'connection.php';
 
+$date = date("Y-m-d");
+
+$sql = "SELECT * FROM tbl_bookborrow INNER JOIN tbl_patrons ON tbl_bookborrow.Library_ID = tbl_patrons.Library_ID  WHERE Status='NOT RETURNED' AND Return_Date = '$date' AND tbl_bookborrow.Library_ID != '1000'";
+$notif = $conn->query($sql);
+
+
+$countNotif = mysqli_query($conn, "SELECT COUNT(*) AS notifCount FROM tbl_bookborrow  WHERE Status='NOT RETURNED' AND Return_Date = '$date' AND Library_Id!='1000'");
+$row_countNotif = mysqli_fetch_assoc($countNotif);
+$row_countNotification = $row_countNotif["notifCount"];
 
 session_start();
 if(!isset($_SESSION["admin_username"])){
@@ -61,24 +70,49 @@ if(!isset($_SESSION["admin_type"])){
 
       <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
         <i class="bi bi-bell"></i>
-        <span class="badge bg-primary badge-number">3</span>
+        <span class="badge bg-primary badge-number">
+          <?php
+          if($row_countNotification == 0){
+            
+          }
+          else{
+            echo $row_countNotification;
+          }
+          ?>
+        </span>
       </a><!-- End Notification Icon -->
 
       <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
         <li class="dropdown-header">
-          You have 4 new notifications
-          <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
+          
+
+          <?php
+          if($row_countNotification == 0){
+            echo "You don't have any notifications";
+           
+          }
+          else{
+            echo 'You have <span style="color:#026ab2; font-weight:bold">';
+            echo $row_countNotification;
+            echo '</span> new notifications';
+          }
+          ?>
+         
         </li>
         <li>
           <hr class="dropdown-divider">
         </li>
+
+        <?php
+            while($rows = mysqli_fetch_assoc($notif)):   
+        ?>
 
         <li class="notification-item">
           <i class="bi bi-exclamation-circle text-warning"></i>
           <div>
-            <h4>Lorem Ipsum</h4>
-            <p>Quae dolorem earum veritatis oditseno</p>
-            <p>30 min. ago</p>
+            <h4>Book Return</h4>
+            <p><?=$rows['FirstName']; ?> with an id <?= $rows['Student_ID'];?> has a pending book return</p>
+            <b style="font-size: 10px; color:#026ab2;">Today</b>
           </div>
         </li>
 
@@ -86,47 +120,11 @@ if(!isset($_SESSION["admin_type"])){
           <hr class="dropdown-divider">
         </li>
 
-        <li class="notification-item">
-          <i class="bi bi-x-circle text-danger"></i>
-          <div>
-            <h4>Atque rerum nesciunt</h4>
-            <p>Quae dolorem earum veritatis oditseno</p>
-            <p>1 hr. ago</p>
-          </div>
-        </li>
+        <?php
+        endwhile;
+        ?>
 
-        <li>
-          <hr class="dropdown-divider">
-        </li>
-
-        <li class="notification-item">
-          <i class="bi bi-check-circle text-success"></i>
-          <div>
-            <h4>Sit rerum fuga</h4>
-            <p>Quae dolorem earum veritatis oditseno</p>
-            <p>2 hrs. ago</p>
-          </div>
-        </li>
-
-        <li>
-          <hr class="dropdown-divider">
-        </li>
-
-        <li class="notification-item">
-          <i class="bi bi-info-circle text-primary"></i>
-          <div>
-            <h4>Dicta reprehenderit</h4>
-            <p>Quae dolorem earum veritatis oditseno</p>
-            <p>4 hrs. ago</p>
-          </div>
-        </li>
-
-        <li>
-          <hr class="dropdown-divider">
-        </li>
-        <li class="dropdown-footer">
-          <a href="#">Show all notifications</a>
-        </li>
+       
 
       </ul><!-- End Notification Dropdown Items -->
 

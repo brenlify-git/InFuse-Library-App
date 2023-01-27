@@ -2,8 +2,7 @@
 
 include 'connection.php';
 
-$sql = "SELECT * FROM tbl_bookinfo";
-
+$sql = "SELECT * FROM tbl_bookborrow INNER JOIN tbl_patrons ON tbl_bookborrow.Library_ID = tbl_patrons.Library_ID INNER JOIN tbl_bookinfo ON tbl_bookborrow.Accession_ID = tbl_bookinfo.Accession_ID  WHERE tbl_bookborrow.Status = 'NOT RETURNED' ORDER BY Borrow_Date;";
 $id = $conn->query($sql);
 
 ?>
@@ -26,7 +25,9 @@ $id = $conn->query($sql);
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -52,7 +53,7 @@ $id = $conn->query($sql);
 
   <!-- End Sidebar and Header-->
 
-  
+
 
   <main id="main" class="main">
 
@@ -76,71 +77,55 @@ $id = $conn->query($sql);
               <h5 class="card-title">Insert Patron's Details</h5>
 
               <!-- Multi Columns Form -->
-              <form class="row g-3">
-                
-                <div class="col-12">
-                  <label for="inputEmail5" class="form-label">Student ID</label>
-                  <input type="number" class="form-control" id="inputEmail5" required>
+              <form class="row g-3" action="return-process.php" method="post">
+
+                <div class="col-4">
+                  <label for="inputEmail5" class="form-label">Library ID</label>
+                  <input type="number" class="form-control" id="libraryID" name="libraryID" required>
+                </div>
+                <div class="col-4">
+                  <label for="inputEmail5" class="form-label">Borrow ID</label>
+                  <input type="number" class="form-control" id="borrowID" name="borrowID" required>
+                </div>
+                <div class="col-4">
+                  <label for="inputEmail5" class="form-label">Accession ID</label>
+                  <input type="number" class="form-control" id="accessionID" name="accessionID" required>
                 </div>
                 <div class="col-4">
                   <label for="inputPassword5" class="form-label">First Name</label>
-                  <input type="text" class="form-control" id="inputPassword5" required>
+                  <input type="text" class="form-control" id="firstName" name="firstName" required>
                 </div>
                 <div class="col-4">
                   <label for="inputPassword5" class="form-label">Middle Name</label>
-                  <input type="text" class="form-control" id="inputPassword5" required>
+                  <input type="text" class="form-control" id="middleName" name="middleName" required>
                 </div>
                 <div class="col-4">
                   <label for="inputPassword5" class="form-label">Last Name</label>
-                  <input type="text" class="form-control" id="inputPassword5" required>
+                  <input type="text" class="form-control" id="lastName" name="lastName" required>
                 </div>
-                <div class="col-6">
-                  <label class="col-sm-7 form-label">Patron Type</label>
-                  <div class="col-sm-12">
-                    <select class="form-select" aria-label="Default select example" required>
-                      <option value="1">Student</option>
-                      <option value="2">Faculty</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="col-6">
-                  <label for="inputPassword5" class="form-label">Contact Number</label>
-                  <input type="number" class="form-control" id="inputPassword5" required>
-                </div>
-                <div class="col-6">
-                  <label class="col-sm-7 form-label">Department</label>
-                  <div class="col-sm-12">
-                    <select class="form-select" aria-label="Default select example" required>
-                      <option value="1">BSIT</option>
-                      <option value="2">BSCE</option>
-                      <option value="2">BSCpE</option>
-                      <option value="2">BSARC</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="col-6">
-                  <label for="inputPassword5" class="form-label">Section</label>
-                  <input type="text" class="form-control" id="inputPassword5" required>
-                </div>
-                <div class="col-6">
-                  <label for="inputAddress5" class="form-label">Street</label>
-                  <input type="text" class="form-control" id="inputAddres5s" placeholder="William Shakespeare" required>
-                </div>
-                <div class="col-6">
-                  <label for="inputAddress5" class="form-label">Barangay</label>
-                  <input type="text" class="form-control" id="inputAddres5s" placeholder="William Shakespeare" required>
-                </div>
-                <div class="col-6">
-                  <label for="inputAddress5" class="form-label">Municipality</label>
-                  <input type="text" class="form-control" id="inputAddres5s" placeholder="Book Shelf Inc." required>
-                </div>
-                <div class="col-6">
-                  <label for="inputAddress5" class="form-label">Province</label>
-                  <input type="text" class="form-control" id="inputAddres5s" placeholder="Book Shelf Inc." required>
+                <div class="col-12">
+                  <label for="inputPassword5" class="form-label">Book Name</label>
+                  <input type="text" class="form-control" id="bookName" name="bookName" required>
                 </div>
 
-                <div class="emptyspace"></div>
+                <div class="col-6">
+                  <label for="inputPassword5" class="form-label">Borrow Date</label>
+                  <input type="date" class="form-control" id="borrowDate" name="borrowDate" required>
+                </div>
+                <div class="col-6">
+                  <label for="inputPassword5" class="form-label">Due Fee</label>
+                  <input type="number" class="form-control"  min="0" pattern="^[0-9]{3,}.[0-9]{2}" id="dueFee" name="dueFee" required>
+                </div>
                 
+                <div class="emptyspace"></div>
+
+                <div class="text-right">
+                  <button type="submit" class="btn btn-primary ">+ Return Book</button>
+                  <button type="reset" class="btn btn-warning">Reset</button>
+                </div>
+
+
+
               </form><!-- End Multi Columns Form -->
 
 
@@ -155,94 +140,73 @@ $id = $conn->query($sql);
 
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Insert Book's Details</h5>
+              <h2 class="card-title">Masterlist of Book Borrow <span>| Sorted by date borrowed</span></h2>
 
 
-              <!-- Multi Columns Form -->
-              <form class="row g-3">
-                
-                
-                <div class="col-md-12">
-                  <label for="inputEmail5" class="form-label">Call Number</label>
-                  <input type="number" class="form-control" id="inputEmail5" required>
-                </div>
-                <div class="col-md-12">
-                  <label for="inputPassword5" class="form-label">Book Name</label>
-                  <input type="text" class="form-control" id="inputPassword5" required>
-                </div>
-                <div class="col-12">
-                  <label for="inputAddress5" class="form-label">Book Author(s)</label>
-                  <input type="text" class="form-control" id="inputAddres5s" placeholder="William Shakespeare" required>
-                </div>
-                
-                <div class="col-6">
-                    <label for="inputDate" class="form-label">Year Published</label>
-                    <div class="col-sm-12">
-                        <input type="date" class="form-control" required>
-                    </div>
-                </div>
-                <div class="col-6">
-                  <label for="inputAddress5" class="form-label">ISBN</label>
-                  <input type="number" class="form-control" id="inputAddres5s" placeholder="William Shakespeare" required>
-                </div>
-                <div class="col-6">
-                  <label class="col-sm-5 form-label">Subject</label>
-                  <div class="col-sm-12">
-                    <select class="form-select" aria-label="Default select example" required>
-                      <option value="1">One</option>
-                      <option value="2">Two</option>
-                      <option value="3">Three</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="col-6">
-                  <label class="col-sm-5 form-label">Category</label>
-                  <div class="col-sm-12">
-                    <select class="form-select" aria-label="Default select example">
-                      <option value="1">One</option>
-                      <option value="2">Two</option>
-                      <option value="3">Three</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="col-6">
-                  <label for="inputAddress5" class="form-label">Series</label>
-                  <input type="number" class="form-control" id="inputAddres5s" placeholder="2014" required>
-                </div>
-                <div class="col-6">
-                  <label for="inputAddress5" class="form-label">Price</label>
-                  <input type="number" class="form-control" id="inputAddres5s" placeholder="567.00" required>
-                </div>
-                
-                <div class="col-6">
-                  <label for="inputAddress5" class="form-label">Publisher</label>
-                  <input type="text" class="form-control" id="inputAddres5s" placeholder="Book Shelf Inc." required>
-                </div>
-                <div class="col-6">
-                  <label class="col-sm-3 form-label">Status</label>
-                  <div class="col-sm-12">
-                    <select class="form-select" aria-label="Default select example">
-                      <option value="1">Available</option>
-                      <option value="2">Unavailable</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="col-12">
-                  <label for="inputAddress5" class="form-label">Notes</label>
-                  <textarea type="number" class="form-control" id="inputAddres5s" placeholder="Cover page has dirt marks." required></textarea>
-                </div>
-                
-               
-                <div class="text-right">
-                  <button type="submit" class="btn btn-primary ">+ Return Book</button>
-                  <button type="reset" class="btn btn-warning">Reset</button>
-                </div>
-              </form><!-- End Multi Columns Form -->
+              <div class="overflow-auto mt-4">
 
+                <!-- Table with stripped rows -->
+                <table class="table table-hover table-bordered text-nowrap text-center" style="max-height: 360px; overflow: auto; display: inline-block;" id="table">
+                <thead class="table-dark" style="position:sticky; top: 0 ;">
+                  <tr>
+                    <th scope="col">Borrow ID</th>
+                    <th scope="col">Due Fee</th>
+                    <th scope="col">Borrow Date</th>
+                    <th scope="col">Accession ID</th>
+                    <th scope="col">Book Name</th>
+                    <th scope="col">Library ID</th>
+                    <th scope="col">Student ID</th>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Middle Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">User Type</th>
+                    <th scope="col">Contact Number</th>
+                    <th scope="col">Penalty</th>
+                    <th scope="col">Department</th>
+                    <th scope="col">Section</th>
+                    <th scope="col">Address</th>
+                  </tr>
+                </thead>
+                <tbody>
+
+                <?php
+                  while($tbl_bookborrow = mysqli_fetch_assoc($id)):   
+                ?>
+                  <tr>
+                    <td scope="row"><?= $tbl_bookborrow['Borrow_ID'];?></td>
+                    <td><?= $tbl_bookborrow['Due_Fee'];?></td>
+                    <td><?= $tbl_bookborrow['Borrow_Date'];?></td>
+                    <td><?= $tbl_bookborrow['Accession_ID'];?></td>
+                    <td><?= $tbl_bookborrow['Book_Name'];?></td>
+                    <td><?= $tbl_bookborrow['Library_ID'];?></td>
+                    <td><?= $tbl_bookborrow['Student_ID'];?></td>
+                    <td><?= $tbl_bookborrow['FirstName'];?></td>
+                    <td><?= $tbl_bookborrow['MiddleName'];?></td>
+                    <td><?= $tbl_bookborrow['LastName'];?></td>
+                    <td><?= $tbl_bookborrow['Patron_Type'];?></td>
+                    <td><?= $tbl_bookborrow['Contact_Number'];?></td>
+                    <td><?= $tbl_bookborrow['Penalty'];?></td>
+                    <td><?= $tbl_bookborrow['Department'];?></td>
+                    <td><?= $tbl_bookborrow['Section'];?></td>
+                    <td><?= $tbl_bookborrow['Street'];?>, <?= $tbl_bookborrow['Barangay'];?>,
+                      <?= $tbl_bookborrow['Municipality'];?>, <?= $tbl_bookborrow['Province'];?> </td>
+                  </tr>
+
+                  <?php
+          endwhile;
+          ?>
+                 
+                </tbody>
+              </table>
+
+
+
+                </form><!-- End Multi Columns Form -->
+
+              </div>
             </div>
           </div>
-      </div>
-      
+
     </section>
 
   </main><!-- End #main -->
@@ -251,10 +215,11 @@ $id = $conn->query($sql);
 
   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
-    
+
   </footer><!-- End Footer -->
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
@@ -268,6 +233,27 @@ $id = $conn->query($sql);
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <script>
+    var table = document.getElementById('table');
+
+    for (var i = 1; i < table.rows.length; i++) {
+      table.rows[i].onclick = function () {
+        document.getElementById("libraryID").value = this.cells[5].innerHTML;
+        document.getElementById("borrowID").value = this.cells[0].innerHTML;
+        document.getElementById("accessionID").value = this.cells[3].innerHTML;
+        document.getElementById("firstName").value = this.cells[7].innerHTML;
+        document.getElementById("middleName").value = this.cells[8].innerHTML;
+        document.getElementById("lastName").value = this.cells[9].innerHTML;
+        document.getElementById("bookName").value = this.cells[4].innerHTML;
+        document.getElementById("borrowDate").value = this.cells[2].innerHTML;
+        document.getElementById("dueFee").value = this.cells[1].innerHTML;
+
+        console.log(rows[i]);
+
+      };
+    }
+  </script>
 
 </body>
 
