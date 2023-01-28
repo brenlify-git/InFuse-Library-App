@@ -75,7 +75,7 @@ $id = $conn->query($sql);
       
                 <div class="card"> 
                   <div class="card-body">
-                  <form action="process.php" method="post" >
+                  <form action="process.php" method="post" enctype="multipart/form-data">
 
                   <button type="submit" name="submit" class="btn btn-primary mt-3" style="float: right;">
                     <i class="bi bi-file-earmark-spreadsheet"></i>
@@ -90,6 +90,7 @@ $id = $conn->query($sql);
                     <table class="table table-hover datatable table-bordered text-nowrap text-center" style="max-height: 600px; overflow: auto; display: inline-block;">
                       <thead class="table-secondary" style="position:sticky; top: 0 ;">
                         <tr>
+                          <th scope="col">Qr Code</th>
                           <th scope="col">Accession ID</th>
                           <th scope="col">Call Number</th>
                           <th scope="col">Book Name</th>
@@ -112,7 +113,8 @@ $id = $conn->query($sql);
                         while($tbl_bookinfo = mysqli_fetch_assoc($id)):   
                       ?>
                         <tr>
-                          <th scope="row"><?= $tbl_bookinfo['Accession_ID'];?></th>
+                          <td><img src="<?= $tbl_bookinfo['Barcode'];?>" alt=""></td>
+                          <th><?= $tbl_bookinfo['Accession_ID'];?></th>
                           <td><?= $tbl_bookinfo['Call_No'];?></td>
                           <td><?= $tbl_bookinfo['Book_Name'];?></td>
                           <td><?= $tbl_bookinfo['Book_Author'];?></td>

@@ -175,6 +175,7 @@ $id = $conn->query($sql);
                     <th scope="col">Borrow ID</th>
                     <th scope="col">Due Fee</th>
                     <th scope="col">Borrow Date</th>
+                    <th scope="col">Return Date</th>
                     <th scope="col">Accession ID</th>
                     <th scope="col">Book Name</th>
                     <th scope="col">Library ID</th>
@@ -187,6 +188,7 @@ $id = $conn->query($sql);
                     <th scope="col">Penalty</th>
                     <th scope="col">Department</th>
                     <th scope="col">Section</th>
+                    <th scope="col">Status</th>
                     <th scope="col">Address</th>
                   </tr>
                 </thead>
@@ -199,6 +201,7 @@ $id = $conn->query($sql);
                     <td scope="row"><?= $tbl_bookborrow['Borrow_ID'];?></td>
                     <td><?= $tbl_bookborrow['Due_Fee'];?></td>
                     <td><?= $tbl_bookborrow['Borrow_Date'];?></td>
+                    <td><?= $tbl_bookborrow['Return_Date'];?></td>
                     <td><?= $tbl_bookborrow['Accession_ID'];?></td>
                     <td><?= $tbl_bookborrow['Book_Name'];?></td>
                     <td><?= $tbl_bookborrow['Library_ID'];?></td>
@@ -211,6 +214,7 @@ $id = $conn->query($sql);
                     <td><?= $tbl_bookborrow['Penalty'];?></td>
                     <td><?= $tbl_bookborrow['Department'];?></td>
                     <td><?= $tbl_bookborrow['Section'];?></td>
+                    <td><?= $tbl_bookborrow['Status'];?></td>
                     <td><?= $tbl_bookborrow['Street'];?>, <?= $tbl_bookborrow['Barangay'];?>,
                       <?= $tbl_bookborrow['Municipality'];?>, <?= $tbl_bookborrow['Province'];?> </td>
                   </tr>

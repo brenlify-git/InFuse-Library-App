@@ -121,6 +121,9 @@
                         <a href="book-return.php">
                             <i class="bi bi-circle"></i><span>Book Returned</span>
                         </a>
+                        <a href="book-pulledout.php">
+                            <i class="bi bi-circle"></i><span>Book Pulled-out</span>
+                        </a>
                         
                         
                     </li>

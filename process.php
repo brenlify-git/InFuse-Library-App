@@ -5,7 +5,8 @@ $output = "";
 
 if(isset($_POST['submit'])){
     
-$sql = "SELECT * FROM tbl_bookinfo ORDER BY Accession_ID DESC";
+  $sql = "SELECT * FROM tbl_bookinfo ORDER BY Accession_ID DESC";
+
 $res = mysqli_query($conn, $sql);
 $i = 1;
 
@@ -14,9 +15,13 @@ if(mysqli_num_rows($res)>0){
         $output .='
 
         
-        <table class="table border=1">
+
+        
+        <table class="table table-hover datatable table-bordered text-nowrap text-center" style="max-height: 600px; overflow: auto; display: inline-block;">
+        <thead class="table-secondary" style="position:sticky; top: 0 ;">
      
           <tr">
+            
             <th scope="col">Accession ID</th>
             <th scope="col">Call Number</th>
             <th scope="col">Book Name</th>
@@ -40,6 +45,7 @@ if(mysqli_num_rows($res)>0){
         $output .='
         
         <tr>
+                          
                           <td>'. $row['Accession_ID'].'</td>
                           <td>'. $row['Call_No'].'</td>
                           <td>'. $row['Book_Name'].'</td>
@@ -62,9 +68,9 @@ if(mysqli_num_rows($res)>0){
         date_default_timezone_set('Asia/Manila');
         $filename = "Book-Inventory ".date("Y-m-d H:i:sa");
        
-        header('Context-Type:application/vnd.ms-excel');
+        header('Context-Type:application/force-download');
         header('Content-Disposition:attachment;filename='.$filename.'.xls');
-
+        header('Content-Transfer-Encoding: BINARY');
         echo $output;
     
 }

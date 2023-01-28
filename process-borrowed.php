@@ -14,7 +14,7 @@ if(mysqli_num_rows($res)>0){
         $output .='
 
         
-        <table class="table border=1">
+        <table class="table datatable border=1">
      
         <tr>
                     <th scope="col">Borrow ID</th>
@@ -73,7 +73,7 @@ if(mysqli_num_rows($res)>0){
 
         $output .='</table>';
         date_default_timezone_set('Asia/Manila');
-        $filename = "Patrons-Masterlist ".date("Y-m-d H:i:sa");
+        $filename = "BorrowedBooks-Masterlist ".date("Y-m-d H:i:sa");
        
         header('Context-Type:application/vnd.ms-excel');
         header('Content-Disposition:attachment;filename='.$filename.'.xls');
