@@ -11,7 +11,7 @@ $id = $conn->query($sql);
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 
 <head>
   <meta charset="utf-8">
@@ -98,7 +98,7 @@ $id = $conn->query($sql);
 
                 <div class="col-12">
                   <label for="inputAddress5" class="form-label">Book Author(s)<b
-                      style="color:#026ab2; font-size:12px; font-style:italic">separate using commas</b> </label>
+                      style="color:#026ab2; font-size:12px; font-style:italic"> separate using commas</b> </label>
                   <input type="text" class="form-control" id="bAuthors" placeholder="William Shakespeare, Josh Mulle"
                     name="Book_Author" required>
                 </div>
@@ -227,7 +227,7 @@ $id = $conn->query($sql);
                   </div>
 
                   <div class="reset col-6 ms-2">
-                    <button type="reset" class="btn btn-success col-12"><i class="bi bi-arrow-clockwise"></i>
+                    <button type="reset" class="btn btn-success col-12" id="liveToastBtn"><i class="bi bi-arrow-clockwise"></i>
                       Reset</button>
                   </div>
                 </div>
@@ -254,7 +254,7 @@ $id = $conn->query($sql);
                 <div class="overflow-auto mt-4">
 
                   <!-- Table with stripped rows -->
-                  <table class="table table-hover table-bordered  text-center"
+                  <table class="table  table-hover datatable table-bordered text-center"
                     style="max-height: 625px; overflow: auto; display: inline-block;" id="table">
                     <thead class="table-dark" style="position:sticky; top: 0 ;">
                       <tr>
@@ -310,11 +310,83 @@ $id = $conn->query($sql);
 
             </div>
 
+            
 
 
     </section>
 
   </main><!-- End #main -->
+
+
+  <div class="toast-container position-fixed top-0 end-0 p-3" id="toasters">
+<div class="toast align-items-center text-bg-success border-0 pt-2 ps-4" role="alert" id="liveToast2" aria-live="assertive" aria-atomic="true">
+  <div class="d-flex">
+    <div class="toast-body">
+      <h6>Updated</h6>
+    </div>
+    <button type="button" class="btn-close btn-close-white me-2 pt-4 " data-bs-dismiss="toast" aria-label="Close"></button>
+  </div>
+</div>
+</div>
+
+<div class="toast-container position-fixed top-0 end-0 p-3" id="toasters">
+<div class="toast align-items-center text-bg-success border-0 pt-2 ps-4" role="alert" id="liveToast" aria-live="assertive" aria-atomic="true">
+  <div class="d-flex">
+    <div class="toast-body">
+      <h6>All fields succesfully cleared!</h6>
+    </div>
+    <button type="button" class="btn-close btn-close-white me-2 pt-4 " data-bs-dismiss="toast" aria-label="Close"></button>
+  </div>
+</div>
+</div>
+
+  <script>
+    const toastTrigger = document.getElementById('liveToastBtn')
+    const toast1 = document.getElementById('liveToast')
+    const toast2 = document.getElementById('liveToast2')
+    if (toastTrigger) {
+      toastTrigger.addEventListener('click', () => {
+        const toast = new bootstrap.Toast(toast1)
+
+        toast.show()
+      })
+    }
+    if (toastTrigger) {
+      toastTrigger.addEventListener('click', () => {
+        const toast = new bootstrap.Toast(toast2)
+
+        toast.show()
+      })
+    }
+  </script>
+
+
+
+  <div class="toast-container position-static">
+  <div class="toast" id="liveToast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      <img src="assets/img/logo.png" class="rounded me-2" alt="...">
+      <strong class="me-auto">Bootstrap</strong>
+      <small class="text-muted">just now</small>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+      See? Just like this.
+    </div>
+  </div>
+
+  <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      <img src="..." class="rounded me-2" alt="...">
+      <strong class="me-auto">Bootstrap</strong>
+      <small class="text-muted">2 seconds ago</small>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+      Heads up, toasts will stack automatically
+    </div>
+  </div>
+</div>
 
 
 
@@ -335,6 +407,7 @@ $id = $conn->query($sql);
   <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
   <script src="assets/vendor/tinymce/tinymce.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
+
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>

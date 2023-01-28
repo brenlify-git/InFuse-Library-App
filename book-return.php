@@ -91,8 +91,8 @@ $id = $conn->query($sql);
               <div class="overflow-auto mt-4">
              
               <!-- Table with stripped rows -->
-              <table class="table table-hover table-bordered text-nowrap text-center">
-                <thead class="table-dark">
+              <table class="table table-hover datatable table-bordered text-nowrap text-center" style="max-height: 675px; overflow: auto; display: inline-block;" id="table">
+                <thead class="table-secondary" style="position:sticky; top: 0 ;">
                   <tr>
                     <th scope="col">Return ID</th>
                     <th scope="col">Accession ID</th>

@@ -89,8 +89,8 @@ $id = $conn->query($sql);
               <div class="overflow-auto mt-4">
              
               <!-- Table with stripped rows -->
-              <table class="table table-hover table-bordered text-nowrap text-center">
-                <thead class="table-dark" style="position:sticky; top: 0 ;">
+              <table class="table datatable table-hover table-bordered text-nowrap text-center">
+                <thead class="table-secondary" style="position:sticky; top: 0 ;">
                     <tr>
                       <th scope="col">Library ID</th>
                       <th scope="col">Student ID</th>
