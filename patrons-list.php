@@ -2,7 +2,7 @@
 
 include 'connection.php';
 
-$sql = "SELECT * FROM tbl_patrons";
+$sql = "SELECT * FROM tbl_patrons ORDER BY Library_ID DESC";
 
 $id = $conn->query($sql);
 
@@ -22,7 +22,7 @@ $id = $conn->query($sql);
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/logo.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
@@ -92,6 +92,7 @@ $id = $conn->query($sql);
               <table class="table datatable table-hover table-bordered text-nowrap text-center">
                 <thead class="table-secondary" style="position:sticky; top: 0 ;">
                     <tr>
+                      <th scope="col">QR Code</th>
                       <th scope="col">Library ID</th>
                       <th scope="col">Student ID</th>
                       <th scope="col">First Name</th>
@@ -111,6 +112,7 @@ $id = $conn->query($sql);
                   while($tbl_patrons = mysqli_fetch_assoc($id)):   
                 ?>
                     <tr>
+                      <td><img src="<?= $tbl_patrons['qrCode'];?>" alt=""></td>
                       <th scope="row"><?= $tbl_patrons['Library_ID'];?></th>
                       <td><?= $tbl_patrons['Student_ID'];?></td>
                       <td><?= $tbl_patrons['FirstName'];?></td>

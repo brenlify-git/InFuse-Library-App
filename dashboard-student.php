@@ -62,7 +62,7 @@ include 'connection.php';
           <div class="row">
 
         <div class="welcome" style="text-align: center; margin-top: 10%">
-        <h1><b>Welcome Nationalian!</b></h1>
+        <h1><b>Welcome <?php echo $_SESSION['patron_username']; ?>!</b></h1>
         <h4>This is your dashboard</h4>
         </div>
 

@@ -105,7 +105,7 @@ $id3 = $conn->query($sql3);
                   </div>
                   <div class="col-6">
                     <label for="inputPassword5" class="form-label">Borrow Count</label>
-                    <input type="text" class="form-control" id="borrowCount" name="borrowCount" required>
+                    <input type="text" class="form-control" id="borrowCount" name="borrowCount" readonly required>
                   </div>
                   <div class="col-4">
                     <label for="inputPassword5" class="form-label">First Name</label>

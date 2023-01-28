@@ -3,7 +3,7 @@
 include 'connection.php';
 
 
-$sql = "SELECT * FROM tbl_bookinfo WHERE Status = 'AVAILABLE' OR Status = 'PULLED-OUT' ORDER BY Accession_ID DESC ";
+$sql = "SELECT * FROM tbl_bookinfo WHERE Status = 'AVAILABLE' OR Status = 'UNAVAILABLE' ORDER BY Accession_ID DESC ";
 
 $id = $conn->query($sql);
 
@@ -254,7 +254,7 @@ $id = $conn->query($sql);
                 <div class="overflow-auto mt-4">
 
                   <!-- Table with stripped rows -->
-                  <table class="table  table-hover datatable table-bordered text-center"
+                  <table class="table  table-hover table-bordered text-center"
                     style="max-height: 625px; overflow: auto; display: inline-block;" id="table">
                     <thead class="table-dark" style="position:sticky; top: 0 ;">
                       <tr>
