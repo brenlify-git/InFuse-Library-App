@@ -2,7 +2,7 @@
 
 include 'connection.php';
 
-$sql = "SELECT * FROM tbl_bookreturn INNER JOIN tbl_bookborrow ON tbl_bookreturn.Borrow_ID = tbl_bookborrow.Borrow_ID INNER JOIN tbl_bookinfo ON tbl_bookreturn.Accession_ID = tbl_bookinfo.Accession_ID INNER JOIN tbl_patrons ON tbl_bookreturn.Library_ID = tbl_patrons.Library_ID WHERE Penalty >0 AND Patron_Type != 'LIBRARIAN'";
+$sql = "SELECT * FROM tbl_bookreturn INNER JOIN tbl_bookborrow ON tbl_bookreturn.Borrow_ID = tbl_bookborrow.Borrow_ID INNER JOIN tbl_bookinfo ON tbl_bookreturn.Accession_ID = tbl_bookinfo.Accession_ID INNER JOIN tbl_patrons ON tbl_bookreturn.Library_ID = tbl_patrons.Library_ID WHERE Penalty >0 AND Patron_Type != 'LIBRARIAN' AND tbl_bookreturn.Status = 'RETURNED'";
 $id = $conn->query($sql);
 
 ?>

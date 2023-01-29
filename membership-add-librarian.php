@@ -2,7 +2,7 @@
 
 include 'connection.php';
 
-$sql = "SELECT * FROM tbl_patrons";
+$sql = "SELECT * FROM tbl_patrons ORDER BY Library_ID DESC";
 
 $id = $conn->query($sql);
 
@@ -57,18 +57,18 @@ $id = $conn->query($sql);
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Membership</h1>
+      <h1>Patron's Membership</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="dashboard-librarian.php">Home</a></li>
-          <li class="breadcrumb-item active">Membership</li>
+          <li class="breadcrumb-item active">Patron's Membership</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
 
     <section class="section">
       <div class="row">
-        <div class="col-lg-6">
+        <div class="col-lg-12">
 
           <div class="card">
             <div class="card-body">
@@ -76,70 +76,70 @@ $id = $conn->query($sql);
 
 
               <!-- Multi Columns Form -->
-              <form class="row g-3">
+              <form class="row g-3" action="add-patrons-librarian.php" method="post">
                 
                 <div class="col-md-12">
                   <label for="inputEmail5" class="form-label">Student ID</label>
-                  <input type="number" class="form-control" id="inputEmail5" required>
+                  <input type="text" class="form-control" pattern="[0-9]{4}-[0-9]{6}" maxlength="11" title="Format should be like this: 2021-160099" id="inputEmail5" name="studID" required>
                 </div>
-                <div class="col-md-12">
+                <div class="col-md-4">
                   <label for="inputPassword5" class="form-label">First Name</label>
-                  <input type="text" class="form-control" id="inputPassword5" required>
+                  <input type="text" class="form-control" id="inputPassword5" name="firstName" required>
                 </div>
-                <div class="col-md-12">
+                <div class="col-md-4">
                   <label for="inputPassword5" class="form-label">Middle Name</label>
-                  <input type="text" class="form-control" id="inputPassword5" required>
+                  <input type="text" class="form-control" id="inputPassword5" name="middleName" required>
                 </div>
-                <div class="col-md-12">
+                <div class="col-md-4">
                   <label for="inputPassword5" class="form-label">Last Name</label>
-                  <input type="text" class="form-control" id="inputPassword5" required>
+                  <input type="text" class="form-control" id="inputPassword5" name="lastName" required>
                 </div>
                 <div class="col-6">
                   <label class="col-sm-7 form-label">Patron Type</label>
                   <div class="col-sm-12">
-                    <select class="form-select" aria-label="Default select example" required>
-                      <option value="1">Student</option>
-                      <option value="2">Faculty</option>
+                    <select class="form-select" aria-label="Default select example" name="patronType" required>
+                    <option value="STUDENT">Student</option>
+                    <option value="FACULTY">Faculty</option>
                     </select>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <label for="inputPassword5" class="form-label">Contact Number</label>
-                  <input type="number" class="form-control" id="inputPassword5" required>
+                  <input type="text" class="form-control" id="inputPassword5" pattern="[0-9]{11}" maxlength="11" name="contactNumber" required>
                 </div>
                 <div class="col-6">
                   <label class="col-sm-7 form-label">Department</label>
                   <div class="col-sm-12">
-                    <select class="form-select" aria-label="Default select example" required>
-                      <option value="1">BSIT</option>
-                      <option value="2">BSCE</option>
-                      <option value="2">BSCpE</option>
-                      <option value="2">BSARC</option>
+                    <select class="form-select" aria-label="Default select example" name="department" required>
+                    <option value="BSIT">BSIT</option>
+                        <option value="BSPSYCH">BSPSYCH</option>
+                        <option value="BSBA">BSBA</option>
+                        <option value="BSCE">BSCE</option>
+                        <option value="BSHM">BSHM</option>
                     </select>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <label for="inputPassword5" class="form-label">Section</label>
-                  <input type="text" class="form-control" id="inputPassword5" required>
+                  <input type="text" class="form-control" id="inputPassword5" name="section" required>
                 </div>
                 <div class="col-6">
                   <label for="inputAddress5" class="form-label">Street</label>
-                  <input type="text" class="form-control" id="inputAddres5s" placeholder="William Shakespeare" required>
+                  <input type="text" class="form-control" id="inputAddres5s" placeholder="William Shakespeare" name="street" required>
                 </div>
                 <div class="col-6">
                   <label for="inputAddress5" class="form-label">Barangay</label>
-                  <input type="text" class="form-control" id="inputAddres5s" placeholder="William Shakespeare" required>
+                  <input type="text" class="form-control" id="inputAddres5s" placeholder="William Shakespeare" name="barangay" required>
                 </div>
                 <div class="col-6">
-                  <label for="inputAddress5" class="form-label">Municipality</label>
-                  <input type="text" class="form-control" id="inputAddres5s" placeholder="Book Shelf Inc." required>
+                  <label for="inputAddress5" class="form-label">Municipality</label> 
+                  <input type="text" class="form-control" id="inputAddres5s" placeholder="Book Shelf Inc." name="municipality" required>
                 </div>
                 <div class="col-6">
                   <label for="inputAddress5" class="form-label">Province</label>
-                  <input type="text" class="form-control" id="inputAddres5s" placeholder="Book Shelf Inc." required>
+                  <input type="text" class="form-control" id="inputAddres5s" placeholder="Book Shelf Inc." name="province" required>
                 </div>
-                
-                
+              
                
                 <div class="text-right">
                   <button type="submit" class="btn btn-primary ">+ Add Member</button>
@@ -153,68 +153,7 @@ $id = $conn->query($sql);
 
         </div>
 
-        <div class="col-lg-6">
-
-          <!-- table starts here -->
-
-          <div class="card"> 
-                  <div class="card-body">
-                
-                    <h2 class="card-title ">Members Masterlist</h2>
-
-
-                    <form name="excel.php" method="post">
-
-                    <div class="overflow-auto mt-4">
-                  
-                    <!-- Table with stripped rows -->
-                    <table class="table table-hover table-bordered text-nowrap text-center" style="max-height: 695px; overflow: auto; display: inline-block;">
-                <thead class="table-dark" style="position:sticky; top: 0 ;">
-                    <tr>
-                      <th scope="col">Library ID</th>
-                      <th scope="col">Student ID</th>
-                      <th scope="col">First Name</th>
-                      <th scope="col">Middle Name</th>
-                      <th scope="col">Last Name</th>
-                      <th scope="col">User Type</th>
-                      <th scope="col">Contact Number</th>
-                      <th scope="col">Penalty</th>
-                      <th scope="col">Department</th>
-                      <th scope="col">Section</th>
-                      <th scope="col">Address</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-
-                    <?php
-                  while($tbl_patrons = mysqli_fetch_assoc($id)):   
-                ?>
-                    <tr>
-                      <th scope="row"><?= $tbl_patrons['Library_ID'];?></th>
-                      <td><?= $tbl_patrons['Student_ID'];?></td>
-                      <td><?= $tbl_patrons['FirstName'];?></td>
-                      <td><?= $tbl_patrons['MiddleName'];?></td>
-                      <td><?= $tbl_patrons['LastName'];?></td>
-                      <td><?= $tbl_patrons['Patron_Type'];?></td>
-                      <td><?= $tbl_patrons['Contact_Number'];?></td>
-                      <td><?= $tbl_patrons['Penalty'];?></td>
-                      <td><?= $tbl_patrons['Department'];?></td>
-                      <td><?= $tbl_patrons['Section'];?></td>
-                      <td><?= $tbl_patrons['Street'];?>, <?= $tbl_patrons['Barangay'];?>,
-                        <?= $tbl_patrons['Municipality'];?>, <?= $tbl_patrons['Province'];?> </td>
-                 
-                    </tr>
-
-                    <?php
-          endwhile;
-          ?>
-
-                  </tbody>
-                </table>
-                    
-
-              </form>
-      </div>
+        
     </section>
 
   </main><!-- End #main -->

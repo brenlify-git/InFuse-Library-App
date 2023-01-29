@@ -157,7 +157,15 @@ include 'connection.php';
 
 							$_SESSION['librarian_username'] = $row3['librarian_username'];
 							$_SESSION['librarian_password'] = $row3['librarian_password'];
+							$_SESSION['email'] = $row3['email'];
+							$_SESSION['id'] = $row3['id'];
+							$_SESSION['profilePicture'] = $row3['profilePicture'];
 							$_SESSION['librarian_type'] = $row3['librarian_type'];
+							$_SESSION['contactNumber'] = $row3['contactNumber'];
+							$_SESSION['street'] = $row3['street'];
+							$_SESSION['barangay'] = $row3['barangay'];
+							$_SESSION['municipality'] = $row3['municipality'];
+							$_SESSION['province'] = $row3['province'];
 								header("Location:dashboard-librarian.php");
 						
 						}

@@ -44,11 +44,19 @@
             </li><!-- End Dashboard Nav -->
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="membership-librarian.php">
-                    <i class="bi bi-people"></i>
-                    <span>Membership</span>
+                <a class="nav-link collapsed" data-bs-target="#SET-nav" data-bs-toggle="collapse" href="#">
+                    <i class="bi bi-people"></i><span>Membership</span><i class="bi bi-chevron-down ms-auto"></i>
                 </a>
-            </li><!-- End Profile Page Nav -->
+                <ul id="SET-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a href="membership-add-librarian.php">
+                            <i class="bi bi-people" style="font-size: 15px;"></i>
+                            <span>Patron's Membership</span>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </li><!-- End Tables Nav -->
 
           
 
@@ -88,16 +96,16 @@
                 </a>
                 <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <li>
-                        <a href="book-borrow-librarian.php">
+                        <a href="patron-bookborrow-librarian.php">
                             <i class="bi bi-circle"></i><span>Book Borrow</span>
                         </a>
                     </li>
                     <li>
-                        <a href="book-return-librarian.php">
+                        <a href="patron-bookreturn-librarian.php">
                             <i class="bi bi-circle"></i><span>Book Return</span>
                         </a>
                     </li>
-                 
+
                 </ul>
             </li><!-- End Icons Nav -->
 
@@ -128,14 +136,20 @@
                         <a href="book-return-librarian.php">
                             <i class="bi bi-circle"></i><span>Book Returned</span>
                         </a>
-                        
-                        
+                        <a href="book-pulledout-librarian.php">
+                            <i class="bi bi-circle"></i><span>Book Pulled-out</span>
+                        </a>
+
+
                     </li>
 
                 </ul>
             </li><!-- End Forms Nav -->
 
            
+            <li class="nav-heading">Customization and Settings</li>
+
+            
             <li class="nav-item">
                 <a class="nav-link collapsed" href="users-profiles-librarian.php">
                     <i class="bi bi-person-gear"></i>
@@ -143,12 +157,6 @@
                 </a>
             </li><!-- End Login Page Nav -->
 
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="logout.php">
-                    <i class="bi bi-box-arrow-left"></i>
-                    <span>Log out</span>
-                </a>
-            </li><!-- End Error 404 Page Nav -->
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="about-librarian.php">
@@ -156,7 +164,14 @@
                     <span>About</span>
                 </a>
             </li><!-- End Blank Page Nav -->
-        </ul>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="logout.php">
+                    <i class="bi bi-box-arrow-left"></i>
+                    <span>Log out</span>
+                </a>
+            </li><!-- End Error 404 Page Nav -->
+            </ul>
     </aside>
 
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>

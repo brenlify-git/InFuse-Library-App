@@ -7,7 +7,7 @@ $firstName = $_POST['firstName'];
 $middleName = $_POST['middleName'];
 $lastName = $_POST['lastName'];
 $email = $_POST['email'];
-$adminType = $_POST['adminType'];
+$librarianType = $_POST['librarianType'];
 $contactNumber = $_POST['contactNumber'];
 $street = $_POST['street'];
 $barangay = $_POST['barangay'];
@@ -33,7 +33,7 @@ if (isset($_FILES['profilePicture'])) {
         if ($fileError === 0) {
             if ($fileSize < 1000000) {
                 $fileNameNew = "profile".$firstName.$lastName.".".$fileActualExt;
-                $fileDestination = 'AdminPictures/'.$fileNameNew;
+                $fileDestination = 'LibrarianPictures/'.$fileNameNew;
                 move_uploaded_file($fileTmpName, $fileDestination);
             } else {
                 echo "Your file is too big!";
@@ -88,9 +88,9 @@ include('phpqrcode/qrlib.php');
 
 // how to save PNG codes to server
 
-$tempDir = "qrcode-admin/";
+$tempDir = "qrcode-librarian/";
 
-$codeContents = "Employee ID: " .  $empID . "\nFullname: " . $lastName . ", " . $firstName . " " . $middleInitials. "\nEmail: ". $email. "\nPatron Type: " . $adminType . "\nContact Number: " . $contactNumber . "\nUsername: " . $username. "\nPassword: " . $password . "\nAddress: " . $street . ", " . $barangay . ", " . $municipality . ", " . $province;
+$codeContents = "Employee ID: " .  $empID . "\nFullname: " . $lastName . ", " . $firstName . " " . $middleInitials. "\nEmail: ". $email. "\nPatron Type: " . $librarianType . "\nContact Number: " . $contactNumber . "\nUsername: " . $username. "\nPassword: " . $password . "\nAddress: " . $street . ", " . $barangay . ", " . $municipality . ", " . $province;
 
 // we need to generate filename somehow, 
 // with md5 or with database ID used to obtains $codeContents...
@@ -115,16 +115,16 @@ echo '<hr />';
 // displaying
 echo '<img src="'.$urlRelativeFilePath.'" />';
 
-$profilePicturePath = "AdminPictures/profile".$firstName.$lastName.".".$fileActualExt;
+$profilePicturePath = "LibrarianPictures/profile".$firstName.$lastName.".".$fileActualExt;
 
-$qrfilepath = "qrcode-admin/".$fileName;
+$qrfilepath = "qrcode-librarian/".$fileName;
 
-$sqlInsAdminAcc = "INSERT INTO tbl_adminaccess (empID, firstname, middlename, lastName, email, contactNumber, admin_username, admin_password, admin_type, street, barangay, municipality, province, profilePicture, qrcode) VALUES ('$empID', '$firstName', '$middleName', '$lastName', '$email', '$contactNumber', '$username', '$password', '$adminType', '$street', '$barangay', '$municipality', '$province', '$profilePicturePath', '$qrfilepath')";
-$result22=mysqli_query($conn, $sqlInsAdminAcc);
+$sqlInsLibAcc = "INSERT INTO tbl_librarianaccess (empID, firstname, middlename, lastName, email, contactNumber, librarian_username, librarian_password, librarian_type, street, barangay, municipality, province, profilePicture, qrcode) VALUES ('$empID', '$firstName', '$middleName', '$lastName', '$email', '$contactNumber', '$username', '$password', '$librarianType', '$street', '$barangay', '$municipality', '$province', '$profilePicturePath', '$qrfilepath')";
+$result22=mysqli_query($conn, $sqlInsLibAcc);
 
 if($result22){
     echo "Data Inserted Succesfully!";
-    header("Location:admin-membership.php");
+    header("Location:librarian-membership.php");
 }else{
     die(mysqli_error($conn));
 }
