@@ -19,7 +19,7 @@ $id = $conn->query($sql);
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/logo.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
@@ -67,23 +67,24 @@ $id = $conn->query($sql);
         <div class="col-lg-12">
 
             <!-- table starts here -->
+            <form action="process-borrowed.php" method="post">
 
             <div class="card"> 
             <div class="card-body">
-            <button type="submit" name="export_excel" class="btn btn-primary mt-3" style="float: right;">
+            <button type="submit" name="submit" class="btn btn-primary mt-3" style="float: right;">
               <i class="bi bi-file-earmark-spreadsheet"></i>
               Export
               </button>
               <h5 class="card-title ">Sorted using the books that is borrowed.</h5>
 
 
-              <form name="excel.php" method="post">
+              
 
               <div class="overflow-auto mt-4">
              
               <!-- Table with stripped rows -->
-              <table class="table table-hover table-bordered text-nowrap text-center" style="max-height: 675px; overflow: auto; display: inline-block;">
-                <thead class="table-dark" style="position:sticky; top: 0 ;">
+              <table class="table table-hover datatable table-bordered text-nowrap text-center" style="max-height: 675px; overflow: auto; display: inline-block;" id="table">
+                <thead class="table-secondary" style="position:sticky; top: 0 ;">
                   <tr>
                     <th scope="col">Borrow ID</th>
                     <th scope="col">Due Fee</th>
@@ -165,6 +166,30 @@ $id = $conn->query($sql);
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <script>
+    var table = document.getElementById('table');
+
+    for (var i = 1; i < table.rows.length; i++) {
+      table.rows[i].onclick = function () {
+        document.getElementById("accesionID").value = this.cells[0].innerHTML;
+        document.getElementById("cNum").value = this.cells[1].innerHTML;
+        document.getElementById("bName").value = this.cells[2].innerHTML;
+        document.getElementById("bAuthors").value = this.cells[3].innerHTML;
+        document.getElementById("date").value = this.cells[4].innerHTML;
+        document.getElementById("isbnNum").value = this.cells[5].innerHTML;
+        document.getElementById("series").value = this.cells[8].innerHTML;
+        document.getElementById("price").value = this.cells[9].innerHTML;
+        document.getElementById("copies").value = this.cells[11].innerHTML;
+        document.getElementById("publisher").value = this.cells[10].innerHTML;
+        document.getElementById("notes").value = this.cells[6].innerHTML;
+        document.getElementById("status").value = this.cells[12].innerHTML;
+        document.getElementById("genre").value = this.cells[7].innerHTML;
+        console.log(rows[i]);
+
+      };
+    }
+  </script>
 
 </body>
 

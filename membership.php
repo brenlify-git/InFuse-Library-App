@@ -98,8 +98,8 @@ $id = $conn->query($sql);
                   <label class="col-sm-7 form-label">Patron Type</label>
                   <div class="col-sm-12">
                     <select class="form-select" aria-label="Default select example" name="patronType" required>
-                    <option value="STUDENT">Student</option>
-                    <option value="FACULTY">Faculty</option>
+                    <option value="PATRON">Patron</option>
+                   
                     </select>
                   </div>
                 </div>

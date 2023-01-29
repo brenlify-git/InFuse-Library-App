@@ -1,25 +1,24 @@
 <?php
 
 include 'connection.php';
-
+date_default_timezone_set('Asia/Manila');
 $date = date("Y-m-d");
 
-$sql = "SELECT * FROM tbl_bookborrow INNER JOIN tbl_patrons ON tbl_bookborrow.Library_ID = tbl_patrons.Library_ID  WHERE Status='NOT RETURNED'  AND tbl_bookborrow.Library_ID != '1000'";
+$sql = "SELECT * FROM tbl_bookborrow INNER JOIN tbl_patrons ON tbl_bookborrow.Library_ID = tbl_patrons.Library_ID  WHERE Status='NOT RETURNED' AND Return_Date = '$date'  AND tbl_bookborrow.Library_ID != '1000'";
 $notif = $conn->query($sql);
 
 
-$countNotif = mysqli_query($conn, "SELECT COUNT(*) AS notifCount FROM tbl_bookborrow  WHERE Status='NOT RETURNED' AND Return_Date = '$date' AND Library_Id!='1000'");
+$countNotif = mysqli_query($conn, "SELECT COUNT(*) AS notifCount FROM tbl_bookborrow  WHERE Status='NOT RETURNED' AND Return_Date = '$date' AND Library_ID !='1000'");
 $row_countNotif = mysqli_fetch_assoc($countNotif);
 $row_countNotification = $row_countNotif["notifCount"];
-
 
 session_start();
 if(!isset($_SESSION["librarian_username"])){
     header("Location:index.php");
 }
 if(!isset($_SESSION["librarian_type"])){
-    header("Location:dashboard-librarian.php");
-  }
+  header("Location:dashboard-librarian.php");
+}
 
 ?>
 
@@ -53,7 +52,7 @@ if(!isset($_SESSION["librarian_type"])){
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a href="dashboard.php" class="logo d-flex align-items-center">
+      <a href="dashboard-librarian.php" class="logo d-flex align-items-center">
         <img src="assets/img/Logo Only.png" alt="">
         <span class="d-none d-lg-block">InFuse Library</span>
       </a>

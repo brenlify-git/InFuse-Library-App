@@ -2,9 +2,10 @@
 
 include 'connection.php';
 
-$sql = "SELECT * FROM tbl_bookinfo";
+$sql = "SELECT * FROM tbl_bookinfo WHERE Status = 'AVAILABLE' OR Status = 'UNAVAILABLE' ORDER BY Accession_ID DESC ";
 
 $id = $conn->query($sql);
+
 
 ?>
 
@@ -21,7 +22,7 @@ $id = $conn->query($sql);
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/logo.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
@@ -71,24 +72,25 @@ $id = $conn->query($sql);
         <div class="col-lg-12">
 
           <!-- table starts here -->
-
+      
                 <div class="card"> 
                   <div class="card-body">
-                  <button type="submit" name="export_excel" class="btn btn-primary mt-3" style="float: right;">
+                  <form action="process.php" method="post" enctype="multipart/form-data">
+
+                  <button type="submit" name="submit" class="btn btn-primary mt-3" style="float: right;">
                     <i class="bi bi-file-earmark-spreadsheet"></i>
                     Export
                     </button>
                     <h2 class="card-title ">Sorted using the books that is available</h2>
 
 
-                    <form name="excel.php" method="post">
-
                     <div class="overflow-auto mt-4">
-                  
+
                     <!-- Table with stripped rows -->
-                    <table class="table table-hover table-bordered text-nowrap text-center" style="max-height: 600px; overflow: auto; display: inline-block;">
-                      <thead class="table-dark" style="position:sticky; top: 0 ;">
+                    <table class="table table-hover datatable table-bordered text-nowrap text-center" style="max-height: 600px; overflow: auto; display: inline-block;">
+                      <thead class="table-secondary" style="position:sticky; top: 0 ;">
                         <tr>
+                          <th scope="col">Qr Code</th>
                           <th scope="col">Accession ID</th>
                           <th scope="col">Call Number</th>
                           <th scope="col">Book Name</th>
@@ -96,11 +98,11 @@ $id = $conn->query($sql);
                           <th scope="col">Year Published</th>
                           <th scope="col">ISBN</th>
                           <th scope="col">Notes</th>
-                          <th scope="col">Subject</th>
+                          <th scope="col">Genre</th>
                           <th scope="col">Series</th>
                           <th scope="col">Price</th>
                           <th scope="col">Publisher</th>
-                          <th scope="col">Category</th>
+
                           <th scope="col">Copies</th>
                           <th scope="col">Status</th>
                         </tr>
@@ -111,18 +113,18 @@ $id = $conn->query($sql);
                         while($tbl_bookinfo = mysqli_fetch_assoc($id)):   
                       ?>
                         <tr>
-                          <th scope="row"><?= $tbl_bookinfo['Accession_ID'];?></th>
+                          <td><img src="<?= $tbl_bookinfo['Barcode'];?>" alt=""></td>
+                          <th><?= $tbl_bookinfo['Accession_ID'];?></th>
                           <td><?= $tbl_bookinfo['Call_No'];?></td>
                           <td><?= $tbl_bookinfo['Book_Name'];?></td>
                           <td><?= $tbl_bookinfo['Book_Author'];?></td>
                           <td><?= $tbl_bookinfo['Year_Published'];?></td>
                           <td><?= $tbl_bookinfo['ISBN'];?></td>
                           <td><?= $tbl_bookinfo['Notes'];?></td>
-                          <td><?= $tbl_bookinfo['Subject'];?></td>
+                          <td><?= $tbl_bookinfo['Genre'];?></td>
                           <td><?= $tbl_bookinfo['Series'];?></td>
                           <td><?= $tbl_bookinfo['Price'];?></td>
                           <td><?= $tbl_bookinfo['Publisher'];?></td>
-                          <td><?= $tbl_bookinfo['Category'];?></td>
                           <td><?= $tbl_bookinfo['Copies'];?></td>
                           <td><?= $tbl_bookinfo['Status'];?></td>
                         

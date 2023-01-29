@@ -8,7 +8,7 @@ if(!isset($_SESSION["patron_username"])){
     header("Location:index.php");
     
 }
-if(!isset($_SESSION["patron_type"])){
+if(!isset($_SESSION["Patron_Type"])){
   header("Location:dashboard-student.php");
 }
 
@@ -53,93 +53,11 @@ if(!isset($_SESSION["patron_type"])){
 <nav class="header-nav ms-auto">
   <ul class="d-flex align-items-center">
 
-    <li class="nav-item d-block d-lg-none">
-      <a class="nav-link nav-icon search-bar-toggle " href="#">
-        <i class="bi bi-search"></i>
-      </a>
-    </li><!-- End Search Icon-->
-
-    <li class="nav-item dropdown">
-
-      <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
-        <i class="bi bi-bell"></i>
-        <span class="badge bg-primary badge-number">4</span>
-      </a><!-- End Notification Icon -->
-
-      <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
-        <li class="dropdown-header">
-          You have 4 new notifications
-          <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
-        </li>
-        <li>
-          <hr class="dropdown-divider">
-        </li>
-
-        <li class="notification-item">
-          <i class="bi bi-exclamation-circle text-warning"></i>
-          <div>
-            <h4>Lorem Ipsum</h4>
-            <p>Quae dolorem earum veritatis oditseno</p>
-            <p>30 min. ago</p>
-          </div>
-        </li>
-
-        <li>
-          <hr class="dropdown-divider">
-        </li>
-
-        <li class="notification-item">
-          <i class="bi bi-x-circle text-danger"></i>
-          <div>
-            <h4>Atque rerum nesciunt</h4>
-            <p>Quae dolorem earum veritatis oditseno</p>
-            <p>1 hr. ago</p>
-          </div>
-        </li>
-
-        <li>
-          <hr class="dropdown-divider">
-        </li>
-
-        <li class="notification-item">
-          <i class="bi bi-check-circle text-success"></i>
-          <div>
-            <h4>Sit rerum fuga</h4>
-            <p>Quae dolorem earum veritatis oditseno</p>
-            <p>2 hrs. ago</p>
-          </div>
-        </li>
-
-        <li>
-          <hr class="dropdown-divider">
-        </li>
-
-        <li class="notification-item">
-          <i class="bi bi-info-circle text-primary"></i>
-          <div>
-            <h4>Dicta reprehenderit</h4>
-            <p>Quae dolorem earum veritatis oditseno</p>
-            <p>4 hrs. ago</p>
-          </div>
-        </li>
-
-        <li>
-          <hr class="dropdown-divider">
-        </li>
-        <li class="dropdown-footer">
-          <a href="#">Show all notifications</a>
-        </li>
-
-      </ul><!-- End Notification Dropdown Items -->
-
-    </li><!-- End Notification Nav -->
-
-  
 
     <li class="nav-item dropdown pe-3">
 
       <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-        <img src="assets/img/Robles, Brenley Ian_BSIT3.png" alt="Profile" class="rounded-circle">
+        <img src="assets/img/logo.png" alt="Profile" class="rounded-circle">
         <span class="d-none d-md-block dropdown-toggle ps-2"><?php echo $_SESSION['patron_username']; ?></span>
       </a><!-- End Profile Iamge Icon -->
 
@@ -148,26 +66,17 @@ if(!isset($_SESSION["patron_type"])){
       <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
         <li class="dropdown-header">
           <h6><?php echo $_SESSION['patron_username']; ?></h6>
-          <span><?php echo $_SESSION['patron_type']; ?></span>
+          <span><?php echo $_SESSION['Patron_Type']; ?></span>
         </li>
         <li>
           <hr class="dropdown-divider">
         </li>
 
-        <li>
-          <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
-            <i class="bi bi-person"></i>
-            <span>My Profile</span>
-          </a>
-        </li>
-        <li>
-          <hr class="dropdown-divider">
-        </li>
 
         <li>
-          <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+          <a class="dropdown-item d-flex align-items-center" href="user-profiles-student.php">
             <i class="bi bi-gear"></i>
-            <span>Account Settings</span>
+            <span>User Account</span>
           </a>
         </li>
         <li>
@@ -175,9 +84,9 @@ if(!isset($_SESSION["patron_type"])){
         </li>
 
         <li>
-          <a class="dropdown-item d-flex align-items-center" href="pages-faq.html">
+          <a class="dropdown-item d-flex align-items-center" href="about-librarian.php">
             <i class="bi bi-question-circle"></i>
-            <span>Need Help?</span>
+            <span>About</span>
           </a>
         </li>
         <li>

@@ -1,12 +1,12 @@
 <?php 
 include 'connection.php';
 
-$countStudents = mysqli_query($conn, "SELECT COUNT(*) AS countS  FROM tbl_patrons WHERE Patron_Type = 'STUDENT'");
+$countStudents = mysqli_query($conn, "SELECT COUNT(*) AS countS  FROM tbl_patrons WHERE Patron_Type = 'PATRON'");
 $row_countStud = mysqli_fetch_assoc($countStudents);
 $countStud = $row_countStud["countS"];
 
 
-$countFaculty = mysqli_query($conn, "SELECT COUNT(*) AS countF  FROM tbl_patrons WHERE Patron_Type = 'FACULTY'");
+$countFaculty = mysqli_query($conn, "SELECT COUNT(*) AS countF  FROM tbl_librarianaccess WHERE librarian_type = 'LIBRARIAN'");
 $row_countFact = mysqli_fetch_assoc($countFaculty);
 $countFact = $row_countFact["countF"];
 
@@ -16,12 +16,12 @@ $row_countAvail = mysqli_fetch_assoc($countAvailableBook);
 $countAvail = $row_countAvail["countAB"];
 
 
-$countBorrowed = mysqli_query($conn, "SELECT COUNT(*) AS countBRW  FROM tbl_bookborrow");
+$countBorrowed = mysqli_query($conn, "SELECT COUNT(*) AS countBRW  FROM tbl_bookinfo WHERE Status = 'PULLED-OUT'");
 $row_countBor = mysqli_fetch_assoc($countBorrowed);
 $countBor = $row_countBor["countBRW"];
 
 
-$countReturned = mysqli_query($conn, "SELECT COUNT(*) AS countRt  FROM tbl_bookreturn");
+$countReturned = mysqli_query($conn, "SELECT COUNT(*) AS countRt  FROM tbl_adminaccess");
 $row_countRt = mysqli_fetch_assoc($countReturned);
 $countRt = $row_countRt["countRt"];
 
@@ -86,8 +86,8 @@ $countCat = $row_countCat["category"];
     <section class="section dashboard">
       <div class="row">
 
-        <!-- Left side columns -->
-        <div class="col-lg-12">
+       <!-- Left side columns -->
+       <div class="col-lg-12">
           <div class="row">
 
             <!-- Dashboard Cards -->
@@ -97,7 +97,7 @@ $countCat = $row_countCat["category"];
 
 
                 <div class="card-body">
-                  <h5 class="card-title">Students <span>| Registered</span></h5>
+                  <h5 class="card-title">Patrons <span>| Registered</span></h5>
 
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
@@ -105,7 +105,35 @@ $countCat = $row_countCat["category"];
                     </div>
                     <div class="ps-3">
                       <h6> <?php echo $countStud;?> </h6>
-                      <span class="text-success small pt-1 fw-bold">ADMIN</span> <span
+                      <span class="text-success small pt-1 fw-bold">LIBRARIAN</span> <span
+                        class="text-muted small pt-2 ps-1">ONLY</span>
+
+                    </div>
+                  </div>
+                </div>
+
+
+
+
+              </div>
+            </div><!-- End Sales Card -->
+
+            <!-- Dashboard Cards -->
+            <div class="col-xxl-4 col-md-12">
+              <div class="card info-card revenue-card">
+
+
+
+                <div class="card-body">
+                  <h5 class="card-title">Admin <span>| Registered</span></h5>
+
+                  <div class="d-flex align-items-center">
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                      <i class="bi bi-people"></i>
+                    </div>
+                    <div class="ps-3">
+                      <h6> <?php echo $countRt;?> </h6>
+                      <span class="text-success small pt-1 fw-bold">LIBRARIAN</span> <span
                         class="text-muted small pt-2 ps-1">ONLY</span>
 
                     </div>
@@ -124,7 +152,7 @@ $countCat = $row_countCat["category"];
 
 
                 <div class="card-body">
-                  <h5 class="card-title">Faculties <span>| Registered</span></h5>
+                  <h5 class="card-title">Librarian <span>| Registered</span></h5>
 
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
@@ -132,7 +160,7 @@ $countCat = $row_countCat["category"];
                     </div>
                     <div class="ps-3">
                       <h6> <?php echo $countFact;?> </h6>
-                      <span class="text-success small pt-1 fw-bold">ADMIN</span> <span
+                      <span class="text-success small pt-1 fw-bold">LIBRARIAN</span> <span
                         class="text-muted small pt-2 ps-1">ONLY</span>
 
                     </div>
@@ -150,7 +178,7 @@ $countCat = $row_countCat["category"];
 
 
                 <div class="card-body">
-                  <h5 class="card-title">Category <span>| Today</span></h5>
+                  <h5 class="card-title">Category <span>| As of Today</span></h5>
 
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
@@ -158,7 +186,7 @@ $countCat = $row_countCat["category"];
                     </div>
                     <div class="ps-3">
                       <h6> <?php echo $countCat;?> </h6>
-                      <span class="text-success small pt-1 fw-bold">ADMIN</span> <span
+                      <span class="text-success small pt-1 fw-bold">LIBRARIAN</span> <span
                         class="text-muted small pt-2 ps-1">ONLY</span>
 
                     </div>
@@ -171,58 +199,7 @@ $countCat = $row_countCat["category"];
 
 
 
-            <!-- Revenue Card -->
-            <div class="col-xxl-4 col-md-12">
-              <div class="card info-card customers-card">
-
-
-
-                <div class="card-body">
-                  <h5 class="card-title">Issued <span>| Book Borrow</span></h5>
-
-                  <div class="d-flex align-items-center">
-                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                      <i class="bi bi-journal-arrow-up"></i>
-                    </div>
-                    <div class="ps-3">
-                      <h6> <?php echo $countBor;?> </h6>
-                      <span class="text-danger small pt-1 fw-bold">ADMIN</span> <span
-                        class="text-muted small pt-2 ps-1">ONLY</span>
-
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            </div><!-- End Revenue Card -->
-
-            <!-- Customers Card -->
-            <div class="col-xxl-4 col-xl-12">
-
-              <div class="card info-card customers-card">
-
-
-
-                <div class="card-body">
-                  <h5 class="card-title">Returned <span>| Book Return</span></h5>
-
-                  <div class="d-flex align-items-center">
-                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                      <i class="bi bi-journal-arrow-down"></i>
-                    </div>
-                    <div class="ps-3">
-                      <h6> <?php echo $countRt;?> </h6>
-                      <span class="text-danger small pt-1 fw-bold">ADMIN</span> <span
-                        class="text-muted small pt-2 ps-1">ONLY</span>
-
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-
-            </div><!-- End Customers Card -->
-
+          
             <!-- Sales Card -->
             <div class="col-xxl-4 col-md-12">
               <div class="card info-card sales-card">
@@ -230,7 +207,7 @@ $countCat = $row_countCat["category"];
 
 
                 <div class="card-body">
-                  <h5 class="card-title">Available Book <span>| Today</span></h5>
+                  <h5 class="card-title">Available Book <span>| As of Today</span></h5>
 
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
@@ -238,7 +215,32 @@ $countCat = $row_countCat["category"];
                     </div>
                     <div class="ps-3">
                       <h6> <?php echo $countAvail;?> </h6>
-                      <span class="text-success small pt-1 fw-bold">ADMIN</span> <span
+                      <span class="text-success small pt-1 fw-bold">LIBRARIAN</span> <span
+                        class="text-muted small pt-2 ps-1">ONLY</span>
+
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div><!-- End Sales Card -->
+
+             <!-- Sales Card -->
+             <div class="col-xxl-4 col-md-12">
+              <div class="card info-card sales-card">
+
+
+
+                <div class="card-body">
+                  <h5 class="card-title">Pulled-out Books <span>| As of Today</span></h5>
+
+                  <div class="d-flex align-items-center">
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                      <i class="bi bi-journal-check"></i>
+                    </div>
+                    <div class="ps-3">
+                      <h6> <?php echo $countBor;?> </h6>
+                      <span class="text-success small pt-1 fw-bold">LIBRARIAN</span> <span
                         class="text-muted small pt-2 ps-1">ONLY</span>
 
                     </div>
@@ -260,7 +262,7 @@ $countCat = $row_countCat["category"];
               </div>
 
               <div class="card-body pb-0">
-                <h5 class="card-title">NU Baliwag Learning Resource <span>| Today</span></h5>
+                <h5 class="card-title">NU Baliwag Learning Resource Center <span>| Today</span></h5>
 
                 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                   <div class="carousel-inner mb-4" style="border-radius: 15px;">

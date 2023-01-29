@@ -124,8 +124,8 @@ $id3 = $conn->query($sql3);
                     <div class="col-sm-12">
                       <select class="form-select" aria-label="Default select example" id="type" required>
                       <option selected disabled>Select type</option>
-                        <option value="STUDENT">Student</option>
-                        <option value="FACULTY">Faculty</option>
+                        <option value="PATRON">Patron</option>
+                    
                       </select>
                     </div>
                   </div>

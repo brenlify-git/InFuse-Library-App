@@ -5,7 +5,7 @@ include 'connection.php';
 
 $search = $_POST['search'];
 
-$stmt = $conn->prepare("SELECT DISTINCT Book_Name, Call_No, Book_Author FROM tbl_bookinfo WHERE Book_Name LIKE ? OR Call_NO LIKE ? ORDER BY Book_Name ASC");
+$stmt = $conn->prepare("SELECT DISTINCT Book_Name, Call_No, Book_Author FROM tbl_bookinfo WHERE Status = 'AVAILABLE' AND (Book_Name LIKE ? OR Call_NO LIKE ?) ORDER BY Book_Name ASC");
 $search = "%" . $search . "%";
 $stmt->bind_param("ss", $search, $search);
 $stmt->execute();

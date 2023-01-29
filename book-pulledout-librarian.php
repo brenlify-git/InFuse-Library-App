@@ -5,10 +5,8 @@ include 'connection.php';
 
 
 
-$sql = "SELECT * FROM (((tbl_patrons INNER JOIN tbl_bookreturn ON tbl_patrons.Library_ID = tbl_bookreturn.Library_ID) INNER JOIN tbl_bookinfo ON  tbl_bookreturn.Accession_ID = tbl_bookinfo.Accession_ID) INNER JOIN tbl_bookborrow ON tbl_bookreturn.Borrow_ID = tbl_bookborrow.Borrow_ID)";
+$sql = "SELECT * FROM (tbl_pulloutbooks INNER JOIN tbl_patrons ON tbl_pulloutbooks.Library_ID = tbl_patrons.Library_ID INNER JOIN tbl_bookreturn ON tbl_pulloutbooks.Return_ID = tbl_bookreturn.Return_ID INNER JOIN tbl_bookinfo ON tbl_bookreturn.Accession_ID = tbl_bookinfo.Accession_ID)";
 $id = $conn->query($sql);
-
-
 
 ?>
 
@@ -60,12 +58,12 @@ $id = $conn->query($sql);
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Book Return</h1>
+      <h1>Book Pulled-out</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="dashboard-librarian.php">Home</a></li>
           <li class="breadcrumb-item">Records</li>
-          <li class="breadcrumb-item active">Book Return</li>
+          <li class="breadcrumb-item active">Book Pulled-out</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -75,7 +73,7 @@ $id = $conn->query($sql);
         <div class="col-lg-12">
 
            <!-- table starts here -->
-           <form action="process-return.php" method="post">
+           <form action="process-pullout.php" method="post">
 
            <div class="card"> 
             <div class="card-body">
@@ -83,7 +81,7 @@ $id = $conn->query($sql);
               <i class="bi bi-file-earmark-spreadsheet"></i>
               Export
               </button>
-              <h2 class="card-title">Sorted using the books that is returned.</h2>
+              <h2 class="card-title">Sorted using the books that is pulled-out.</h2>
 
 
               
@@ -94,14 +92,16 @@ $id = $conn->query($sql);
               <table class="table table-hover datatable table-bordered text-nowrap text-center" style="max-height: 675px; overflow: auto; display: inline-block;" id="table">
                 <thead class="table-secondary" style="position:sticky; top: 0 ;">
                   <tr>
+                    <th scope="col">Pullout ID</th>
                     <th scope="col">Return ID</th>
                     <th scope="col">Accession ID</th>
-                    <th scope="col">Book Name</th>
                     <th scope="col">Library ID</th>
-                    <th scope="col">Patrons Name</th>
-                    <th scope="col">Borrow ID</th>
-                    <th scope="col">Date Borrowed</th>
-                    <th scope="col">Return Date</th>          
+                    <th scope="col">Patron Name</th>
+                    <th scope="col">Book Name</th>
+                    <th scope="col">Action</th>
+                    <th scope="col">Reason</th>
+                    <th scope="col">Total Fine</th>
+                    <th scope="col">Pullout Date</th>          
                   </tr>
                 </thead>
                 <tbody>
@@ -110,15 +110,16 @@ $id = $conn->query($sql);
                   while($tbl_bookreturn = mysqli_fetch_assoc($id)):   
                 ?>
                   <tr>
-                    <th scope="row"><?= $tbl_bookreturn['Return_ID'];?></th>
+                    <th scope="row"><?= $tbl_bookreturn['Pullout_ID'];?></th>
+                    <td><?= $tbl_bookreturn['Return_ID'];?></td>
                     <td><?= $tbl_bookreturn['Accession_ID'];?></td>
-                    <td><?= $tbl_bookreturn['Book_Name'];?></td>
                     <td><?= $tbl_bookreturn['Library_ID'];?></td>
                     <td><?= $tbl_bookreturn['LastName'];?>, <?= $tbl_bookreturn['FirstName'];?> <?= $tbl_bookreturn['MiddleName'];?></td>
-                    <td><?= $tbl_bookreturn['Borrow_ID'];?></td>
-                    <td><?= $tbl_bookreturn['Borrow_Date'];?></td>
+                    <td><?= $tbl_bookreturn['Book_Name'];?></td>
+                    <td><?= $tbl_bookreturn['Action'];?></td>
+                    <td><?= $tbl_bookreturn['Reason'];?></td>
+                    <td><?= $tbl_bookreturn['Total'];?></td>
                     <td><?= $tbl_bookreturn['Return_Date'];?></td>
-                
                   </tr>
 
                   <?php

@@ -116,7 +116,7 @@ include 'connection.php';
 						$Pass = $_POST['Pass'];
 						$Type = $_POST['type'];
 
-						$select = mysqli_query($conn, "SELECT * FROM tbl_patronaccess WHERE patron_username = '$Username' AND patron_password = '$Pass' && patron_type = '$Type'");
+						$select = mysqli_query($conn, "SELECT * FROM tbl_patrons WHERE patron_username = '$Username' AND patron_password = '$Pass' && Patron_Type = '$Type'");
 						$row = mysqli_fetch_array($select);
 
 
@@ -132,7 +132,12 @@ include 'connection.php';
 
 							$_SESSION['patron_username'] = $row['patron_username'];
 							$_SESSION['patron_password'] = $row['patron_password'];
-							$_SESSION['patron_type'] = $row['patron_type'];
+							$_SESSION['Patron_Type'] = $row['Patron_Type'];
+							$_SESSION['Library_ID'] = $row['Library_ID'];
+							$_SESSION['Student_ID'] = $row['Student_ID'];
+							$_SESSION['Borrow_Count'] = $row['Borrow_Count'];							
+							$_SESSION['Penalty'] = $row['Penalty'];
+							$_SESSION['qrCode'] = $row['qrCode'];
 								header("Location:dashboard-student.php");
 
 						}

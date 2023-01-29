@@ -91,17 +91,10 @@ echo '<hr />';
 // displaying
 echo '<img src="'.$urlRelativeFilePath.'" />';
 
-
-
-
-
-$sqlIns = "INSERT INTO tbl_patrons (Student_ID, FirstName, MiddleName, LastName, Patron_Type, Contact_Number, qrCode, Penalty, Borrow_Count, Department, Section, Street, Barangay, Municipality, Province) 
-VALUES ('$StudentID', '$firstName', '$middleName', '$lastName', '$patronType', '$contactNumber', '$urlRelativeFilePath', '$penalty', '$borrowCount', '$department', '$section', '$street', '$barangay', '$munipality', '$province')";
+$sqlIns = "INSERT INTO tbl_patrons (Student_ID, FirstName, MiddleName, LastName, Patron_Type, Contact_Number, patron_username, patron_password, qrCode, Penalty, Borrow_Count, Department, Section, Street, Barangay, Municipality, Province) 
+VALUES ('$StudentID', '$firstName', '$middleName', '$lastName', 'PATRON', '$contactNumber', '$username', '$password', '$urlRelativeFilePath', '$penalty', '$borrowCount', '$department', '$section', '$street', '$barangay', '$munipality', '$province')";
 $result=mysqli_query($conn, $sqlIns);
 
-
-$sqlInsAcc = "INSERT INTO tbl_patronaccess (patron_username, patron_password, patron_type) VALUES ('$username', '$password', 'PATRON')";
-$result2=mysqli_query($conn, $sqlInsAcc);
 
 if($result){
     echo "Data Inserted Succesfully!";

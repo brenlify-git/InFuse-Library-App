@@ -3,7 +3,7 @@
 include 'connection.php';
 
 
-$sql = "SELECT * FROM tbl_bookinfo ORDER BY Book_Name ASC";
+$sql = "SELECT * FROM tbl_bookinfo WHERE Status='AVAILABLE' ORDER BY Book_Name ASC";
 
 $id = $conn->query($sql);
 

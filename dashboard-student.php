@@ -1,12 +1,38 @@
-<?php 
 
+<?php 
 include 'connection.php';
 
+$countStudents = mysqli_query($conn, "SELECT COUNT(*) AS countS  FROM tbl_patrons WHERE Patron_Type = 'PATRON'");
+$row_countStud = mysqli_fetch_assoc($countStudents);
+$countStud = $row_countStud["countS"];
 
+
+$countFaculty = mysqli_query($conn, "SELECT COUNT(*) AS countF  FROM tbl_librarianaccess WHERE librarian_type = 'LIBRARIAN'");
+$row_countFact = mysqli_fetch_assoc($countFaculty);
+$countFact = $row_countFact["countF"];
+
+
+$countAvailableBook = mysqli_query($conn, "SELECT COUNT(*) AS countAB  FROM tbl_bookinfo WHERE Status = 'AVAILABLE'");
+$row_countAvail = mysqli_fetch_assoc($countAvailableBook);
+$countAvail = $row_countAvail["countAB"];
+
+
+$countBorrowed = mysqli_query($conn, "SELECT COUNT(*) AS countBRW  FROM tbl_bookinfo WHERE Status = 'PULLED-OUT'");
+$row_countBor = mysqli_fetch_assoc($countBorrowed);
+$countBor = $row_countBor["countBRW"];
+
+
+$countReturned = mysqli_query($conn, "SELECT COUNT(*) AS countRt  FROM tbl_adminaccess");
+$row_countRt = mysqli_fetch_assoc($countReturned);
+$countRt = $row_countRt["countRt"];
+
+
+$countCategory = mysqli_query($conn, "SELECT COUNT(DISTINCT Genre) AS category  FROM tbl_bookinfo");
+$row_countCat = mysqli_fetch_assoc($countCategory);
+$countCat = $row_countCat["category"];
 
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,6 +68,8 @@ include 'connection.php';
   <!-- End Sidebar and Header-->
 
 
+
+
   <main id="main" class="main">
 
     <div class="pagetitle">
@@ -55,18 +83,63 @@ include 'connection.php';
     </div><!-- End Page Title -->
 
     <section class="section dashboard">
-      <div class="row">
-
         <!-- Left side columns -->
         <div class="col-lg-12">
           <div class="row">
 
-        <div class="welcome" style="text-align: center; margin-top: 10%">
-        <h1><b>Welcome <?php echo $_SESSION['patron_username']; ?>!</b></h1>
-        <h4>This is your dashboard</h4>
-        </div>
+            <!-- Dashboard Cards -->
+            <div class="col-xxl-4 col-md-12">
+              <div class="card info-card revenue-card">
 
-      </div>
+
+
+                <div class="card-body">
+                  <h5 class="card-title">Borrow Count <span>| As of Today</span></h5>
+
+                  <div class="d-flex align-items-center">
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                      <i class="bi bi-journal"></i>
+                    </div>
+                    <div class="ps-3">
+                      <h6> <?php echo $_SESSION['Borrow_Count']?> </h6>
+                      <span class="text-success small pt-1 fw-bold">ONLY</span> <span
+                        class="text-muted small pt-2 ps-1">ME</span>
+
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div><!-- End Sales Card -->
+
+             <!-- Dashboard Cards -->
+             <div class="col-xxl-4 col-md-12">
+              <div class="card info-card revenue-card">
+
+
+
+                <div class="card-body">
+                  <h5 class="card-title">Penalties <span>| As of Today</span></h5>
+
+                  <div class="d-flex align-items-center">
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                      <i class="bi bi-cash-coin"></i>
+                    </div>
+                    <div class="ps-3">
+                      <h6> <?php echo $_SESSION['Penalty']?> </h6>
+                      <span class="text-success small pt-1 fw-bold">ONLY</span> <span
+                        class="text-muted small pt-2 ps-1">ME</span>
+
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div><!-- End Sales Card -->
+            
+           
+
+          
     </section>
 
   </main><!-- End #main -->
