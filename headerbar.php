@@ -4,7 +4,7 @@ include 'connection.php';
 
 $date = date("Y-m-d");
 
-$sql = "SELECT * FROM tbl_bookborrow INNER JOIN tbl_patrons ON tbl_bookborrow.Library_ID = tbl_patrons.Library_ID  WHERE Status='NOT RETURNED' AND Return_Date = '$date' AND tbl_bookborrow.Library_ID != '1000'";
+$sql = "SELECT * FROM tbl_bookborrow INNER JOIN tbl_patrons ON tbl_bookborrow.Library_ID = tbl_patrons.Library_ID  WHERE Status='NOT RETURNED'  AND tbl_bookborrow.Library_ID != '1000'";
 $notif = $conn->query($sql);
 
 

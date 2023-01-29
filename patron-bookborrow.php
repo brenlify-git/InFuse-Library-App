@@ -131,7 +131,7 @@ $id3 = $conn->query($sql3);
                   </div>
                   <div class="col-6">
                     <label for="inputPassword5" class="form-label">Contact Number</label>
-                    <input type="number" class="form-control" id="contact" required>
+                    <input type="number" class="form-control" id="contact"  required>
                   </div>
                   <div class="col-6">
                     <label class="col-sm-7 form-label">Department</label>

@@ -2,7 +2,7 @@
 
 include 'connection.php';
 
-$sql = "SELECT * FROM tbl_patrons";
+$sql = "SELECT * FROM tbl_patrons ORDER BY Library_ID DESC";
 
 $id = $conn->query($sql);
 
@@ -61,7 +61,7 @@ $id = $conn->query($sql);
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="dashboard.php">Home</a></li>
-          <li class="breadcrumb-item active">Membership</li>
+          <li class="breadcrumb-item active">Patron's Membership</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->

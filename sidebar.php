@@ -42,12 +42,31 @@
                     <span>Dashboard</span>
                 </a>
             </li><!-- End Dashboard Nav -->
+
+
+
             <li class="nav-item">
-                <a class="nav-link collapsed" href="membership.php">
-                    <i class="bi bi-people"></i>
-                    <span>Patron's Membership</span>
+                <a class="nav-link collapsed" data-bs-target="#SET-nav" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-people"></i><span>Membership</span><i
+                        class="bi bi-chevron-down ms-auto"></i>
                 </a>
-            </li><!-- End Profile Page Nav -->
+                <ul id="SET-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a href="membership.php">
+                        <i class="bi bi-people" style="font-size: 15px;"></i>
+                        <span>Patron's Membership</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="admin-membership.php">
+                        <i class="bi bi-person-add" style="font-size: 15px;"></i>
+                    <span>Admin's Membership</span>
+                        </a>
+                    </li>
+                </ul>
+            </li><!-- End Tables Nav -->
+
+        
 
           
 

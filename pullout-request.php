@@ -29,7 +29,7 @@ $Total = $iPenalty+$iPrice;
 $sqlIns = "INSERT INTO tbl_pulloutbooks (Library_ID, Return_ID, Action, Reason, PenaltyFee, Total) VALUES ('$LibraryID', '$ReturnID', '$Act', '$Reason','$PenaltyFee', $Total)";
 $result=mysqli_query($conn, $sqlIns);
 
-$sqlUpdateStatus = "UPDATE tbl_bookreturn SET Status = 'PULLED-OUT' WHERE Accession_ID = '$AccesionID'";
+$sqlUpdateStatus = "UPDATE tbl_bookreturn SET Status = 'PULLED-OUT' WHERE Return_ID = '$ReturnID'";
 $result3=mysqli_query($conn, $sqlUpdateStatus);
 
 $sqlUpdateStatus2 = "UPDATE tbl_bookborrow SET Status = 'PULLED-OUT' WHERE Accession_ID = '$AccesionID'";

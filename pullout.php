@@ -12,10 +12,10 @@ $id = $conn->query($sql);
 $sqlpull = "SELECT * FROM tbl_bookinfo ";
 $pulled = $conn->query($sqlpull);
 
-$selectLibraryID = "SELECT Library_ID  FROM tbl_bookborrow WHERE Status = 'RETURNED'";
+$selectLibraryID = "SELECT Library_ID  FROM tbl_bookreturn WHERE Status = 'RETURNED' ORDER BY Library_ID DESC";
 $res = mysqli_query($conn, $selectLibraryID);
 
-$selectReturnID = "SELECT Return_ID FROM tbl_bookreturn  WHERE Status = 'RETURNED'";
+$selectReturnID = "SELECT Return_ID FROM tbl_bookreturn  WHERE Status = 'RETURNED' ORDER BY Library_ID DESC";
 $res2 = mysqli_query($conn, $selectReturnID);
 
 ?>
@@ -222,7 +222,7 @@ $res2 = mysqli_query($conn, $selectReturnID);
                 <div class="col-4">
                   <label class="col-sm-7 form-label">Library ID</label>
                   <div class="col-sm-12">
-                    <select class="form-select" aria-label="Default select example" id="LibID" name="LibraryID"
+                    <select class="form-select" aria-label="Default select example" id="LibID" onchange="selectIndex()" name="LibraryID"
                       required>
                       <option selected disabled>Select ID</option>
                       <option  value="1000">1000</option>
@@ -259,13 +259,24 @@ $res2 = mysqli_query($conn, $selectReturnID);
                       textbox3.value = "";
                     }
                   }
+
+
+                  function selectIndex(){
+                    var indexLib = document.getElementById("LibID").selectedIndex;
+                    document.getElementById("Returnid").selectedIndex = indexLib;
+                  }
+
+                  function selectReturnID(){
+                    var ReturnID = document.getElementById("Returnid").selectedIndex;
+                    document.getElementById("LibID").selectedIndex = ReturnID;
+                  }
                 </script>
 
 
                 <div class="col-4">
                   <label class="col-sm-7 form-label">Return ID</label>
                   <div class="col-sm-12">
-                    <select class="form-select" aria-label="Default select example" id="Returnid" name="ReturnID" required>
+                    <select class="form-select" aria-label="Default select example" id="Returnid" onchange="selectReturnID()" name="ReturnID" required>
                     <option selected disabled>Select ID</option>
                       <option  value="1000">1000</option>
                       

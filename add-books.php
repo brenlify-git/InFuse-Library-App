@@ -200,14 +200,10 @@ $CallNumNew = $Last+1;
 
                 <div class="col-4">
                   <label for="inputAddress5" class="form-label">Price</label>
-                  <input type="number" pattern="^[0-9]{3,}.[0-9]{2}" class="form-control" id="inputAddres5s"  name="Price"
+                  <input type="text" min="1" step="any" pattern="^[0-9]{3,}.[0-9]{2}" class="form-control" id="inputAddres5s"  name="Price"
                     placeholder="567.00" required>
                 </div>
 
-                <div class="col-4">
-                  <label for="inputAddress5" class="form-label">Copies</label>
-                  <input type="number" class="form-control" id="inputAddres5s" name="Copies" placeholder="5" required>
-                </div>
 
                 <div class="col-4">
                   <label for="inputAddress5" class="form-label">Publisher</label>
@@ -215,7 +211,7 @@ $CallNumNew = $Last+1;
                     placeholder="Book Shelf Inc." required>
                 </div>
 
-                <div class="col-4">
+                <div class="col-6">
                   <label class="col-sm-3 form-label">Status</label>
                   <div class="col-sm-12">
                     <select class="form-select" aria-label="Default select example" name="Status">
@@ -225,7 +221,7 @@ $CallNumNew = $Last+1;
                   </div>
                 </div>
 
-                <div class="col-4">
+                <div class="col-6">
                   <label for="inputAddress5" class="form-label">Notes</label>
                   <textarea type="number" class="form-control" style="height: 10px;" id="inputAddres5s"
                     placeholder="Cover page has dirt marks." name="Notes" required></textarea>
@@ -233,7 +229,7 @@ $CallNumNew = $Last+1;
 
 
                 <div class="text-right">
-                  <button type="submit" class="btn btn-primary" onclick="success_toast()">+ Add Book</button>
+                  <button type="submit" class="btn btn-primary" >+ Add Book</button>
                   <button type="reset" class="btn btn-warning" >Reset</button>
                 </div>
               </form><!-- End Multi Columns Form -->

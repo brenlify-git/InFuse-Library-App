@@ -2,7 +2,7 @@
 
 include 'connection.php';
 
-$sql = "SELECT * FROM tbl_bookinfo WHERE Status != 'PULLED-OUT' ORDER BY Accession_ID DESC ";
+$sql = "SELECT * FROM tbl_bookinfo WHERE Status = 'AVAILABLE' OR Status = 'UNAVAILABLE' ORDER BY Accession_ID DESC ";
 
 $id = $conn->query($sql);
 
