@@ -8,8 +8,6 @@ include 'connection.php';
 $sql = "SELECT * FROM (tbl_pulloutbooks INNER JOIN tbl_patrons ON tbl_pulloutbooks.Library_ID = tbl_patrons.Library_ID INNER JOIN tbl_bookreturn ON tbl_pulloutbooks.Return_ID = tbl_bookreturn.Return_ID INNER JOIN tbl_bookinfo ON tbl_bookreturn.Accession_ID = tbl_bookinfo.Accession_ID)";
 $id = $conn->query($sql);
 
-
-
 ?>
 
 
@@ -60,12 +58,12 @@ $id = $conn->query($sql);
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Book Return</h1>
+      <h1>Book Pulled-out</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="dashboard.php">Home</a></li>
           <li class="breadcrumb-item">Records</li>
-          <li class="breadcrumb-item active">Book Return</li>
+          <li class="breadcrumb-item active">Book Pulled-out</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -83,7 +81,7 @@ $id = $conn->query($sql);
               <i class="bi bi-file-earmark-spreadsheet"></i>
               Export
               </button>
-              <h2 class="card-title">Sorted using the books that is returned.</h2>
+              <h2 class="card-title">Sorted using the books that is pulled-out.</h2>
 
 
               

@@ -60,8 +60,6 @@ while($rows = mysqli_fetch_assoc($customize)):
     $borrowCount = $rows['Allowed_BookDays'];
 endwhile;
 
-
-
 include('phpqrcode/qrlib.php');
 
 // how to save PNG codes to server

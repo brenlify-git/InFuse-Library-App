@@ -141,6 +141,9 @@ include 'connection.php';
 
 							$_SESSION['admin_username'] = $row2['admin_username'];
 							$_SESSION['admin_password'] = $row2['admin_password'];
+							$_SESSION['email'] = $row2['email'];
+							$_SESSION['id'] = $row2['id'];
+							$_SESSION['profilePicture'] = $row2['profilePicture'];
 							$_SESSION['admin_type'] = $row2['admin_type'];
 								header("Location:dashboard.php");
 						

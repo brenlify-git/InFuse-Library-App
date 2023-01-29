@@ -266,13 +266,13 @@ $id = $conn->query($sql);
 
     for (var i = 1; i < table.rows.length; i++) {
       table.rows[i].onclick = function () {
-        document.getElementById("libraryID").value = this.cells[5].innerHTML;
+        document.getElementById("libraryID").value = this.cells[6].innerHTML;
         document.getElementById("borrowID").value = this.cells[0].innerHTML;
-        document.getElementById("accessionID").value = this.cells[3].innerHTML;
-        document.getElementById("firstName").value = this.cells[7].innerHTML;
-        document.getElementById("middleName").value = this.cells[8].innerHTML;
-        document.getElementById("lastName").value = this.cells[9].innerHTML;
-        document.getElementById("bookName").value = this.cells[4].innerHTML;
+        document.getElementById("accessionID").value = this.cells[4].innerHTML;
+        document.getElementById("firstName").value = this.cells[8].innerHTML;
+        document.getElementById("middleName").value = this.cells[9].innerHTML;
+        document.getElementById("lastName").value = this.cells[10].innerHTML;
+        document.getElementById("bookName").value = this.cells[5].innerHTML;
         document.getElementById("borrowDate").value = this.cells[2].innerHTML;
         document.getElementById("dueFee").value = this.cells[1].innerHTML;
 

@@ -2,7 +2,7 @@
 
 include 'connection.php';
 
-$sql = "SELECT * FROM (tbl_patrons INNER JOIN  tbl_bookborrow ON tbl_patrons.Library_ID = tbl_bookborrow.Library_ID INNER JOIN tbl_bookinfo ON tbl_bookinfo.Accession_ID = tbl_bookborrow.Accession_ID) WHERE Penalty>0 ";
+$sql = "SELECT * FROM tbl_bookreturn INNER JOIN tbl_bookborrow ON tbl_bookreturn.Borrow_ID = tbl_bookborrow.Borrow_ID INNER JOIN tbl_bookinfo ON tbl_bookreturn.Accession_ID = tbl_bookinfo.Accession_ID INNER JOIN tbl_patrons ON tbl_bookreturn.Library_ID = tbl_patrons.Library_ID WHERE Penalty >0";
 $id = $conn->query($sql);
 
 ?>
@@ -163,7 +163,6 @@ $id = $conn->query($sql);
                 
                     <h2 class="card-title ">Members Masterlist</h2>
 
-
                     <form name="excel.php" method="post">
 
                     <div class="overflow-auto mt-4">
@@ -173,8 +172,9 @@ $id = $conn->query($sql);
                 <thead class="table-dark" style="position:sticky; top: 0 ;">
                   <tr>
                     <th scope="col">Borrow ID</th>
-                    <th scope="col">Due Fee</th>
+                    <th scope="col">Return ID</th>
                     <th scope="col">Borrow Date</th>
+                    <th scope="col">Return Date</th>
                     <th scope="col">Accession ID</th>
                     <th scope="col">Book Name</th>
                     <th scope="col">Library ID</th>
@@ -197,8 +197,9 @@ $id = $conn->query($sql);
                 ?>
                   <tr>
                     <td scope="row"><?= $tbl_bookborrow['Borrow_ID'];?></td>
-                    <td><?= $tbl_bookborrow['Due_Fee'];?></td>
+                    <td><?= $tbl_bookborrow['Return_ID'];?></td>
                     <td><?= $tbl_bookborrow['Borrow_Date'];?></td>
+                    <td><?= $tbl_bookborrow['Return_Date'];?></td>
                     <td><?= $tbl_bookborrow['Accession_ID'];?></td>
                     <td><?= $tbl_bookborrow['Book_Name'];?></td>
                     <td><?= $tbl_bookborrow['Library_ID'];?></td>
