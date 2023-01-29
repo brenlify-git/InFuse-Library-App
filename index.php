@@ -145,6 +145,11 @@ include 'connection.php';
 							$_SESSION['id'] = $row2['id'];
 							$_SESSION['profilePicture'] = $row2['profilePicture'];
 							$_SESSION['admin_type'] = $row2['admin_type'];
+							$_SESSION['contactNumber'] = $row2['contactNumber'];
+							$_SESSION['street'] = $row2['street'];
+							$_SESSION['barangay'] = $row2['barangay'];
+							$_SESSION['municipality'] = $row2['municipality'];
+							$_SESSION['province'] = $row2['province'];
 								header("Location:dashboard.php");
 						
 						}

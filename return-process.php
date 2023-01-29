@@ -29,7 +29,6 @@ $borrowCount  = $borrowCount+1;
 $borrowCount = "UPDATE tbl_patrons SET Borrow_Count = '$borrowCount'  WHERE Library_ID = '$LibraryID'";
 $result3=mysqli_query($conn, $borrowCount);
 
-
 $sqlIns = "INSERT INTO tbl_bookreturn (Accession_ID, Library_ID, Borrow_ID, Return_Date, Status) VALUES ('$AccessID', '$LibraryID', '$BorrowID', '$returnDate', 'RETURNED')";
 $result=mysqli_query($conn, $sqlIns);
 
