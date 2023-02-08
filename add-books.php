@@ -125,7 +125,7 @@ $CallNumNew = $Last+1;
                   <div class="col-sm-12">
                     <select class="form-select" aria-label="Default select example" name="Genre" required>
                       <option disabled class="divider"></option>
-
+ 
                       <option value="Adventure stories">Adventure stories</option>
                       <option value="Classics">Classics</option>
                       <option value="Crime">Crime</option>
