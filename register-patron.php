@@ -40,14 +40,17 @@ session_start();
         .headerhey {
             padding: 30px;
             text-align: center;
-            background-image: linear-gradient(to right, rgba(0, 116, 189), rgba(37, 50, 116));
+            background-color: #303030;
+background-image: linear-gradient(241deg, #303030 0%, #1a266d 100%);
+
+            font-family: 'Poppins', sans-serif;
             color: white;
-            font-size: 30px;
+            font-size: 50px;
         }
         
 
         button {
-            --width: 150px;
+            --width: 190px;
             --timing: 2s;
             border: 0;
             width: var(--width);
@@ -57,8 +60,11 @@ session_start();
             font-size: 1em;
             background: rgb(0, 116, 189);
             transition: all 0.2s;
-            border-radius: 3px;
+            border-radius: 7px;
             margin: 10px;
+        }
+        .resetbtn{
+            background: rgb(247, 150, 70);
         }
 
         button:hover {
@@ -80,7 +86,9 @@ session_start();
 
     <div class="imgheader">
         <div class="headerhey">
-            <h1>Welcome, Nationalians!</h1>
+            <img src="assets/img/Logo Only.png" style="width:200px">
+            Welcome, Nationalians!
+            <h4>Register your details here.</h4>
         </div>
     </div>
 
@@ -113,22 +121,22 @@ session_start();
                                 <div class="col-md-12">
                                     <label for="inputEmail5" class="form-label">Student ID</label>
                                     <input type="text" class="form-control" pattern="[0-9]{4}-[0-9]{6}" maxlength="11"
-                                        title="Format should be like this: 2021-160099" id="studID" name="studID"
+                                        title="Format should be like this: 2021-160099" placeholder="2021-160011" id="studID" name="studID"
                                         required>
                                 </div>
                                 <div class="col-md-4">
                                     <label for="inputPassword5" class="form-label">First Name</label>
-                                    <input type="text" class="form-control" id="firstName" name="firstName"
+                                    <input type="text" class="form-control" id="firstName" placeholder="Juan" name="firstName"
                                         required>
                                 </div>
                                 <div class="col-md-4">
                                     <label for="inputPassword5" class="form-label">Middle Name</label>
-                                    <input type="text" class="form-control" id="firstName" name="middleName"
+                                    <input type="text" class="form-control" id="firstName" placeholder="Santos" name="middleName"
                                         required>
                                 </div>
                                 <div class="col-md-4">
                                     <label for="inputPassword5" class="form-label">Last Name</label>
-                                    <input type="text" class="form-control" id="inputPassword5" name="lastName"
+                                    <input type="text" class="form-control" id="inputPassword5" placeholder="Dela Cruz" name="lastName"
                                         required>
                                 </div>
                                 <div class="col-md-6">
@@ -143,7 +151,7 @@ session_start();
                                 </div>
                                 <div class="col-md-6">
                                     <label for="inputPassword5" class="form-label">Contact Number</label>
-                                    <input type="text" class="form-control" id="inputPassword5" pattern="[0-9]{11}"
+                                    <input type="text" class="form-control" id="inputPassword5" placeholder="09770191818" pattern="09[0-9]{9}"
                                         maxlength="11" name="contactNumber" required>
                                 </div>
                                 <div class="col-md-6">
@@ -151,43 +159,59 @@ session_start();
                                     <div class="col-sm-12">
                                         <select class="form-select" aria-label="Default select example"
                                             name="department" required>
-                                            <option value="BSIT">BSIT</option>
-                                            <option value="BSPSYCH">BSPSYCH</option>
-                                            <option value="BSBA">BSBA</option>
-                                            <option value="BSCE">BSCE</option>
-                                            <option value="BSHM">BSHM</option>
+                                            <option disabled value="College of Accountancy, Business and Management">College of Accountancy, Business and Management</option>
+                                            <option value="BS Accountancy">BS Accountancy</option>
+                                            <option value="BS Accounting Information System">BS Accounting Information System</option>
+                                            <option value="BS Business Administration in Financial Management">BS Business Administration in Financial Management</option>
+                                            <option value="BS Business Administration in Marketing Management">BS Business Administration in Marketing Management</option>
+                                            <option value="BS Hospitality Management">BS Hospitality Management</option>
+                                            <option value="BS Tourism Management">BS Tourism Management</option>
+                                            <option disabled value="College of Arts and Sciences">College of Arts and Sciences</option>
+                                            <option value="BS Psychology">BS Psychology</option>
+                                            <option value="Bachelor in Physical Education">Bachelor in Physical Education</option>
+                                            <option value="Certificate of Professional Education">Certificate of Professional Education</option>
+                                            <option disabled value="College of Engineering and Technology">College of Engineering and Technology</option>
+                                            <option value="BS Architecture">BS Architecture</option>
+                                            <option value="BS Civil Engineering">BS Civil Engineering</option>
+                                            <option value="BS Computer Engineering">BS Computer Engineering</option>
+                                            <option value="BS Information Technology">BS Information Technology</option>
+                                            <option disabled value="Graduate Studies">Graduate Studies</option>
+                                            <option value="Doctors of Education Major in Educational Management">Doctors of Education Major in Educational Management</option>
+                                            <option value="Master of Education Major in Educational Management">Master of Education Major in Educational Management</option>
+                                            <option value="Master of Education Major in Special Education">Master of Education Major in Special Education</option>
+                                            <option value="Master in Management">Master in Management</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="inputPassword5" class="form-label">Section</label>
-                                    <input type="text" class="form-control" id="inputPassword5" name="section" required>
+                                    <input type="text" class="form-control" id="inputPassword5" placeholder="ITE201" name="section" required>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="inputAddress5" class="form-label">Street</label>
                                     <input type="text" class="form-control" id="inputAddres5s"
-                                        placeholder="William Shakespeare" name="street" required>
+                                        placeholder="Adamya" name="street" required>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="inputAddress5" class="form-label">Barangay</label>
                                     <input type="text" class="form-control" id="inputAddres5s"
-                                        placeholder="William Shakespeare" name="barangay" required>
+                                        placeholder="Caniogan" name="barangay" required>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="inputAddress5" class="form-label">Municipality</label>
                                     <input type="text" class="form-control" id="inputAddres5s"
-                                        placeholder="Book Shelf Inc." name="municipality" required>
+                                        placeholder="Baliwag City" name="municipality" required>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="inputAddress5" class="form-label">Province</label>
                                     <input type="text" class="form-control" id="inputAddres5s"
-                                        placeholder="Book Shelf Inc." name="province" required>
+                                        placeholder="Bulacan" name="province" required>
                                 </div>
 
 
                                 <div class="text-center">
-                                    <button type="submit">+ Join Now!</button>
-                                    <button type="reset">Reset</button>
+                                    <button type="submit">Register Now!</button>
+                                    <button type="reset" class="resetbtn">Reset</button>
                                 </div>
                             </form><!-- End Multi Columns Form -->
 

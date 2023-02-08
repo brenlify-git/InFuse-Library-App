@@ -42,7 +42,7 @@ include 'connection.php';
 					<img src="assets/img/Logo_Login.png" alt="IMG">
 				</div>
 
-				<form class="login100-form validate-form" method="post" action="index.php">
+				<form class="login100-form validate-form col-md-6" method="post" action="index.php">
 					<span class="login100-form-title">
 						Welcome back, Nationalian!
 						<span class="login100-form-subtitle">
