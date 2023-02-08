@@ -26,7 +26,7 @@ while($rows = mysqli_fetch_assoc($id4)):
 
 $borrowCount  = $borrowCount+1;
 
-$borrowCount = "UPDATE tbl_patrons SET Borrow_Count = '$borrowCount'  WHERE Library_ID = '$LibraryID'";
+$borrowCount = "UPDATE tbl_patrons SET Borrow_Count = '$borrowCount', Penalty = '$duefee'  WHERE Library_ID = '$LibraryID'";
 $result3=mysqli_query($conn, $borrowCount);
 
 $sqlIns = "INSERT INTO tbl_bookreturn (Accession_ID, Library_ID, Borrow_ID, Return_Date, Status) VALUES ('$AccessID', '$LibraryID', '$BorrowID', '$returnDate', 'RETURNED')";

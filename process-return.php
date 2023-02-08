@@ -14,7 +14,7 @@ if(mysqli_num_rows($res)>0){
         $output .='
 
         
-        <table class="table datatable border=1">
+        <table class="table datatable" border="1px solid">
      
         <tr>
                     <th scope="col">Return ID</th>

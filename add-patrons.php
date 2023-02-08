@@ -57,7 +57,7 @@ $maintenance = "SELECT * FROM tbl_maintenance";
 $customize=mysqli_query($conn, $maintenance);
 
 while($rows = mysqli_fetch_assoc($customize)):   
-    $borrowCount = $rows['Allowed_BookDays'];
+    $borrowCount = $rows['Allowed_BookBorrow'];
 endwhile;
 
 include('phpqrcode/qrlib.php');
@@ -92,14 +92,14 @@ echo '<hr />';
 echo '<img src="'.$urlRelativeFilePath.'" />';
 
 
-$sqlIns = "INSERT INTO tbl_patrons (Student_ID, FirstName, MiddleName, LastName, Patron_Type, Contact_Number, patron_username, patron_password, qrCode, Penalty, Borrow_Count, Department, Section, Street, Barangay, Municipality, Province) 
-VALUES ('$StudentID', '$firstName', '$middleName', '$lastName', 'PATRON', '$contactNumber', '$username', '$password', '$urlRelativeFilePath', '$penalty', '$borrowCount', '$department', '$section', '$street', '$barangay', '$munipality', '$province')";
+$sqlIns = "INSERT INTO tbl_pendingpatrons (Student_ID, FirstName, MiddleName, LastName, Patron_Type, Contact_Number, patron_username, patron_password, qrCode, Penalty, Borrow_Count, Department, Section, Street, Barangay, Municipality, Province) 
+VALUES ('$StudentID', '$firstName', '$middleName', '$lastName', 'PATRON', '$contactNumber', '$username', '$password', '$urlRelativeFilePath', '$penalty', '$borrowCount', '$department', '$section', '$street', '$barangay', '$municipality', '$province')";
 $result=mysqli_query($conn, $sqlIns);
 
 
 if($result){
     echo "Data Inserted Succesfully!";
-    header("Location:membership.php");
+    header("Location:register-patron.php");
 }else{
     die(mysqli_error($conn));
 }

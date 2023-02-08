@@ -7,7 +7,6 @@ $date = date("Y-m-d");
 $sql = "SELECT * FROM tbl_bookborrow INNER JOIN tbl_patrons ON tbl_bookborrow.Library_ID = tbl_patrons.Library_ID  WHERE Status='NOT RETURNED' AND Return_Date = '$date'  AND tbl_bookborrow.Library_ID != '1000'";
 $notif = $conn->query($sql);
 
-
 $countNotif = mysqli_query($conn, "SELECT COUNT(*) AS notifCount FROM tbl_bookborrow  WHERE Status='NOT RETURNED' AND Return_Date = '$date' AND Library_ID !='1000'");
 $row_countNotif = mysqli_fetch_assoc($countNotif);
 $row_countNotification = $row_countNotif["notifCount"];

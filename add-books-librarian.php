@@ -117,7 +117,7 @@ $CallNumNew = $Last+1;
                 <div class="col-4">
                   <label for="inputAddress5" class="form-label">ISBN</label>
                   <input type="number" class="form-control" id="inputAddres5s" name="ISBN"
-                    placeholder="William Shakespeare" required>
+                    placeholder="1234500000123450000" required>
                 </div>
 
                 <div class="col-4">

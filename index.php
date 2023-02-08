@@ -79,6 +79,16 @@ include 'connection.php';
 							<i class="fa fa-lock" aria-hidden="true"></i>
 						</span>
 					</div>
+					<div class="text-center p-t-12">
+						<a href="register-patron.php">
+						<span class="txt1">
+							Doesn't have patron account? Register here
+						</span>
+						</a>
+					
+						
+					</div>
+					
 
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn" type="submit" name="login" >
@@ -86,17 +96,8 @@ include 'connection.php';
 						</button>
 					</div>
 
-					<div class="text-center p-t-12">
-						<span class="txt1">
-							Forgot Password |
-						</span>
-						<!-- Button trigger modal -->
-						<span class="txt2" data-toggle="modal" data-target="#exampleModalCenter">
-							Contact Admin
-						</span>
-
-
-					</div>
+					
+					
 
 					<div class="text-center p-t-136">
 						<a class="txt2" href="https://national-u.edu.ph/" target="_blank">
@@ -197,33 +198,7 @@ include 'connection.php';
 
 
 
-	<!-- Modal -->
-	<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-		aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLongTitle"> <i class="bi bi-telephone-forward"></i> &nbsp
-						Oops, oh no!</h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body" style="text-align: justify;">
-					&nbsp We are sorry to here that. If you've lost your password or wish to reset it, request an
-					account resetting from our admin to assist you.
-					<br><br>
-					&nbspIf you did not request a password reset, you can safely ignore this modal.
-					<br><br>
-					&nbspOnly a person with access to your email can reset your account password.
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-warning btn-block ml-1" data-dismiss="modal">I
-						understand</button>
-				</div>
-			</div>
-		</div>
-	</div>
+	
 
 	<!--===============================================================================================-->
 	<script src="vendor-login/jquery/jquery-3.2.1.min.js"></script>

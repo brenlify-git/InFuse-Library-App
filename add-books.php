@@ -111,13 +111,13 @@ $CallNumNew = $Last+1;
 
                 <div class="col-4">
                   <label for="inputDate" class="form-label">Year Published</label>
-                  <input type="date" class="form-control" name="YearPublished" required>
+                  <input type="datetime-local" class="form-control" name="YearPublished" required>
                 </div>
 
                 <div class="col-4">
                   <label for="inputAddress5" class="form-label">ISBN</label>
                   <input type="number" class="form-control" id="inputAddres5s" name="ISBN"
-                    placeholder="William Shakespeare" required>
+                    placeholder="1234500000123450000" required>
                 </div>
 
                 <div class="col-4">
@@ -193,7 +193,7 @@ $CallNumNew = $Last+1;
                 
 
                 <div class="col-4">
-                  <label for="inputAddress5" class="form-label">Series</label>
+                  <label for="inputAddress5" class="form-label">Edition</label>
                   <input type="number" class="form-control" id="inputAddres5s" name="Series" placeholder="2014"
                     required>
                 </div>

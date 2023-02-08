@@ -225,7 +225,7 @@ $res2 = mysqli_query($conn, $selectReturnID);
                     <select class="form-select" aria-label="Default select example" id="LibID" onchange="selectIndex()" name="LibraryID"
                       required>
                       <option selected disabled>Select ID</option>
-                      <option  value="1000">1000</option>
+                      <option value="1000">1000</option>
                       <?php while($rows = mysqli_fetch_array($res)){
                       ?>
 
@@ -278,7 +278,7 @@ $res2 = mysqli_query($conn, $selectReturnID);
                   <div class="col-sm-12">
                     <select class="form-select" aria-label="Default select example" id="Returnid" onchange="selectReturnID()" name="ReturnID" required>
                     <option selected disabled>Select ID</option>
-                      <option  value="1000">1000</option>
+                      <option value="1000">1000</option>
                       
                       <?php while($rows2 = mysqli_fetch_array($res2)){
                       ?>
