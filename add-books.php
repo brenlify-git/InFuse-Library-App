@@ -111,7 +111,7 @@ $CallNumNew = $Last+1;
 
                 <div class="col-4">
                   <label for="inputDate" class="form-label">Year Published</label>
-                  <input type="datetime-local" class="form-control" name="YearPublished" required>
+                  <input type="date" class="form-control" name="YearPublished" required>
                 </div>
 
                 <div class="col-4">

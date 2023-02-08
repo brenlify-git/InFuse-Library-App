@@ -79,13 +79,17 @@ include 'connection.php';
 							<i class="fa fa-lock" aria-hidden="true"></i>
 						</span>
 					</div>
+
 					<div class="text-center p-t-12">
 						<a href="register-patron.php">
-						<span class="txt1">
-							Doesn't have patron account? Register here
+						<span>
+							Doesn't have patron account?
+						</span>
+						<!-- Button trigger modal -->
+						<span>
+							Sign Up here.
 						</span>
 						</a>
-					
 						
 					</div>
 					

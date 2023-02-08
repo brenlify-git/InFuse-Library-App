@@ -113,17 +113,17 @@ session_start();
                                 <div class="col-md-12">
                                     <label for="inputEmail5" class="form-label">Student ID</label>
                                     <input type="text" class="form-control" pattern="[0-9]{4}-[0-9]{6}" maxlength="11"
-                                        title="Format should be like this: 2021-160099" id="inputEmail5" name="studID"
+                                        title="Format should be like this: 2021-160099" id="studID" name="studID"
                                         required>
                                 </div>
                                 <div class="col-md-4">
                                     <label for="inputPassword5" class="form-label">First Name</label>
-                                    <input type="text" class="form-control" id="inputPassword5" name="firstName"
+                                    <input type="text" class="form-control" id="firstName" name="firstName"
                                         required>
                                 </div>
                                 <div class="col-md-4">
                                     <label for="inputPassword5" class="form-label">Middle Name</label>
-                                    <input type="text" class="form-control" id="inputPassword5" name="middleName"
+                                    <input type="text" class="form-control" id="firstName" name="middleName"
                                         required>
                                 </div>
                                 <div class="col-md-4">
@@ -221,6 +221,8 @@ session_start();
 
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
+
+    
 
 </body>
 
