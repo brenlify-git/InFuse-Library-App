@@ -84,7 +84,7 @@ if(!isset($_SESSION["Patron_Type"])){
         </li>
 
         <li>
-          <a class="dropdown-item d-flex align-items-center" href="about-librarian.php">
+          <a class="dropdown-item d-flex align-items-center" href="about-student.php">
             <i class="bi bi-question-circle"></i>
             <span>About</span>
           </a>

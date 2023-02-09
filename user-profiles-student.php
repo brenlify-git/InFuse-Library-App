@@ -114,27 +114,20 @@
                   </div>
 
                   <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Company</div>
+                    <div class="col-lg-3 col-md-4 label">Campus</div>
                     <div class="col-lg-9 col-md-8">NU Baliwag</div>
                   </div>
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Role</div>
-                    <div class="col-lg-9 col-md-8"><?php echo ucwords($_SESSION["Patron_Type"]) ?></div>
+                    <div class="col-lg-9 col-md-8"><?php echo ucfirst($_SESSION["Patron_Type"]) ?></div>
                   </div>
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Country</div>
                     <div class="col-lg-9 col-md-8">Philippines</div>
                   </div>
-
-                  
-
                 </div>
-
-               
-              
-
                 <div class="tab-pane fade pt-3" id="profile-change-password">
                   <!-- Change Password Form -->
                   <form action="changepassword-patron.php" method="post">
@@ -147,14 +140,14 @@
                     </div>
 
                     <div class="row mb-3">
-                      <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Current Password</label>
+                      <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">New Password</label>
                       <div class="col-md-8 col-lg-9">
                         <input name="newPass" type="password" class="form-control" id="currentPassword">
                       </div>
                     </div>
 
                     <div class="row mb-3">
-                      <label for="newPassword" class="col-md-4 col-lg-3 col-form-label">New Password</label>
+                      <label for="newPassword" class="col-md-4 col-lg-3 col-form-label">Confirm Password</label>
                       <div class="col-md-8 col-lg-9">
                         <input name="confirmPass" type="password" class="form-control" id="newPassword">
                       </div>
