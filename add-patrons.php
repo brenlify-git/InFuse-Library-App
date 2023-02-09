@@ -99,7 +99,7 @@ $result=mysqli_query($conn, $sqlIns);
 
 if($result){
     echo "Data Inserted Succesfully!";
-    header("Location:register-patron.php");
+    header("Location:register-patrons.php");
 }else{
     die(mysqli_error($conn));
 }

@@ -1,13 +1,10 @@
 <?php 
 
 include 'connection.php';
-
-
-
+$StudentID =  $_POST['studentid'];
 $Penalties = $_POST['penalties'];
 $Payment = $_POST['payment'];
 $LibraryID = $_POST['libraryid'];
-$BorrowID = $_POST['borrowid'];
 $FirstName = $_POST['firstname'];
 $MiddleName = $_POST['middlename'];
 $LastName = $_POST['lastname'];
@@ -104,8 +101,8 @@ $Address = $_POST['Address'];
                   <input type="number" class="form-control" id="libraryid" name="libraryid"  value="<?= $LibraryID ?>" required >
                 </div>
                 <div class="col-md-6">
-                  <label for="inputEmail5" class="form-label">Borrow ID</label>
-                  <input type="number" class="form-control" id="borrowid"  value="<?= $BorrowID ?>" required >
+                  <label for="inputEmail5" class="form-label">Student ID</label>
+                  <input type="text" class="form-control" id="borrowid"  value="<?= $StudentID ?>" required >
                 </div>
                 <div class="col-md-4">
                   <label for="inputPassword5" class="form-label">First Name</label>

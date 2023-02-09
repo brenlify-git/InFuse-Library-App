@@ -2,8 +2,12 @@
 
 include 'connection.php';
 
-$sql = "SELECT * FROM tbl_bookreturn INNER JOIN tbl_bookborrow ON tbl_bookreturn.Borrow_ID = tbl_bookborrow.Borrow_ID INNER JOIN tbl_bookinfo ON tbl_bookreturn.Accession_ID = tbl_bookinfo.Accession_ID INNER JOIN tbl_patrons ON tbl_bookreturn.Library_ID = tbl_patrons.Library_ID WHERE Penalty >0 AND Patron_Type != 'LIBRARIAN' AND tbl_bookreturn.Status = 'RETURNED'";
+//$sql = "SELECT * FROM tbl_patrons INNER JOIN tbl_bookborrow ON tbl_bookborrow.Library_ID = tbl_patrons.Library_ID INNER JOIN tbl_bookreturn ON tbl_bookreturn.Library_ID = tbl_patrons.Library_ID INNER JOIN tbl_bookinfo ON tbl_bookinfo.Accession_ID = tbl_bookreturn.Accession_ID WHERE  tbl_patrons.Penalty >0 AND tbl_patrons.Patron_Type != 'LIBRARIAN' ";
+
+
+$sql = "SELECT * FROM `tbl_patrons` WHERE Penalty > 0 AND Patron_Type = 'PATRON'";
 $id = $conn->query($sql);
+
 
 ?>
 
@@ -69,7 +73,7 @@ $id = $conn->query($sql);
 
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Insert Patron's with Penalties Details</h5>
+              <h5 class="card-title">Insert Patron's with Penalties Details <?php $outstandingPenalty ?></h5>
 
 
               <!-- Multi Columns Form -->
@@ -79,9 +83,10 @@ $id = $conn->query($sql);
                   <label for="inputEmail5" class="form-label">Library ID</label>
                   <input type="number" class="form-control" id="libraryid" name="libraryid" required >
                 </div>
+
                 <div class="col-md-6">
-                  <label for="inputEmail5" class="form-label">Return ID</label>
-                  <input type="number" class="form-control" id="returnid" name="borrowid" required >
+                  <label for="inputEmail5" class="form-label">Student ID</label>
+                  <input type="text" class="form-control" id="studentid" name="studentid" required >
                 </div>
                 <div class="col-md-4">
                   <label for="inputPassword5" class="form-label">First Name</label>
@@ -100,8 +105,8 @@ $id = $conn->query($sql);
                   <div class="col-sm-12">
                   <select class="form-select" aria-label="Default select example" id="type" name="type" required >
                       <option selected disabled>Select type</option>
-                        <option value="STUDENT">Student</option>
-                        <option value="FACULTY">Faculty</option>
+                        <option value="PATRON">PATRON</option>
+                        
                       </select>
                   </div>
                 </div>
@@ -119,7 +124,7 @@ $id = $conn->query($sql);
                         <option value="BSBA">BSBA</option>
                         <option value="BSCE">BSCE</option>
                         <option value="BSHM">BSHM</option>
-                  
+                        <option value="FACULTY">FACULTY</option>
                       </select>
                   </div>
                 </div>
@@ -181,12 +186,7 @@ $id = $conn->query($sql);
               <table class="table table-hover table-bordered text-nowrap text-center " style="max-height: 675px; overflow: auto; display: inline-block;" id="members">
                 <thead class="table-dark" style="position:sticky; top: 0 ;">
                   <tr>
-                    <th scope="col">Borrow ID</th>
-                    <th scope="col">Return ID</th>
-                    <th scope="col">Borrow Date</th>
-                    <th scope="col">Return Date</th>
-                    <th scope="col">Accession ID</th>
-                    <th scope="col">Book Name</th>
+                    
                     <th scope="col">Library ID</th>
                     <th scope="col">Student ID</th>
                     <th scope="col">First Name</th>
@@ -206,12 +206,6 @@ $id = $conn->query($sql);
                   while($tbl_bookborrow = mysqli_fetch_assoc($id)):   
                 ?>
                   <tr>
-                    <td scope="row"><?= $tbl_bookborrow['Borrow_ID'];?></td>
-                    <td><?= $tbl_bookborrow['Return_ID'];?></td>
-                    <td><?= $tbl_bookborrow['Borrow_Date'];?></td>
-                    <td><?= $tbl_bookborrow['Return_Date'];?></td>
-                    <td><?= $tbl_bookborrow['Accession_ID'];?></td>
-                    <td><?= $tbl_bookborrow['Book_Name'];?></td>
                     <td><?= $tbl_bookborrow['Library_ID'];?></td>
                     <td><?= $tbl_bookborrow['Student_ID'];?></td>
                     <td><?= $tbl_bookborrow['FirstName'];?></td>
@@ -266,17 +260,17 @@ $id = $conn->query($sql);
 
     for (var i = 1; i < table.rows.length; i++) {
       table.rows[i].onclick = function () {
-        document.getElementById("libraryid").value = this.cells[6].innerHTML;
-        document.getElementById("returnid").value = this.cells[1].innerHTML;
-        document.getElementById("firstname").value = this.cells[8].innerHTML;
-        document.getElementById("middlename").value = this.cells[9].innerHTML;
-        document.getElementById("lastname").value = this.cells[10].innerHTML;
-        document.getElementById("type").value = this.cells[11].innerHTML;
-        document.getElementById("contactnumber").value = this.cells[12].innerHTML;
-        document.getElementById("penalties").value = this.cells[13].innerHTML;
-        document.getElementById("department").value = this.cells[14].innerHTML;
-        document.getElementById("section").value = this.cells[15].innerHTML;
-        document.getElementById("address").value = this.cells[16].innerHTML;
+        document.getElementById("libraryid").value = this.cells[0].innerHTML;
+        document.getElementById("studentid").value = this.cells[1].innerHTML;
+        document.getElementById("firstname").value = this.cells[2].innerHTML;
+        document.getElementById("middlename").value = this.cells[3].innerHTML;
+        document.getElementById("lastname").value = this.cells[4].innerHTML;
+        document.getElementById("type").value = this.cells[5].innerHTML;
+        document.getElementById("contactnumber").value = this.cells[6].innerHTML;
+        document.getElementById("penalties").value = this.cells[7].innerHTML;
+        document.getElementById("department").value = this.cells[8].innerHTML;
+        document.getElementById("section").value = this.cells[9].innerHTML;
+        document.getElementById("address").value = this.cells[10].innerHTML;
  
         console.log(rows[i]);
 

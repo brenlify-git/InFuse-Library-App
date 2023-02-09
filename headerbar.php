@@ -78,8 +78,8 @@ if(!isset($_SESSION["admin_type"])){
         
       </a><!-- End Notification Icon -->
 
-      <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
-        <li class="dropdown-header">
+      <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications overflow-auto" style="max-height: 300px;">
+        <li class="dropdown-header ">
           
 
           <?php

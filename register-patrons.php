@@ -87,8 +87,9 @@ background-image: linear-gradient(241deg, #303030 0%, #1a266d 100%);
     <div class="imgheader">
         <div class="headerhey">
             <img src="assets/img/Logo Only.png" style="width:200px">
-            Welcome, Nationalians!
-            <h4>Register your details here.</h4>
+            Thank you, Nationalian!
+            <h4>Kindly visit the NU Baliwag LRC to activate your account.</h4>
+            <button class="btn btn-warning text-light" onclick="location.href='index.php'" type="button"> Go to Login </a></button>
         </div>
     </div>
 

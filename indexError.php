@@ -79,14 +79,19 @@ include 'connection.php';
 							<i class="fa fa-lock" aria-hidden="true"></i>
 						</span>
 					</div>
+                    <div class="text-center" style="color:red">
+                        Invalid Login  Credentials, Try Again!
+                    </div>
 
-				
-				
+					
+					
+
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn" type="submit" name="login" >
 							Login
 						</button>
 					</div>
+
 					<div class="text-center p-t-12">
 						<a href="register-patron.php">
 						<span>
@@ -99,7 +104,6 @@ include 'connection.php';
 						</a>
 						
 					</div>
-					
 					
 
 					<div class="text-center p-t-136">

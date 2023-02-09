@@ -194,7 +194,7 @@ $res2 = mysqli_query($conn, $selectReturnID);
 
 
                 <div class="col-6">
-                  <label for="inputAddress5" class="form-label">Series</label>
+                  <label for="inputAddress5" class="form-label">Edition</label>
                   <input type="number" class="form-control" id="series" placeholder="2014" name="Series" required
                     readonly>
                 </div>
@@ -212,9 +212,6 @@ $res2 = mysqli_query($conn, $selectReturnID);
                   <input type="text" class="form-control" id="publisher" placeholder="Book Shelf Inc." name="Publisher"
                     readonly>
                 </div>
-
-
-
 
                 <h class="card-title">Pullout this book</h>
 

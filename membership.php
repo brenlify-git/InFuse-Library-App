@@ -113,7 +113,7 @@ $id = $conn->query($sql);
 
 
               <!-- Multi Columns Form -->
-              <form class="row g-3" action="decline-membership.php" method="post">
+              <form class="row g-3" action="validate-patrons.php" method="post">
                 
               <div class="col-md-6">
                   <label for="inputEmail5" class="form-label">Registration ID</label>
