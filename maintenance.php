@@ -8,9 +8,15 @@ $sql = "SELECT * FROM tbl_maintenance";
 $id = $conn->query($sql);
 
 
-$sqladmin = "SELECT * FROM tbl_adminaccess";
+$sqllibrarian = "SELECT * FROM tbl_librarianaccess";
+$idlibrarian = $conn->query($sqllibrarian);
 
+$sqladmin = "SELECT * FROM tbl_adminaccess";
 $idadmin = $conn->query($sqladmin);
+
+$sqlpatron = "SELECT * FROM tbl_patrons";
+$idpatron = $conn->query($sqlpatron);
+
 
 
 
@@ -122,48 +128,101 @@ $idadmin = $conn->query($sqladmin);
 
         </div>
 
-        
+
         <div class="col-lg-12">
 
 
-<div class="card">
-  <div class="card-body">
-    <h5 class="card-title">Generate QR Code</h5>
-
-    
-
-    <!-- Multi Columns Form -->
-    <form class="row g-3" action="maintenance-process.php" method="post">
-      
-
-    <div class="col-4">
-                  <label class="col-sm-7 form-label">Librarian</label>
-                  <div class="col-sm-12">
-                    <select class="form-select" aria-label="Default select example" id="LibID" onchange="selectIndex()" name="LibraryID"
-                      required>
-                      <option selected disabled>Select ID</option>
-                      <?php while($admin = mysqli_fetch_array($idadmin)){
-                      ?>
-
-                      <option value="<?= $admin['id'];?>"><?= $admin['id'];?></option>
-
-                      <?php
-                      } ?>
-                    </select>
-                  </div>    
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Generate Assessment Form</h5>
 
 
 
-      <div class="text-center">
-        <button type="submit" class="btn btn-primary m-2" name="saveChange">+ Save Changes</button>
+              <!-- Multi Columns Form -->
+              <div class="row g-3" method="post">
 
-      </div>
-    </form><!-- End Multi Columns Form -->
 
-  </div>
-</div>
+                <div class="col-md-4">
+                  <form action="generate-pdf.php" target="_blank" method="post">
+                      <label class="col-sm-7 form-label">Librarian</label>
+                      <div class="col-sm-12">
+                        <select class="form-select" aria-label="Default select example" id="LibID" name="empID" required>
+                          <option disabled>Select ID</option>
+                          <?php 
+                            while($librarian = mysqli_fetch_array($idlibrarian)){
+                          ?>
+                              <option value="<?= $librarian['empID'];?>"><?= $librarian['empID'];?></option>
+                          <?php
+                            } 
+                          ?>
+                        </select>
+                      </div>
 
-</div>
+                      <div class="text-center">
+                        <button type="submit" class="btn btn-info m-2" name="saveChange">Generate Librarian</button>
+                      </div>
+                  </form>
+                </div>
+
+                <div class="col-md-4">
+
+
+
+                  <form action="generate-pdf-admin.php" target="_blank" method="post">
+                      <label class="col-sm-7 form-label">Admin</label>
+                      <div class="col-sm-12">
+                        <select class="form-select" aria-label="Default select example" id="LibID" name="adID" required>
+                          <option disabled>Select ID</option>
+                          <?php 
+                            while($admin = mysqli_fetch_array($idadmin)){
+                          ?>
+                              <option value="<?= $admin['empID'];?>"><?= $admin['empID'];?></option>
+                          <?php
+                            } 
+                          ?>
+                        </select>
+                      </div>
+
+                      <div class="text-center">
+                        <button type="submit" class="btn btn-success m-2" name="saveChange">Generate Admin</button>
+                      </div>
+                  </form>
+                </div>
+                <div class="col-md-4">
+
+
+
+                  <form action="generate-pdf-patron.php" target="_blank" method="post">
+                      <label class="col-sm-7 form-label">Patron</label>
+                      <div class="col-sm-12">
+                        <select class="form-select" aria-label="Default select example" id="LibID" name="studID" required>
+                          <option disabled>Select ID</option>
+                          <?php 
+                            while($patron = mysqli_fetch_array($idpatron)){
+                          ?>
+                              <option value="<?= $patron['Student_ID'];?>"><?= $patron['Student_ID'];?></option>
+                          <?php
+                            } 
+                          ?>
+                        </select>
+                      </div>
+
+                      <div class="text-center">
+                        <button type="submit" class="btn btn-warning m-2" name="saveChange">Generate Patron</button>
+                      </div>
+                  </form>
+                </div>
+
+                
+                  
+              </div><!-- End Multi Columns Form -->
+              
+              
+
+            
+          </div>
+
+        </div>
 
       </div>
     </section>
