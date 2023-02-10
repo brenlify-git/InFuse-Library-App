@@ -103,6 +103,7 @@ $urlRelativeFilePath = $tempDir.$fileName;
 if (!file_exists($pngAbsoluteFilePath)) {
     QRcode::png($codeContents, $pngAbsoluteFilePath);
     echo 'File generated!';
+
     echo '<hr />';
 } else {
     echo 'File already generated! We can use this cached file to speed up site on common codes!';
@@ -112,6 +113,9 @@ if (!file_exists($pngAbsoluteFilePath)) {
 echo 'Server PNG File: '.$pngAbsoluteFilePath;
 echo '<hr />';
 
+
+
+
 // displaying
 echo '<img src="'.$urlRelativeFilePath.'" />';
 
@@ -119,8 +123,11 @@ $profilePicturePath = "LibrarianPictures/profile".$firstName.$lastName.".".$file
 
 $qrfilepath = "qrcode-librarian/".$fileName;
 
+
 $sqlInsLibAcc = "INSERT INTO tbl_librarianaccess (empID, firstname, middlename, lastName, email, contactNumber, librarian_username, librarian_password, librarian_type, street, barangay, municipality, province, profilePicture, qrcode) VALUES ('$empID', '$firstName', '$middleName', '$lastName', '$email', '$contactNumber', '$username', '$password', '$librarianType', '$street', '$barangay', '$municipality', '$province', '$profilePicturePath', '$qrfilepath')";
 $result22=mysqli_query($conn, $sqlInsLibAcc);
+
+
 
 if($result22){
     echo "Data Inserted Succesfully!";

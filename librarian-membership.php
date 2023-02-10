@@ -143,7 +143,7 @@ include 'connection.php';
 
 
                                 <div class="text-right">
-                                    <button type="submit" class="btn btn-primary ">+ Add Admin</button>
+                                    <button type="submit" class="btn btn-primary ">+ Add Librarian</button>
                                     <button type="reset" class="btn btn-warning">Reset</button>
                                 </div>
                             </form><!-- End Multi Columns Form -->

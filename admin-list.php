@@ -2,7 +2,7 @@
 
 include 'connection.php';
 
-$sql = "SELECT * FROM tbl_patrons ORDER BY Library_ID DESC";
+$sql = "SELECT * FROM tbl_adminaccess ORDER BY id DESC";
 
 $id = $conn->query($sql);
 
@@ -17,7 +17,7 @@ $id = $conn->query($sql);
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>InFuse | Patron Masterlist</title>
+  <title>InFuse | Admin Masterlist</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -58,12 +58,12 @@ $id = $conn->query($sql);
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Patron's Master List</h1>
+      <h1>Admin's Master List</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="dashboard.php">Home</a></li>
           <li class="breadcrumb-item">Records</li>
-          <li class="breadcrumb-item active">Patron's Master List</li>
+          <li class="breadcrumb-item active">Admin's Master List</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -81,10 +81,7 @@ $id = $conn->query($sql);
               <i class="bi bi-file-earmark-spreadsheet"></i>
               Export
               </button>
-              <h5 class="card-title ">Sorted using the patrons that is registered.</h5>
-
-
-              
+              <h5 class="card-title ">Sorted according to the admins that is registered.</h5>
 
               <div class="overflow-auto mt-4">
              
@@ -93,16 +90,12 @@ $id = $conn->query($sql);
                 <thead class="table-secondary" style="position:sticky; top: 0 ;">
                     <tr>
                       <th scope="col">QR Code</th>
-                      <th scope="col">Library ID</th>
-                      <th scope="col">Student ID</th>
+                      <th scope="col">Employee ID</th>
                       <th scope="col">First Name</th>
                       <th scope="col">Middle Name</th>
                       <th scope="col">Last Name</th>
-                      <th scope="col">User Type</th>
+                      <th scope="col">Email</th>
                       <th scope="col">Contact Number</th>
-                      <th scope="col">Penalty</th>
-                      <th scope="col">Department</th>
-                      <th scope="col">Section</th>
                       <th scope="col">Address</th>
                     </tr>
                   </thead>
@@ -112,19 +105,15 @@ $id = $conn->query($sql);
                   while($tbl_patrons = mysqli_fetch_assoc($id)):   
                 ?>
                     <tr>
-                      <td><img src="<?= $tbl_patrons['qrCode'];?>" alt=""></td>
-                      <th scope="row"><?= $tbl_patrons['Library_ID'];?></th>
-                      <td><?= $tbl_patrons['Student_ID'];?></td>
-                      <td><?= $tbl_patrons['FirstName'];?></td>
-                      <td><?= $tbl_patrons['MiddleName'];?></td>
-                      <td><?= $tbl_patrons['LastName'];?></td>
-                      <td><?= $tbl_patrons['Patron_Type'];?></td>
-                      <td><?= $tbl_patrons['Contact_Number'];?></td>
-                      <td><?= $tbl_patrons['Penalty'];?></td>
-                      <td><?= $tbl_patrons['Department'];?></td>
-                      <td><?= $tbl_patrons['Section'];?></td>
-                      <td><?= $tbl_patrons['Street'];?>, <?= $tbl_patrons['Barangay'];?>,
-                        <?= $tbl_patrons['Municipality'];?>, <?= $tbl_patrons['Province'];?> </td>
+                      <td><img src="<?= $tbl_patrons['qrcode'];?>" alt=""></td>
+                      <th scope="row"><?= $tbl_patrons['empID'];?></th>
+                      <td><?= $tbl_patrons['firstname'];?></td>
+                      <td><?= $tbl_patrons['middlename'];?></td>
+                      <td><?= $tbl_patrons['lastName'];?></td>
+                      <td><?= $tbl_patrons['email'];?></td>
+                      <td><?= $tbl_patrons['contactNumber'];?></td>
+                      <td><?= $tbl_patrons['street'];?>, <?= $tbl_patrons['barangay'];?>,
+                        <?= $tbl_patrons['municipality'];?>, <?= $tbl_patrons['province'];?> </td>
                  
                     </tr>
 

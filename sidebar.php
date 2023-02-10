@@ -147,6 +147,12 @@
                         <a href="patrons-list.php">
                             <i class="bi bi-circle"></i><span>Patron's Master List</span>
                         </a>
+                        <a href="admin-list.php">
+                            <i class="bi bi-circle"></i><span>Admin's Master List</span>
+                        </a>
+                        <a href="librarian-list.php">
+                            <i class="bi bi-circle"></i><span>Librarian's Master List</span>
+                        </a>
                         <a href="book-borrowed.php">
                             <i class="bi bi-circle"></i><span>Book Borrowed</span>
                         </a>

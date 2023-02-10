@@ -8,6 +8,12 @@ $sql = "SELECT * FROM tbl_maintenance";
 $id = $conn->query($sql);
 
 
+$sqladmin = "SELECT * FROM tbl_adminaccess";
+
+$idadmin = $conn->query($sqladmin);
+
+
+
 ?>
 
 
@@ -28,7 +34,9 @@ $id = $conn->query($sql);
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -66,7 +74,7 @@ $id = $conn->query($sql);
       </nav>
     </div><!-- End Page Title -->
 
-   <section class="section">
+    <section class="section">
       <div class="row">
         <div class="col-lg-12">
 
@@ -76,33 +84,36 @@ $id = $conn->query($sql);
               <h5 class="card-title">Update Book Maintenance</h5>
 
               <?php
-            while($rows = mysqli_fetch_assoc($id)):   
-        ?>
+                  while($rows = mysqli_fetch_assoc($id)):   
+                ?>
 
               <!-- Multi Columns Form -->
               <form class="row g-3" action="maintenance-process.php" method="post">
                 <div class="col-md-4">
                   <label for="inputName5" class="form-label">Allowed Books to Borrow</label>
-                  <input type="number" class="form-control" id="inputName5" min="1" max="10" name="numBook" value ="<?= $rows['Allowed_BookBorrow'];?>" required>
+                  <input type="number" class="form-control" id="inputName5" min="1" max="10" name="numBook"
+                    value="<?= $rows['Allowed_BookBorrow'];?>" required>
                 </div>
                 <div class="col-md-4">
                   <label for="inputName5" class="form-label">Allowed Book days to Borrow</label>
-                  <input type="number" class="form-control" id="inputName5"  min="1" max="7" name="numDays" value ="<?= $rows['Allowed_BookDays'];?>" required>
+                  <input type="number" class="form-control" id="inputName5" min="1" max="7" name="numDays"
+                    value="<?= $rows['Allowed_BookDays'];?>" required>
                 </div>
                 <div class="col-md-4">
                   <label for="inputEmail5" class="form-label">Penalty</label>
-                  <input type="number" class="form-control" id="inputEmail5"  min="1" max="100" name="penalty" value ="<?= $rows['Penalty'];?>"required>
+                  <input type="number" class="form-control" id="inputEmail5" min="1" max="100" name="penalty"
+                    value="<?= $rows['Penalty'];?>" required>
                 </div>
 
                 <?php
                 endwhile;
                 ?>
 
-    
-               
+
+
                 <div class="text-center">
                   <button type="submit" class="btn btn-primary m-2" name="saveChange">+ Save Changes</button>
-                 
+
                 </div>
               </form><!-- End Multi Columns Form -->
 
@@ -111,6 +122,48 @@ $id = $conn->query($sql);
 
         </div>
 
+        
+        <div class="col-lg-12">
+
+
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Generate QR Code</h5>
+
+    
+
+    <!-- Multi Columns Form -->
+    <form class="row g-3" action="maintenance-process.php" method="post">
+      
+
+    <div class="col-4">
+                  <label class="col-sm-7 form-label">Librarian</label>
+                  <div class="col-sm-12">
+                    <select class="form-select" aria-label="Default select example" id="LibID" onchange="selectIndex()" name="LibraryID"
+                      required>
+                      <option selected disabled>Select ID</option>
+                      <?php while($admin = mysqli_fetch_array($idadmin)){
+                      ?>
+
+                      <option value="<?= $admin['id'];?>"><?= $admin['id'];?></option>
+
+                      <?php
+                      } ?>
+                    </select>
+                  </div>    
+
+
+
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary m-2" name="saveChange">+ Save Changes</button>
+
+      </div>
+    </form><!-- End Multi Columns Form -->
+
+  </div>
+</div>
+
+</div>
 
       </div>
     </section>
@@ -121,10 +174,11 @@ $id = $conn->query($sql);
 
   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
-    
+
   </footer><!-- End Footer -->
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
