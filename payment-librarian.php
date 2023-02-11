@@ -28,7 +28,9 @@ $id = $conn->query($sql);
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -54,7 +56,7 @@ $id = $conn->query($sql);
 
   <!-- End Sidebar and Header-->
 
-  
+
   <main id="main" class="main">
 
     <div class="pagetitle">
@@ -78,70 +80,94 @@ $id = $conn->query($sql);
 
               <!-- Multi Columns Form -->
               <form class="row g-3" action="payment-process-librarian.php" method="post">
-                
+
                 <div class="col-md-6">
                   <label for="inputEmail5" class="form-label">Library ID</label>
-                  <input type="number" class="form-control" id="libraryid" name="libraryid" required >
+                  <input type="number" class="form-control" id="libraryid" name="libraryid" required>
                 </div>
 
                 <div class="col-md-6">
                   <label for="inputEmail5" class="form-label">Student ID</label>
-                  <input type="text" class="form-control" id="studentid" name="studentid" required >
+                  <input type="text" class="form-control" id="studentid" name="studentid" required>
                 </div>
                 <div class="col-md-4">
                   <label for="inputPassword5" class="form-label">First Name</label>
-                  <input type="text" class="form-control" id="firstname" name="firstname" required >
+                  <input type="text" class="form-control" id="firstname" name="firstname" required>
                 </div>
                 <div class="col-md-4">
                   <label for="inputPassword5" class="form-label">Middle Name</label>
-                  <input type="text" class="form-control" id="middlename" name="middlename" required >
+                  <input type="text" class="form-control" id="middlename" name="middlename" required>
                 </div>
                 <div class="col-md-4">
                   <label for="inputPassword5" class="form-label">Last Name</label>
-                  <input type="text" class="form-control" id="lastname" name="lastname" required >
+                  <input type="text" class="form-control" id="lastname" name="lastname" required>
                 </div>
                 <div class="col-6">
                   <label class="col-sm-7 form-label">Patron Type</label>
                   <div class="col-sm-12">
-                  <select class="form-select" aria-label="Default select example" id="type" name="type" required >
+                    <select class="form-select" aria-label="Default select example" id="type" name="type" required>
                       <option selected disabled>Select type</option>
-                        <option value="PATRON">PATRON</option>
-                        
-                      </select>
+                      <option value="PATRON">PATRON</option>
+
+                    </select>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <label for="inputPassword5" class="form-label">Contact Number</label>
-                  <input type="number" class="form-control" id="contactnumber" name="contactnumber" required >
+                  <input type="number" class="form-control" id="contactnumber" name="contactnumber" required>
                 </div>
                 <div class="col-6">
                   <label class="col-sm-7 form-label">Department</label>
                   <div class="col-sm-12">
-                  <select class="form-select" aria-label="Default select example" id="department" name="department" required >
+                    <select class="form-select" aria-label="Default select example" id="department" name="department"
+                      required>
                       <option selected disabled>Select department</option>
-                        <option value="BSIT">BSIT</option>
-                        <option value="BSPSYCH">BSPSYCH</option>
-                        <option value="BSBA">BSBA</option>
-                        <option value="BSCE">BSCE</option>
-                        <option value="BSHM">BSHM</option>
-                        <option value="FACULTY">FACULTY</option>
-                      </select>
+                      <option disabled value="College of Accountancy, Business and Management">College of Accountancy,
+                        Business and Management</option>
+                      <option value="BS Accountancy">BS Accountancy</option>
+                      <option value="BS Accounting Information System">BS Accounting Information System</option>
+                      <option value="BS Business Administration in Financial Management">BS Business Administration in
+                        Financial Management</option>
+                      <option value="BS Business Administration in Marketing Management">BS Business Administration in
+                        Marketing Management</option>
+                      <option value="BS Hospitality Management">BS Hospitality Management</option>
+                      <option value="BS Tourism Management">BS Tourism Management</option>
+                      <option disabled value="College of Arts and Sciences">College of Arts and Sciences</option>
+                      <option value="BS Psychology">BS Psychology</option>
+                      <option value="Bachelor in Physical Education">Bachelor in Physical Education</option>
+                      <option value="Certificate of Professional Education">Certificate of Professional Education
+                      </option>
+                      <option disabled value="College of Engineering and Technology">College of Engineering and
+                        Technology</option>
+                      <option value="BS Architecture">BS Architecture</option>
+                      <option value="BS Civil Engineering">BS Civil Engineering</option>
+                      <option value="BS Computer Engineering">BS Computer Engineering</option>
+                      <option value="BS Information Technology">BS Information Technology</option>
+                      <option disabled value="Graduate Studies">Graduate Studies</option>
+                      <option value="Doctors of Education Major in Educational Management">Doctors of Education Major in
+                        Educational Management</option>
+                      <option value="Master of Education Major in Educational Management">Master of Education Major in
+                        Educational Management</option>
+                      <option value="Master of Education Major in Special Education">Master of Education Major in
+                        Special Education</option>
+                      <option value="Master in Management">Master in Management</option>
+                    </select>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <label for="inputPassword5" class="form-label">Section</label>
-                  <input type="text" class="form-control" id="section" name="section"  required >
+                  <input type="text" class="form-control" id="section" name="section" required>
                 </div>
                 <div class="col-md-12">
                   <label for="inputPassword5" class="form-label">Address</label>
-                  <input type="text" class="form-control" id="address" name="Address"  required >
+                  <input type="text" class="form-control" id="address" name="Address" required>
                 </div>
 
                 <h5 class="card-title">Payment Process</h5>
 
                 <div class="col-md-6">
                   <label for="inputPassword5" class="form-label">Penalties</label>
-                  <input type="number" class="form-control" id="penalties" name="penalties" min="1" step="any" required >
+                  <input type="number" class="form-control" id="penalties" name="penalties" min="1" step="any" required>
                 </div>
                 <div class="col-md-6">
                   <label for="inputPassword5" class="form-label">Payment</label>
@@ -149,8 +175,8 @@ $id = $conn->query($sql);
                 </div>
 
 
-               
-               
+
+
                 <div class="text-right">
                   <button type="submit" class="btn btn-primary" name="pay">+ Pay</button>
                   <button type="reset" class="btn btn-warning">Reset</button>
@@ -161,74 +187,73 @@ $id = $conn->query($sql);
             </div>
           </div>
 
-          
+
 
         </div>
 
-       
-
-        
 
         <div class="col-lg-6">
 
           <!-- table starts here -->
 
-          <div class="card"> 
-                  <div class="card-body">
-                
-                    <h2 class="card-title ">Members Masterlist</h2>
+          <div class="card">
+            <div class="card-body">
 
-                    <form name="excel.php" method="post">
+              <h2 class="card-title ">Members Masterlist</h2>
 
-                    <div class="overflow-auto mt-4">
-                  
-                    <!-- Table with stripped rows -->
-              <table class="table table-hover table-bordered text-nowrap text-center " style="max-height: 675px; overflow: auto; display: inline-block;" id="members">
-                <thead class="table-dark" style="position:sticky; top: 0 ;">
-                  <tr>
-                    
-                    <th scope="col">Library ID</th>
-                    <th scope="col">Student ID</th>
-                    <th scope="col">First Name</th>
-                    <th scope="col">Middle Name</th>
-                    <th scope="col">Last Name</th>
-                    <th scope="col">User Type</th>
-                    <th scope="col">Contact Number</th>
-                    <th scope="col">Penalty</th>
-                    <th scope="col">Department</th>
-                    <th scope="col">Section</th>
-                    <th scope="col">Address</th>
-                  </tr>
-                </thead>
-                <tbody>
+              <form name="excel.php" method="post">
 
-                <?php
+                <div class="overflow-auto mt-4">
+
+                  <!-- Table with stripped rows -->
+                  <table class="table table-hover table-bordered text-nowrap text-center "
+                    style="max-height: 675px; overflow: auto; display: inline-block;" id="members">
+                    <thead class="table-dark" style="position:sticky; top: 0 ;">
+                      <tr>
+
+                        <th scope="col">Library ID</th>
+                        <th scope="col">Student ID</th>
+                        <th scope="col">First Name</th>
+                        <th scope="col">Middle Name</th>
+                        <th scope="col">Last Name</th>
+                        <th scope="col">User Type</th>
+                        <th scope="col">Contact Number</th>
+                        <th scope="col">Penalty</th>
+                        <th scope="col">Department</th>
+                        <th scope="col">Section</th>
+                        <th scope="col">Address</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                      <?php
                   while($tbl_bookborrow = mysqli_fetch_assoc($id)):   
                 ?>
-                  <tr>
-                    <td><?= $tbl_bookborrow['Library_ID'];?></td>
-                    <td><?= $tbl_bookborrow['Student_ID'];?></td>
-                    <td><?= $tbl_bookborrow['FirstName'];?></td>
-                    <td><?= $tbl_bookborrow['MiddleName'];?></td>
-                    <td><?= $tbl_bookborrow['LastName'];?></td>
-                    <td><?= $tbl_bookborrow['Patron_Type'];?></td>
-                    <td><?= $tbl_bookborrow['Contact_Number'];?></td>
-                    <td><?= $tbl_bookborrow['Penalty'];?></td>
-                    <td><?= $tbl_bookborrow['Department'];?></td>
-                    <td><?= $tbl_bookborrow['Section'];?></td>
-                    <td><?= $tbl_bookborrow['Street'];?>, <?= $tbl_bookborrow['Barangay'];?>, <?= $tbl_bookborrow['Municipality'];?>, <?= $tbl_bookborrow['Province'];?> </td>
-                  </tr>
+                      <tr>
+                        <td><?= $tbl_bookborrow['Library_ID'];?></td>
+                        <td><?= $tbl_bookborrow['Student_ID'];?></td>
+                        <td><?= $tbl_bookborrow['FirstName'];?></td>
+                        <td><?= $tbl_bookborrow['MiddleName'];?></td>
+                        <td><?= $tbl_bookborrow['LastName'];?></td>
+                        <td><?= $tbl_bookborrow['Patron_Type'];?></td>
+                        <td><?= $tbl_bookborrow['Contact_Number'];?></td>
+                        <td><?= $tbl_bookborrow['Penalty'];?></td>
+                        <td><?= $tbl_bookborrow['Department'];?></td>
+                        <td><?= $tbl_bookborrow['Section'];?></td>
+                        <td><?= $tbl_bookborrow['Street'];?>, <?= $tbl_bookborrow['Barangay'];?>,
+                          <?= $tbl_bookborrow['Municipality'];?>, <?= $tbl_bookborrow['Province'];?> </td>
+                      </tr>
 
-                    <?php
+                      <?php
           endwhile;
           ?>
 
-                  </tbody>
-                </table>
-                    
+                    </tbody>
+                  </table>
+
 
               </form>
-      </div>
+            </div>
     </section>
 
   </main><!-- End #main -->
@@ -237,10 +262,11 @@ $id = $conn->query($sql);
 
   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
-    
+
   </footer><!-- End Footer -->
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
@@ -271,7 +297,7 @@ $id = $conn->query($sql);
         document.getElementById("department").value = this.cells[8].innerHTML;
         document.getElementById("section").value = this.cells[9].innerHTML;
         document.getElementById("address").value = this.cells[10].innerHTML;
- 
+
         console.log(rows[i]);
 
       };

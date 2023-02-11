@@ -8,13 +8,13 @@ $sql = "SELECT * FROM tbl_maintenance";
 $id = $conn->query($sql);
 
 
-$sqllibrarian = "SELECT * FROM tbl_librarianaccess";
+$sqllibrarian = "SELECT * FROM tbl_librarianaccess ORDER BY id DESC";
 $idlibrarian = $conn->query($sqllibrarian);
 
-$sqladmin = "SELECT * FROM tbl_adminaccess";
+$sqladmin = "SELECT * FROM tbl_adminaccess ORDER BY id DESC";
 $idadmin = $conn->query($sqladmin);
 
-$sqlpatron = "SELECT * FROM tbl_patrons";
+$sqlpatron = "SELECT * FROM tbl_patrons ORDER BY Library_ID DESC";
 $idpatron = $conn->query($sqlpatron);
 
 

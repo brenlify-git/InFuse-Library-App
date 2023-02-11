@@ -145,7 +145,6 @@ background-image: linear-gradient(241deg, #303030 0%, #1a266d 100%);
                                         <select class="form-select" aria-label="Default select example"
                                             name="patronType" required>
                                             <option value="PATRON">Patron</option>
-
                                         </select>
                                     </div>
                                 </div>
@@ -184,7 +183,7 @@ background-image: linear-gradient(241deg, #303030 0%, #1a266d 100%);
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="inputPassword5" class="form-label">Section</label>
+                                    <label for="inputPassword5" class="form-label">Section <i style="color:#0076bd;"> if faculty member use Faculty or N/A</i></label>
                                     <input type="text" class="form-control" id="inputPassword5" placeholder="ITE201" name="section" required>
                                 </div>
                                 <div class="col-md-6">
@@ -207,8 +206,6 @@ background-image: linear-gradient(241deg, #303030 0%, #1a266d 100%);
                                     <input type="text" class="form-control" id="inputAddres5s"
                                         placeholder="Bulacan" name="province" required>
                                 </div>
-
-
                                 <div class="text-center">
                                     <button type="submit">Register Now!</button>
                                     <button type="reset" class="resetbtn">Reset</button>
