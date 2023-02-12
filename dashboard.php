@@ -6,7 +6,7 @@ $row_countStud = mysqli_fetch_assoc($countStudents);
 $countStud = $row_countStud["countS"];
 
 
-$countFaculty = mysqli_query($conn, "SELECT COUNT(*) AS countF  FROM tbl_librarianaccess WHERE librarian_type = 'LIBRARIAN'");
+$countFaculty = mysqli_query($conn, "SELECT COUNT(*) AS countF  FROM tbl_ADMINaccess WHERE ADMIN_type = 'ADMIN'");
 $row_countFact = mysqli_fetch_assoc($countFaculty);
 $countFact = $row_countFact["countF"];
 
@@ -45,8 +45,8 @@ $countCat = $row_countCat["category"];
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/img/Logo Only.png" rel="icon">
-  <link href="assets/img/Logo Only.png" rel="apple-touch-icon">
+  <link href="assets/img/Logo ONLY.png" rel="icon">
+  <link href="assets/img/Logo ONLY.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
@@ -105,8 +105,8 @@ $countCat = $row_countCat["category"];
                     </div>
                     <div class="ps-3">
                       <h6> <?php echo $countStud;?> </h6>
-                      <span class="text-success small pt-1 fw-bold">LIBRARIAN</span> <span
-                        class="text-muted small pt-2 ps-1">ONLY</span>
+                      <span class="text-success small pt-1 fw-bold">ADMIN</span> <span
+                        class="text-muted small pt-2 ps-1">VIEW</span>
 
                     </div>
                   </div>
@@ -133,8 +133,8 @@ $countCat = $row_countCat["category"];
                     </div>
                     <div class="ps-3">
                       <h6> <?php echo $countRt;?> </h6>
-                      <span class="text-success small pt-1 fw-bold">LIBRARIAN</span> <span
-                        class="text-muted small pt-2 ps-1">ONLY</span>
+                      <span class="text-success small pt-1 fw-bold">ADMIN</span> <span
+                        class="text-muted small pt-2 ps-1">VIEW</span>
 
                     </div>
                   </div>
@@ -160,8 +160,8 @@ $countCat = $row_countCat["category"];
                     </div>
                     <div class="ps-3">
                       <h6> <?php echo $countFact;?> </h6>
-                      <span class="text-success small pt-1 fw-bold">LIBRARIAN</span> <span
-                        class="text-muted small pt-2 ps-1">ONLY</span>
+                      <span class="text-success small pt-1 fw-bold">ADMIN</span> <span
+                        class="text-muted small pt-2 ps-1">VIEW</span>
 
                     </div>
                   </div>
@@ -186,8 +186,8 @@ $countCat = $row_countCat["category"];
                     </div>
                     <div class="ps-3">
                       <h6> <?php echo $countCat;?> </h6>
-                      <span class="text-success small pt-1 fw-bold">LIBRARIAN</span> <span
-                        class="text-muted small pt-2 ps-1">ONLY</span>
+                      <span class="text-success small pt-1 fw-bold">ADMIN</span> <span
+                        class="text-muted small pt-2 ps-1">VIEW</span>
 
                     </div>
                   </div>
@@ -215,8 +215,8 @@ $countCat = $row_countCat["category"];
                     </div>
                     <div class="ps-3">
                       <h6> <?php echo $countAvail;?> </h6>
-                      <span class="text-success small pt-1 fw-bold">LIBRARIAN</span> <span
-                        class="text-muted small pt-2 ps-1">ONLY</span>
+                      <span class="text-success small pt-1 fw-bold">ADMIN</span> <span
+                        class="text-muted small pt-2 ps-1">VIEW</span>
 
                     </div>
                   </div>
@@ -240,8 +240,8 @@ $countCat = $row_countCat["category"];
                     </div>
                     <div class="ps-3">
                       <h6> <?php echo $countBor;?> </h6>
-                      <span class="text-success small pt-1 fw-bold">LIBRARIAN</span> <span
-                        class="text-muted small pt-2 ps-1">ONLY</span>
+                      <span class="text-success small pt-1 fw-bold">ADMIN</span> <span
+                        class="text-muted small pt-2 ps-1">VIEW</span>
 
                     </div>
                   </div>

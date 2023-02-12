@@ -52,7 +52,7 @@ include 'connection.php';
 
 					<div class="wrap-input100 ml-2">
 						<label>
-							<input type="radio" name="type" value="PATRON"> Patron
+							<input type="radio" name="type" value="PATRON" required> Patron
 						</label> 
 
 						<label>

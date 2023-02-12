@@ -17,7 +17,7 @@ $id = $conn->query($sql);
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>InFuse | About</title>
+    <title>InFuse | Book Catalogue</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -58,7 +58,7 @@ $id = $conn->query($sql);
     <main id="main" class="main">
 
         <div class="pagetitle">
-            <h1>About</h1>
+            <h1>Book Catalogue</h1>
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="dashboard-student.php">Home</a></li>

@@ -84,7 +84,7 @@ if(!isset($_SESSION["librarian_type"])){
         
       </a><!-- End Notification Icon -->
 
-      <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
+      <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications overflow-auto" style="max-height: 300px;">
         <li class="dropdown-header">
           
 

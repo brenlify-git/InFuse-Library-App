@@ -119,12 +119,27 @@ $id = $conn->query($sql);
                   <div class="col-sm-12">
                   <select class="form-select" aria-label="Default select example" id="department" name="department" required >
                       <option selected disabled>Select department</option>
-                        <option value="BSIT">BSIT</option>
-                        <option value="BSPSYCH">BSPSYCH</option>
-                        <option value="BSBA">BSBA</option>
-                        <option value="BSCE">BSCE</option>
-                        <option value="BSHM">BSHM</option>
-                        <option value="FACULTY">FACULTY</option>
+                      <option disabled value="College of Accountancy, Business and Management">College of Accountancy, Business and Management</option>
+                          <option value="BS Accountancy">BS Accountancy</option>
+                          <option value="BS Accounting Information System">BS Accounting Information System</option>
+                          <option value="BS Business Administration in Financial Management">BS Business Administration in Financial Management</option>
+                          <option value="BS Business Administration in Marketing Management">BS Business Administration in Marketing Management</option>
+                          <option value="BS Hospitality Management">BS Hospitality Management</option>
+                          <option value="BS Tourism Management">BS Tourism Management</option>
+                          <option disabled value="College of Arts and Sciences">College of Arts and Sciences</option>
+                          <option value="BS Psychology">BS Psychology</option>
+                          <option value="Bachelor in Physical Education">Bachelor in Physical Education</option>
+                          <option value="Certificate of Professional Education">Certificate of Professional Education</option>
+                          <option disabled value="College of Engineering and Technology">College of Engineering and Technology</option>
+                          <option value="BS Architecture">BS Architecture</option>
+                          <option value="BS Civil Engineering">BS Civil Engineering</option>
+                          <option value="BS Computer Engineering">BS Computer Engineering</option>
+                          <option value="BS Information Technology">BS Information Technology</option>
+                          <option disabled value="Graduate Studies">Graduate Studies</option>
+                          <option value="Doctors of Education Major in Educational Management">Doctors of Education Major in Educational Management</option>
+                          <option value="Master of Education Major in Educational Management">Master of Education Major in Educational Management</option>
+                          <option value="Master of Education Major in Special Education">Master of Education Major in Special Education</option>
+                          <option value="Master in Management">Master in Management</option>
                       </select>
                   </div>
                 </div>

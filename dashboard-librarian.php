@@ -104,7 +104,7 @@ $countCat = $row_countCat["category"];
                     <div class="ps-3">
                       <h6> <?php echo $countStud;?> </h6>
                       <span class="text-success small pt-1 fw-bold">LIBRARIAN</span> <span
-                        class="text-muted small pt-2 ps-1">ONLY</span>
+                        class="text-muted small pt-2 ps-1">VIEW</span>
 
                     </div>
                   </div>
@@ -132,7 +132,7 @@ $countCat = $row_countCat["category"];
                     <div class="ps-3">
                       <h6> <?php echo $countRt;?> </h6>
                       <span class="text-success small pt-1 fw-bold">LIBRARIAN</span> <span
-                        class="text-muted small pt-2 ps-1">ONLY</span>
+                        class="text-muted small pt-2 ps-1">VIEW</span>
 
                     </div>
                   </div>
@@ -159,7 +159,7 @@ $countCat = $row_countCat["category"];
                     <div class="ps-3">
                       <h6> <?php echo $countFact;?> </h6>
                       <span class="text-success small pt-1 fw-bold">LIBRARIAN</span> <span
-                        class="text-muted small pt-2 ps-1">ONLY</span>
+                        class="text-muted small pt-2 ps-1">VIEW</span>
 
                     </div>
                   </div>
@@ -185,7 +185,7 @@ $countCat = $row_countCat["category"];
                     <div class="ps-3">
                       <h6> <?php echo $countCat;?> </h6>
                       <span class="text-success small pt-1 fw-bold">LIBRARIAN</span> <span
-                        class="text-muted small pt-2 ps-1">ONLY</span>
+                        class="text-muted small pt-2 ps-1">VIEW</span>
 
                     </div>
                   </div>
@@ -214,7 +214,7 @@ $countCat = $row_countCat["category"];
                     <div class="ps-3">
                       <h6> <?php echo $countAvail;?> </h6>
                       <span class="text-success small pt-1 fw-bold">LIBRARIAN</span> <span
-                        class="text-muted small pt-2 ps-1">ONLY</span>
+                        class="text-muted small pt-2 ps-1">VIEW</span>
 
                     </div>
                   </div>
@@ -239,7 +239,7 @@ $countCat = $row_countCat["category"];
                     <div class="ps-3">
                       <h6> <?php echo $countBor;?> </h6>
                       <span class="text-success small pt-1 fw-bold">LIBRARIAN</span> <span
-                        class="text-muted small pt-2 ps-1">ONLY</span>
+                        class="text-muted small pt-2 ps-1">VIEW</span>
 
                     </div>
                   </div>

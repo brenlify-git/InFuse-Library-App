@@ -3,13 +3,18 @@
 
 include 'connection.php';
 
-$search = $_POST['search'];
+$search = trim($_POST['search']);
 
-$stmt = $conn->prepare("SELECT DISTINCT Book_Name, Call_No, Book_Author FROM tbl_bookinfo WHERE Status = 'AVAILABLE' AND (Book_Name LIKE ? OR Call_NO LIKE ?) ORDER BY Book_Name ASC");
-$search = "%" . $search . "%";
-$stmt->bind_param("ss", $search, $search);
+$stmt = $conn->prepare("SELECT DISTINCT Book_Name, Call_No, Book_Author FROM tbl_bookinfo WHERE Status = 'AVAILABLE' AND (Book_Name LIKE ? OR Call_NO LIKE ? OR Book_Author LIKE ?) ORDER BY Book_Name ASC");
+
+$search1 = "%" . $search . "%";
+$search2 = "%" . $search . "%";
+$search3 = "%" . $search . "%";
+
+$stmt->bind_param("sss", $search1, $search2, $search3);
 $stmt->execute();
 $result = $stmt->get_result();
+
 if($result->num_rows > 0){
     
 ?>
@@ -20,7 +25,7 @@ if($result->num_rows > 0){
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>InFuse | About</title>
+    <title>InFuse | Book Catalogue</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -59,7 +64,7 @@ if($result->num_rows > 0){
     <main id="main" class="main">
 
         <div class="pagetitle">
-            <h1>About</h1>
+            <h1>Book Catalogue</h1>
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="dashboard-student.php">Home</a></li>
