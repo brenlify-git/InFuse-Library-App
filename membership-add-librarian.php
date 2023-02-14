@@ -135,7 +135,7 @@ $id = $conn->query($sql);
                   <label for="inputPassword5" class="form-label">Last Name</label>
                   <input type="text" class="form-control" id="lastName" name="lastName" required>
                 </div>
-                <div class="col-6">
+                <div class="col-md-6">
                   <label class="col-sm-7 form-label">Patron Type</label>
                   <div class="col-sm-12">
                     <select class="form-select" aria-label="Default select example" id="patronType" name="patronType" required>
@@ -148,7 +148,7 @@ $id = $conn->query($sql);
                   <label for="inputPassword5" class="form-label">Contact Number</label>
                   <input type="text" class="form-control" id="contactNumber" pattern="[0-9]{11}" maxlength="11" name="contactNumber" required>
                 </div>
-                <div class="col-6">
+                <div class="col-md-6">
                   <label class="col-sm-7 form-label">Department</label>
                   <div class="col-sm-12">
                     <select class="form-select" aria-label="Default select example" id="department" name="department" required>
@@ -180,19 +180,19 @@ $id = $conn->query($sql);
                   <label for="inputPassword5" class="form-label">Section</label>
                   <input type="text" class="form-control" id="section" name="section" required>
                 </div>
-                <div class="col-6">
+                <div class="col-md-6">
                   <label for="inputAddress5" class="form-label">Street</label>
                   <input type="text" class="form-control" id="street" placeholder="William Shakespeare" name="street" required>
                 </div>
-                <div class="col-6">
+                <div class="col-md-6">
                   <label for="inputAddress5" class="form-label">Barangay</label>
                   <input type="text" class="form-control" id="barangay" placeholder="William Shakespeare" name="barangay" required>
                 </div>
-                <div class="col-6">
+                <div class="col-md-6">
                   <label for="inputAddress5" class="form-label">Municipality</label> 
                   <input type="text" class="form-control" id="municipality" placeholder="Book Shelf Inc." name="municipality" required>
                 </div>
-                <div class="col-6">
+                <div class="col-md-6">
                   <label for="inputAddress5" class="form-label">Province</label>
                   <input type="text" class="form-control" id="province" placeholder="Book Shelf Inc." name="province" required>
                 </div>

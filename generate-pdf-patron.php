@@ -3,7 +3,6 @@ include 'connection.php';
 $studID = $_POST['studID'];
 
 $sqladmin = "SELECT * FROM tbl_patrons WHERE Student_ID = '$studID'";
-
 $idadmin = $conn->query($sqladmin);
 
 
@@ -101,4 +100,4 @@ $dompdf->addInfo("Title", "$fullname"); // "add_info" in earlier versions of Dom
 /**
  * Send the PDF to the browser
  */
-$dompdf->stream("invoice.pdf", ["Attachment" => 0]);
+$dompdf->stream("patrons.pdf", ["Attachment" => 0]);

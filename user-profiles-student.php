@@ -47,14 +47,14 @@
 
   <?php include_once 'headerbar-student.php';?>
   <?php include 'sidebar-student.php'; 
-  $utype = strtolower($_SESSION["patron_type"]);
+  
   ?>
 
   <!-- End Sidebar and Header-->
 
 
   <main id="main" class="main">
-
+  
     <div class="pagetitle">
       <h1>Profile</h1>
       <nav>
@@ -74,7 +74,7 @@
 
               <img src="assets/img/logo.png" alt="Profile" class="rounded-circle">
               <h2><?php echo ucfirst($_SESSION["patron_username"]) ?></h2>
-              <h3><?php echo ucwords($utype) ?></h3>
+              <h3>PATRON</h3>
               <div class="social-links mt-2">
                 <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
                 <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>

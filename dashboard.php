@@ -6,7 +6,7 @@ $row_countStud = mysqli_fetch_assoc($countStudents);
 $countStud = $row_countStud["countS"];
 
 
-$countFaculty = mysqli_query($conn, "SELECT COUNT(*) AS countF  FROM tbl_ADMINaccess WHERE ADMIN_type = 'ADMIN'");
+$countFaculty = mysqli_query($conn, "SELECT COUNT(*) AS countF  FROM tbl_adminaccess WHERE ADMIN_type = 'ADMIN'");
 $row_countFact = mysqli_fetch_assoc($countFaculty);
 $countFact = $row_countFact["countF"];
 
