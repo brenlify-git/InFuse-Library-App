@@ -2,7 +2,7 @@
 
 include 'connection.php';
 
-$StudentID = $_POST['studID'];
+$StudentID = $_POST['username'];
 $firstName = $_POST['firstName'];
 $middleName = $_POST['middleName'];
 $lastName = $_POST['lastName'];

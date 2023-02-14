@@ -49,7 +49,7 @@ background-image: linear-gradient(241deg, #303030 0%, #1a266d 100%);
         }
         
 
-        button {
+        .button {
             --width: 190px;
             --timing: 2s;
             border: 0;
@@ -67,7 +67,7 @@ background-image: linear-gradient(241deg, #303030 0%, #1a266d 100%);
             background: rgb(247, 150, 70);
         }
 
-        button:hover {
+        .button:hover {
             background-image: linear-gradient(to right, rgb(250, 82, 82), rgb(250, 82, 82) 16.65%, rgb(190, 75, 219) 16.65%, rgb(190, 75, 219) 33.3%, rgb(76, 110, 245) 33.3%, rgb(76, 110, 245) 49.95%, rgb(64, 192, 87) 49.95%, rgb(64, 192, 87) 66.6%, rgb(250, 176, 5) 66.6%, rgb(250, 176, 5) 83.25%, rgb(253, 126, 20) 83.25%, rgb(253, 126, 20) 100%, rgb(250, 82, 82) 100%);
             animation: var(--timing) linear dance6123 infinite;
             transform: scale(1.1) translateY(-1px);
@@ -79,6 +79,29 @@ background-image: linear-gradient(241deg, #303030 0%, #1a266d 100%);
             }
         }
     </style>
+
+<script src="https://code.jquery.com/jquery-1.8.2.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#username').keyup(function(){
+            $.post("avail-id.php", 
+            {username: $('#username').val(),
+            
+            }, function(response){
+                $('#usernameResult').fadeOut();
+                setTimeout("Userresult('usernameResult','"+escape(response)+"')",350);
+            });
+                return false;
+        });
+    });
+
+    function Userresult(id, response){
+        $('#usernameLoading').hide();
+        $('#'+id).html(unescape(response));
+        $('#'+id).fadeIn();
+    }
+</script>
 
 </head>
 
@@ -113,16 +136,16 @@ background-image: linear-gradient(241deg, #303030 0%, #1a266d 100%);
                         <div class="card-body">
                             <h5 class="card-title">Insert your Information</h5>
 
-
-
                             <!-- Multi Columns Form -->
                             <form class="row g-3" action="add-patrons.php" method="post">
 
                                 <div class="col-md-12">
                                     <label for="inputEmail5" class="form-label">Student ID</label>
                                     <input type="text" class="form-control" pattern="[0-9]{4}-[0-9]{6}" maxlength="11"
-                                        title="Format should be like this: 2021-160099" placeholder="2021-160011" id="studID" name="studID"
+                                        title="Format should be like this: 2021-160099" placeholder="2021-160011" id="username" name="username"
                                         required>
+                                        <span id="usernameLoading"></span>
+                            <span id="usernameResult"></span>
                                 </div>
                                 <div class="col-md-4">
                                     <label for="inputPassword5" class="form-label">First Name</label>
@@ -131,33 +154,33 @@ background-image: linear-gradient(241deg, #303030 0%, #1a266d 100%);
                                 </div>
                                 <div class="col-md-4">
                                     <label for="inputPassword5" class="form-label">Middle Name</label>
-                                    <input type="text" class="form-control" id="firstName" placeholder="Santos" name="middleName"
+                                    <input type="text" class="form-control" id="middleName" placeholder="Santos" name="middleName"
                                         required>
                                 </div>
                                 <div class="col-md-4">
                                     <label for="inputPassword5" class="form-label">Last Name</label>
-                                    <input type="text" class="form-control" id="inputPassword5" placeholder="Dela Cruz" name="lastName"
+                                    <input type="text" class="form-control" id="lastName" placeholder="Dela Cruz" name="lastName"
                                         required>
                                 </div>
                                 <div class="col-md-6">
                                     <label class="col-sm-7 form-label">Patron Type</label>
                                     <div class="col-sm-12">
                                         <select class="form-select" aria-label="Default select example"
-                                            name="patronType" required>
+                                            name="patronType" required id="patronType">
                                             <option value="PATRON">Patron</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="inputPassword5" class="form-label">Contact Number</label>
-                                    <input type="text" class="form-control" id="inputPassword5" placeholder="09770191818" pattern="09[0-9]{9}"
+                                    <input type="text" class="form-control" id="contactNumber" placeholder="09770191818" pattern="09[0-9]{9}"
                                         maxlength="11" name="contactNumber" required>
                                 </div>
                                 <div class="col-md-6">
                                     <label class="col-sm-7 form-label">Department</label>
                                     <div class="col-sm-12">
                                         <select class="form-select" aria-label="Default select example"
-                                            name="department" required>
+                                            name="department" id="department" required>
                                             <option disabled value="College of Accountancy, Business and Management">College of Accountancy, Business and Management</option>
                                             <option value="BS Accountancy">BS Accountancy</option>
                                             <option value="BS Accounting Information System">BS Accounting Information System</option>
@@ -184,31 +207,31 @@ background-image: linear-gradient(241deg, #303030 0%, #1a266d 100%);
                                 </div>
                                 <div class="col-md-6">
                                     <label for="inputPassword5" class="form-label">Section <i style="color:#0076bd;"> if faculty member use Faculty or N/A</i></label>
-                                    <input type="text" class="form-control" id="inputPassword5" placeholder="ITE201" name="section" required>
+                                    <input type="text" class="form-control" id="section" placeholder="ITE201" name="section" required>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="inputAddress5" class="form-label">Street</label>
-                                    <input type="text" class="form-control" id="inputAddres5s"
+                                    <input type="text" class="form-control" id="street"
                                         placeholder="Adamya" name="street" required>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="inputAddress5" class="form-label">Barangay</label>
-                                    <input type="text" class="form-control" id="inputAddres5s"
+                                    <input type="text" class="form-control" id="barangay"
                                         placeholder="Caniogan" name="barangay" required>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="inputAddress5" class="form-label">Municipality</label>
-                                    <input type="text" class="form-control" id="inputAddres5s"
+                                    <input type="text" class="form-control" id="municipality"
                                         placeholder="Baliwag City" name="municipality" required>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="inputAddress5" class="form-label">Province</label>
-                                    <input type="text" class="form-control" id="inputAddres5s"
+                                    <input type="text" class="form-control" id="province"
                                         placeholder="Bulacan" name="province" required>
                                 </div>
                                 <div class="text-center">
-                                    <button type="submit">Register Now!</button>
-                                    <button type="reset" class="resetbtn">Reset</button>
+                                    <input type="submit" class="btn btn-secondary button" id="register" value="Register Now!"></input>
+                                    <button type="reset" class="resetbtn button">Reset</button>
                                 </div>
                             </form><!-- End Multi Columns Form -->
 

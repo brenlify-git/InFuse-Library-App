@@ -101,7 +101,7 @@ $id = $conn->query($sql);
                   <input type="text" class="form-control" id="lastname" name="lastname" required >
                 </div>
                 <div class="col-6">
-                  <label class="col-sm-7 form-label">Patron Type</label>
+                  <label class="col-md-7 form-label">Patron Type</label>
                   <div class="col-sm-12">
                   <select class="form-select" aria-label="Default select example" id="type" name="type" required >
                       <option selected disabled>Select type</option>
